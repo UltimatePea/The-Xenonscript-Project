@@ -10,6 +10,7 @@
 
 @interface XFramework : NSObject
 
-@property (strong, nonatomic) NSArray *classes;//of Type XClass
+@property (strong, nonatomic) NSMutableArray *classes;//of Type XClass
+@property (strong, nonatomic) NSMutableArray *linkedFrameworks;
 
 @end

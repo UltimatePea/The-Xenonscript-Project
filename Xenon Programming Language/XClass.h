@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @class XName;
+@class XType;
 
 @interface XClass : NSObject
 
 @property (strong, nonatomic) XName *name;
-@property (strong, nonatomic) NSArray *properties;//of Type XProperty
-@property (strong, nonatomic) NSArray *methods;//of Type XFunction
+@property (strong, nonatomic) XType *baseClass;
+@property (strong, nonatomic) NSMutableArray *properties;//of Type XProperty
+@property (strong, nonatomic) NSMutableArray *methods;//of Type XFunction
 
 @end

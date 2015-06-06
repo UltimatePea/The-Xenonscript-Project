@@ -7,7 +7,24 @@
 //
 
 #import "XFunction.h"
+#import "XName.h"
 
 @implementation XFunction
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.parameters = [[NSMutableArray alloc] init];
+        self.methodCalls = [[NSMutableArray alloc] init];;
+        self.localVariables = [[NSMutableArray alloc] init];
+        self.localFunctions = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+
+- (NSString *)stringRepresentation
+{
+    return self.name.stringRepresentation;
+}
 
 @end

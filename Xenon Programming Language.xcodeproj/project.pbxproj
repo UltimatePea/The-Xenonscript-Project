@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E71B464F1B20818900C35E39 /* FunctionSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */; };
 		E72EAB971B10C5CD0086418E /* VariablesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72EAB961B10C5CD0086418E /* VariablesTableViewController.m */; };
 		E72EAB9A1B10C8A30086418E /* XParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = E72EAB991B10C8A30086418E /* XParameter.m */; };
 		E75332981B04982C00B1059F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E75332971B04982C00B1059F /* main.m */; };
@@ -34,6 +35,16 @@
 		E7BF84161B0F62B4008C7F49 /* ParametersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF84151B0F62B4008C7F49 /* ParametersTableViewController.m */; };
 		E7BF84191B0F62D5008C7F49 /* MethodCallsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF84181B0F62D5008C7F49 /* MethodCallsTableViewController.m */; };
 		E7BF841C1B0F6E48008C7F49 /* GenericTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BF841B1B0F6E48008C7F49 /* GenericTableViewController.m */; };
+		E7C7E2981B1D29A70056BF3E /* NewMethodCallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E2971B1D29A70056BF3E /* NewMethodCallTableViewController.m */; };
+		E7C7E29B1B1D29BB0056BF3E /* NameSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E29A1B1D29BB0056BF3E /* NameSelectorTableViewController.m */; };
+		E7C7E29E1B1D2A9B0056BF3E /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E29D1B1D2A9B0056BF3E /* SearchTableViewController.m */; };
+		E7E0B8861B18719D005E50F8 /* MethodCallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B8851B18719D005E50F8 /* MethodCallTableViewController.m */; };
+		E7E0B8891B18730A005E50F8 /* ArgumentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B8881B18730A005E50F8 /* ArgumentsTableViewController.m */; };
+		E7E26B3A1B1A0D1900FF2E60 /* LocalVariablesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B391B1A0D1900FF2E60 /* LocalVariablesTableViewController.m */; };
+		E7E26B3D1B1A0DBC00FF2E60 /* XLocalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B3C1B1A0DBC00FF2E60 /* XLocalVariable.m */; };
+		E7E26B401B1A111000FF2E60 /* TypeSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B3F1B1A111000FF2E60 /* TypeSelectorTableViewController.m */; };
+		E7E26B431B1B23E400FF2E60 /* NewNameTypeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B421B1B23E400FF2E60 /* NewNameTypeTableViewController.m */; };
+		E7E26B461B1B26E000FF2E60 /* UserPrompter.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B451B1B26E000FF2E60 /* UserPrompter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,10 +58,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E72EAB951B10C5CD0086418E /* VariablesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariablesTableViewController.h; sourceTree = "<group>"; };
-		E72EAB961B10C5CD0086418E /* VariablesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariablesTableViewController.m; sourceTree = "<group>"; };
+		E71B464D1B20818900C35E39 /* FunctionSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionSelectorTableViewController.h; sourceTree = "<group>"; };
+		E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionSelectorTableViewController.m; sourceTree = "<group>"; };
+		E72EAB951B10C5CD0086418E /* VariablesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = VariablesTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E72EAB961B10C5CD0086418E /* VariablesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = VariablesTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E72EAB981B10C8A30086418E /* XParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XParameter.h; sourceTree = "<group>"; };
 		E72EAB991B10C8A30086418E /* XParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XParameter.m; sourceTree = "<group>"; };
+		E742C9401B22FBF5007CE91B /* Warnings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Warnings.h; sourceTree = "<group>"; };
 		E75332921B04982C00B1059F /* Xenon Programming Language.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xenon Programming Language.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75332961B04982C00B1059F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E75332971B04982C00B1059F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,9 +79,9 @@
 		E75332AE1B04982C00B1059F /* Xenon Programming LanguageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Xenon Programming LanguageTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75332B31B04982C00B1059F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E75332B41B04982C00B1059F /* Xenon_Programming_LanguageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Xenon_Programming_LanguageTests.m; sourceTree = "<group>"; };
-		E75332C81B0498E700B1059F /* XFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFramework.h; sourceTree = "<group>"; };
+		E75332C81B0498E700B1059F /* XFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XFramework.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E75332C91B0498E700B1059F /* XFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFramework.m; sourceTree = "<group>"; };
-		E75332CB1B04990100B1059F /* XClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XClass.h; sourceTree = "<group>"; };
+		E75332CB1B04990100B1059F /* XClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XClass.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E75332CC1B04990100B1059F /* XClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XClass.m; sourceTree = "<group>"; };
 		E75332CE1B04991200B1059F /* XVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XVariable.h; sourceTree = "<group>"; };
 		E75332CF1B04991200B1059F /* XVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XVariable.m; sourceTree = "<group>"; };
@@ -75,30 +89,50 @@
 		E75332D21B04992700B1059F /* XProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XProperty.m; sourceTree = "<group>"; };
 		E75332D41B04993A00B1059F /* XArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XArgument.h; sourceTree = "<group>"; };
 		E75332D51B04993A00B1059F /* XArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XArgument.m; sourceTree = "<group>"; };
-		E75332E01B04998400B1059F /* XFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFunction.h; sourceTree = "<group>"; };
+		E75332E01B04998400B1059F /* XFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XFunction.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E75332E11B04998400B1059F /* XFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFunction.m; sourceTree = "<group>"; };
-		E75332E31B04999100B1059F /* XMethodCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMethodCall.h; sourceTree = "<group>"; };
+		E75332E31B04999100B1059F /* XMethodCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = XMethodCall.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E75332E41B04999100B1059F /* XMethodCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMethodCall.m; sourceTree = "<group>"; };
 		E75332E61B04999C00B1059F /* XName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XName.h; sourceTree = "<group>"; };
 		E75332E71B04999C00B1059F /* XName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XName.m; sourceTree = "<group>"; };
 		E75332E91B049C4400B1059F /* XType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XType.h; sourceTree = "<group>"; };
 		E75332EA1B049C4400B1059F /* XType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XType.m; sourceTree = "<group>"; };
 		E7BF84021B0F6214008C7F49 /* ProjectTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewController.h; sourceTree = "<group>"; };
-		E7BF84031B0F6214008C7F49 /* ProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewController.m; sourceTree = "<group>"; };
+		E7BF84031B0F6214008C7F49 /* ProjectTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ProjectTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E7BF84051B0F6222008C7F49 /* ClassTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassTableViewController.h; sourceTree = "<group>"; };
 		E7BF84061B0F6222008C7F49 /* ClassTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassTableViewController.m; sourceTree = "<group>"; };
-		E7BF84081B0F624B008C7F49 /* PropertiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertiesTableViewController.h; sourceTree = "<group>"; };
-		E7BF84091B0F624B008C7F49 /* PropertiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropertiesTableViewController.m; sourceTree = "<group>"; };
+		E7BF84081B0F624B008C7F49 /* PropertiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PropertiesTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E7BF84091B0F624B008C7F49 /* PropertiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PropertiesTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		E7BF840E1B0F627A008C7F49 /* FunctionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionTableViewController.h; sourceTree = "<group>"; };
 		E7BF840F1B0F627A008C7F49 /* FunctionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionTableViewController.m; sourceTree = "<group>"; };
-		E7BF84111B0F6296008C7F49 /* MethodsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodsTableViewController.h; sourceTree = "<group>"; };
+		E7BF84111B0F6296008C7F49 /* MethodsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MethodsTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E7BF84121B0F6296008C7F49 /* MethodsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodsTableViewController.m; sourceTree = "<group>"; };
-		E7BF84141B0F62B4008C7F49 /* ParametersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParametersTableViewController.h; sourceTree = "<group>"; };
-		E7BF84151B0F62B4008C7F49 /* ParametersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParametersTableViewController.m; sourceTree = "<group>"; };
-		E7BF84171B0F62D5008C7F49 /* MethodCallsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodCallsTableViewController.h; sourceTree = "<group>"; };
+		E7BF84141B0F62B4008C7F49 /* ParametersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ParametersTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E7BF84151B0F62B4008C7F49 /* ParametersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ParametersTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		E7BF84171B0F62D5008C7F49 /* MethodCallsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = MethodCallsTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		E7BF84181B0F62D5008C7F49 /* MethodCallsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodCallsTableViewController.m; sourceTree = "<group>"; };
-		E7BF841A1B0F6E48008C7F49 /* GenericTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenericTableViewController.h; sourceTree = "<group>"; };
-		E7BF841B1B0F6E48008C7F49 /* GenericTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenericTableViewController.m; sourceTree = "<group>"; };
+		E7BF841A1B0F6E48008C7F49 /* GenericTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GenericTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E7BF841B1B0F6E48008C7F49 /* GenericTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GenericTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		E7C7E2961B1D29A70056BF3E /* NewMethodCallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMethodCallTableViewController.h; sourceTree = "<group>"; };
+		E7C7E2971B1D29A70056BF3E /* NewMethodCallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMethodCallTableViewController.m; sourceTree = "<group>"; };
+		E7C7E2991B1D29BB0056BF3E /* NameSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameSelectorTableViewController.h; sourceTree = "<group>"; };
+		E7C7E29A1B1D29BB0056BF3E /* NameSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameSelectorTableViewController.m; sourceTree = "<group>"; };
+		E7C7E29C1B1D2A9B0056BF3E /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
+		E7C7E29D1B1D2A9B0056BF3E /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		E7E0B8841B18719D005E50F8 /* MethodCallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodCallTableViewController.h; sourceTree = "<group>"; };
+		E7E0B8851B18719D005E50F8 /* MethodCallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodCallTableViewController.m; sourceTree = "<group>"; };
+		E7E0B8871B18730A005E50F8 /* ArgumentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ArgumentsTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		E7E0B8881B18730A005E50F8 /* ArgumentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ArgumentsTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		E7E26B381B1A0D1900FF2E60 /* LocalVariablesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalVariablesTableViewController.h; sourceTree = "<group>"; };
+		E7E26B391B1A0D1900FF2E60 /* LocalVariablesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalVariablesTableViewController.m; sourceTree = "<group>"; };
+		E7E26B3B1B1A0DBC00FF2E60 /* XLocalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLocalVariable.h; sourceTree = "<group>"; };
+		E7E26B3C1B1A0DBC00FF2E60 /* XLocalVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLocalVariable.m; sourceTree = "<group>"; };
+		E7E26B3E1B1A111000FF2E60 /* TypeSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeSelectorTableViewController.h; sourceTree = "<group>"; };
+		E7E26B3F1B1A111000FF2E60 /* TypeSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeSelectorTableViewController.m; sourceTree = "<group>"; };
+		E7E26B411B1B23E400FF2E60 /* NewNameTypeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNameTypeTableViewController.h; sourceTree = "<group>"; };
+		E7E26B421B1B23E400FF2E60 /* NewNameTypeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNameTypeTableViewController.m; sourceTree = "<group>"; };
+		E7E26B441B1B26E000FF2E60 /* UserPrompter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPrompter.h; sourceTree = "<group>"; };
+		E7E26B451B1B26E000FF2E60 /* UserPrompter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPrompter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,11 +174,13 @@
 		E75332941B04982C00B1059F /* Xenon Programming Language */ = {
 			isa = PBXGroup;
 			children = (
+				E7BF83FF1B0F61B3008C7F49 /* Classes */,
 				E75332BE1B04985000B1059F /* Build Time */,
 				E75332991B04982C00B1059F /* AppDelegate.h */,
 				E753329A1B04982C00B1059F /* AppDelegate.m */,
 				E753329F1B04982C00B1059F /* ViewController.h */,
 				E75332A01B04982C00B1059F /* ViewController.m */,
+				E742C9401B22FBF5007CE91B /* Warnings.h */,
 				E75332A21B04982C00B1059F /* Main.storyboard */,
 				E75332A51B04982C00B1059F /* Images.xcassets */,
 				E75332A71B04982C00B1059F /* LaunchScreen.xib */,
@@ -184,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				E7BF84011B0F61C3008C7F49 /* View Controllers */,
-				E7BF83FF1B0F61B3008C7F49 /* Classes */,
 			);
 			name = "Build Time";
 			sourceTree = "<group>";
@@ -204,6 +239,8 @@
 				E75332D51B04993A00B1059F /* XArgument.m */,
 				E72EAB981B10C8A30086418E /* XParameter.h */,
 				E72EAB991B10C8A30086418E /* XParameter.m */,
+				E7E26B3B1B1A0DBC00FF2E60 /* XLocalVariable.h */,
+				E7E26B3C1B1A0DBC00FF2E60 /* XLocalVariable.m */,
 				E75332E01B04998400B1059F /* XFunction.h */,
 				E75332E11B04998400B1059F /* XFunction.m */,
 				E75332E31B04999100B1059F /* XMethodCall.h */,
@@ -219,26 +256,62 @@
 		E7BF84011B0F61C3008C7F49 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E7E26B411B1B23E400FF2E60 /* NewNameTypeTableViewController.h */,
+				E7E26B421B1B23E400FF2E60 /* NewNameTypeTableViewController.m */,
+				E7C7E2961B1D29A70056BF3E /* NewMethodCallTableViewController.h */,
+				E7C7E2971B1D29A70056BF3E /* NewMethodCallTableViewController.m */,
+				E7C7E29C1B1D2A9B0056BF3E /* SearchTableViewController.h */,
+				E7C7E29D1B1D2A9B0056BF3E /* SearchTableViewController.m */,
+				E7C7E2991B1D29BB0056BF3E /* NameSelectorTableViewController.h */,
+				E7C7E29A1B1D29BB0056BF3E /* NameSelectorTableViewController.m */,
+				E7E26B3E1B1A111000FF2E60 /* TypeSelectorTableViewController.h */,
+				E7E26B3F1B1A111000FF2E60 /* TypeSelectorTableViewController.m */,
+				E71B464D1B20818900C35E39 /* FunctionSelectorTableViewController.h */,
+				E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */,
 				E7BF84021B0F6214008C7F49 /* ProjectTableViewController.h */,
 				E7BF84031B0F6214008C7F49 /* ProjectTableViewController.m */,
-				E7BF84051B0F6222008C7F49 /* ClassTableViewController.h */,
-				E7BF84061B0F6222008C7F49 /* ClassTableViewController.m */,
-				E72EAB951B10C5CD0086418E /* VariablesTableViewController.h */,
-				E72EAB961B10C5CD0086418E /* VariablesTableViewController.m */,
-				E7BF84081B0F624B008C7F49 /* PropertiesTableViewController.h */,
-				E7BF84091B0F624B008C7F49 /* PropertiesTableViewController.m */,
+				E7E0B88B1B187B7D005E50F8 /* ClassViewControllers */,
+				E7BF841A1B0F6E48008C7F49 /* GenericTableViewController.h */,
+				E7BF841B1B0F6E48008C7F49 /* GenericTableViewController.m */,
+				E7E26B441B1B26E000FF2E60 /* UserPrompter.h */,
+				E7E26B451B1B26E000FF2E60 /* UserPrompter.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E7E0B88A1B187B6A005E50F8 /* MethodViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				E7BF84111B0F6296008C7F49 /* MethodsTableViewController.h */,
 				E7BF84121B0F6296008C7F49 /* MethodsTableViewController.m */,
 				E7BF840E1B0F627A008C7F49 /* FunctionTableViewController.h */,
 				E7BF840F1B0F627A008C7F49 /* FunctionTableViewController.m */,
 				E7BF84141B0F62B4008C7F49 /* ParametersTableViewController.h */,
 				E7BF84151B0F62B4008C7F49 /* ParametersTableViewController.m */,
+				E7E26B381B1A0D1900FF2E60 /* LocalVariablesTableViewController.h */,
+				E7E26B391B1A0D1900FF2E60 /* LocalVariablesTableViewController.m */,
 				E7BF84171B0F62D5008C7F49 /* MethodCallsTableViewController.h */,
 				E7BF84181B0F62D5008C7F49 /* MethodCallsTableViewController.m */,
-				E7BF841A1B0F6E48008C7F49 /* GenericTableViewController.h */,
-				E7BF841B1B0F6E48008C7F49 /* GenericTableViewController.m */,
+				E7E0B8841B18719D005E50F8 /* MethodCallTableViewController.h */,
+				E7E0B8851B18719D005E50F8 /* MethodCallTableViewController.m */,
+				E7E0B8871B18730A005E50F8 /* ArgumentsTableViewController.h */,
+				E7E0B8881B18730A005E50F8 /* ArgumentsTableViewController.m */,
 			);
-			name = "View Controllers";
+			name = MethodViewControllers;
+			sourceTree = "<group>";
+		};
+		E7E0B88B1B187B7D005E50F8 /* ClassViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7BF84051B0F6222008C7F49 /* ClassTableViewController.h */,
+				E7BF84061B0F6222008C7F49 /* ClassTableViewController.m */,
+				E72EAB951B10C5CD0086418E /* VariablesTableViewController.h */,
+				E72EAB961B10C5CD0086418E /* VariablesTableViewController.m */,
+				E7BF84081B0F624B008C7F49 /* PropertiesTableViewController.h */,
+				E7BF84091B0F624B008C7F49 /* PropertiesTableViewController.m */,
+				E7E0B88A1B187B6A005E50F8 /* MethodViewControllers */,
+			);
+			name = ClassViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,20 +415,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				E753329B1B04982C00B1059F /* AppDelegate.m in Sources */,
+				E7E0B8891B18730A005E50F8 /* ArgumentsTableViewController.m in Sources */,
 				E75332981B04982C00B1059F /* main.m in Sources */,
 				E75332EB1B049C4400B1059F /* XType.m in Sources */,
 				E7BF84101B0F627A008C7F49 /* FunctionTableViewController.m in Sources */,
 				E75332D61B04993A00B1059F /* XArgument.m in Sources */,
 				E7BF84071B0F6222008C7F49 /* ClassTableViewController.m in Sources */,
+				E7E26B3D1B1A0DBC00FF2E60 /* XLocalVariable.m in Sources */,
 				E75332E81B04999C00B1059F /* XName.m in Sources */,
+				E7E26B461B1B26E000FF2E60 /* UserPrompter.m in Sources */,
 				E75332E51B04999100B1059F /* XMethodCall.m in Sources */,
 				E7BF84191B0F62D5008C7F49 /* MethodCallsTableViewController.m in Sources */,
 				E72EAB9A1B10C8A30086418E /* XParameter.m in Sources */,
+				E7E26B3A1B1A0D1900FF2E60 /* LocalVariablesTableViewController.m in Sources */,
 				E72EAB971B10C5CD0086418E /* VariablesTableViewController.m in Sources */,
+				E7C7E29B1B1D29BB0056BF3E /* NameSelectorTableViewController.m in Sources */,
 				E7BF84161B0F62B4008C7F49 /* ParametersTableViewController.m in Sources */,
 				E7BF84131B0F6296008C7F49 /* MethodsTableViewController.m in Sources */,
 				E75332A11B04982C00B1059F /* ViewController.m in Sources */,
 				E75332D31B04992700B1059F /* XProperty.m in Sources */,
+				E7C7E2981B1D29A70056BF3E /* NewMethodCallTableViewController.m in Sources */,
+				E7C7E29E1B1D2A9B0056BF3E /* SearchTableViewController.m in Sources */,
+				E7E26B401B1A111000FF2E60 /* TypeSelectorTableViewController.m in Sources */,
 				E75332CA1B0498E700B1059F /* XFramework.m in Sources */,
 				E753329E1B04982C00B1059F /* Xenon_Programming_Language.xcdatamodeld in Sources */,
 				E75332CD1B04990100B1059F /* XClass.m in Sources */,
@@ -363,7 +444,10 @@
 				E75332D01B04991200B1059F /* XVariable.m in Sources */,
 				E7BF841C1B0F6E48008C7F49 /* GenericTableViewController.m in Sources */,
 				E7BF840A1B0F624B008C7F49 /* PropertiesTableViewController.m in Sources */,
+				E7E0B8861B18719D005E50F8 /* MethodCallTableViewController.m in Sources */,
 				E7BF84041B0F6214008C7F49 /* ProjectTableViewController.m in Sources */,
+				E71B464F1B20818900C35E39 /* FunctionSelectorTableViewController.m in Sources */,
+				E7E26B431B1B23E400FF2E60 /* NewNameTypeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

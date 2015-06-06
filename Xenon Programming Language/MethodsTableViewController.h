@@ -7,9 +7,10 @@
 //
 
 #import "GenericTableViewController.h"
-
+@class XClass;
 @interface MethodsTableViewController : GenericTableViewController
 
-@property (strong, nonatomic) NSArray *displayingMethods;
+@property (strong, nonatomic) NSMutableArray *displayingMethods;
 
+@property (strong, nonatomic) XClass *inClass;
 @end

@@ -10,6 +10,6 @@
 
 @interface ParametersTableViewController : VariablesTableViewController
 
-@property (strong, nonatomic) NSArray *displayingParameters;
+@property (strong, nonatomic) NSMutableArray *displayingParameters;
 
 @end

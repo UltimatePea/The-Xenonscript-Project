@@ -13,8 +13,12 @@
 @interface XFunction : NSObject
 
 @property (strong, nonatomic) XName *name;
-@property (strong, nonatomic) NSArray *parameters;//of Type Parameters
-@property (strong, nonatomic) NSArray *methodCalls;//of Type MethodCalls
+@property (strong, nonatomic) NSMutableArray *parameters;//of Type Parameters
+@property (strong, nonatomic) NSMutableArray *methodCalls;//of Type MethodCalls
+@property (strong, nonatomic) NSMutableArray *localVariables;//of Type LocalVariable
+@property (strong, nonatomic) NSMutableArray *localFunctions;
 @property (strong, nonatomic) XType *returnType;
+
+@property (strong, nonatomic, readonly) NSString *stringRepresentation;
 
 @end

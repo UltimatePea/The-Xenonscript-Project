@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class XFunction;
-
+@class XClass;
+@class XFramework;
 @interface FunctionTableViewController : UITableViewController
 
 @property (strong, nonatomic) XFunction *displayingFunction;
-
+@property (strong, nonatomic) XClass *inClass;
+@property (strong, nonatomic) XFramework *inFramework;
 @end

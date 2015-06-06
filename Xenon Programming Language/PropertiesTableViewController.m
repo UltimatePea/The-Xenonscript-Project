@@ -8,8 +8,7 @@
 
 #import "PropertiesTableViewController.h"
 #import "XProperty.h"
-#import "XName.h"
-#import "XType.h"
+
 
 //@interface PropertiesTableViewController ()<UITableViewDataSource, UITableViewDelegate>
 //
@@ -18,7 +17,7 @@
 
 @implementation PropertiesTableViewController
 
-- (void)setDisplayingProperties:(NSArray *)displayingProperties
+- (void)setDisplayingProperties:(NSMutableArray *)displayingProperties
 {
     _displayingProperties = displayingProperties;
     self.displayingVariables = displayingProperties;
@@ -27,6 +26,18 @@
 - (NSString *)reuseID
 {
     return @"property";
+}
+
+
+//may move to variables;
+
+
+- (id)instanceForName:(id)name andType:(id)type
+{
+    XProperty *property = [[XProperty alloc] init];
+    property.name = name;
+    property.type = type;
+    return property;
 }
 
 

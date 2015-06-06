@@ -7,10 +7,11 @@
 //
 
 #import "ParametersTableViewController.h"
+#import "XParameter.h"
 
 @implementation ParametersTableViewController
 
-- (void)setDisplayingParameters:(NSArray *)displayingArguments
+- (void)setDisplayingParameters:(NSMutableArray *)displayingArguments
 {
     _displayingParameters = displayingArguments;
     self.displayingVariables = displayingArguments;
@@ -19,6 +20,14 @@
 - (NSString *)reuseID
 {
     return @"parameter";
+}
+
+- (id)instanceForName:(id)name andType:(id)type
+{
+    XParameter *param = [[XParameter alloc] init];
+    param.name = name;
+    param.type = type;
+    return param;
 }
 
 @end

@@ -12,5 +12,6 @@
 @interface ProjectTableViewController : GenericTableViewController
 
 @property (strong, nonatomic) XFramework *displayingFramework;
+- (XFramework *)createRandomFramework;
 
 @end

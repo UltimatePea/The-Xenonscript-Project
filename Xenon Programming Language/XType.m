@@ -7,9 +7,10 @@
 //
 
 #import "XType.h"
+#import "XName.h"
 
 @interface XType ()
-@property (strong, nonatomic) NSString *str;
+@property (strong, nonatomic) XName *str;
 
 @end
 
@@ -17,14 +18,19 @@
 
 - (NSString *)stringRepresentation
 {
-    return self.str;
+    return [self.str stringRepresentation];
 }
 
 - (instancetype)initWithString:(NSString *)aString
 {
+    return [self initWithXName:[[XName alloc] initWithString:aString]];
+}
+
+- (instancetype)initWithXName:(XName *)name
+{
     self = [super init];
     if (self) {
-        self.str = aString;
+        self.str = name;
     }
     return self;
 }

@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GenericTableViewController.h"
+@class XFunction;
+@class XClass;
+@interface MethodCallsTableViewController : GenericTableViewController
 
-@interface MethodCallsTableViewController : UITableViewController
+@property (strong, nonatomic) NSMutableArray *displayingMethodCalls;
 
+@property (strong, nonatomic) XFunction *inFunction;
+@property (strong, nonatomic) XClass *inClass;
 @end

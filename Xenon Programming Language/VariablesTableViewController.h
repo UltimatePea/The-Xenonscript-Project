@@ -8,8 +8,14 @@
 
 #import "GenericTableViewController.h"
 
+@class XName;
+@class XType;
+
 @interface VariablesTableViewController : GenericTableViewController
 
-@property (strong, nonatomic) NSArray *displayingVariables;
+@property (strong, nonatomic) NSMutableArray *displayingVariables;
+
+- (id)instanceForName:(XName *)name andType:(XType *)type;
+
 
 @end

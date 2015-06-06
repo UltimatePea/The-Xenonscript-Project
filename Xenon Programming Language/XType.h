@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class XName;
 @interface XType : NSObject
 
 - (NSString *)stringRepresentation;
 - (instancetype)initWithString:(NSString *)aString;
-
+- (instancetype)initWithXName:(XName *)name;
 @end

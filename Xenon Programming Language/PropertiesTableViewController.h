@@ -8,8 +8,10 @@
 
 #import "VariablesTableViewController.h"
 
+
 @interface PropertiesTableViewController : VariablesTableViewController
 
-@property (strong, nonatomic) NSArray *displayingProperties;
+
+@property (strong, nonatomic) NSMutableArray *displayingProperties;
 
 @end

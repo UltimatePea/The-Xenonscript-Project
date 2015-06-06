@@ -9,10 +9,15 @@
 #import "ClassTableViewController.h"
 #import "XClass.h"
 #import "XName.h"
+#import "XType.h"
 #import "PropertiesTableViewController.h"
 #import "MethodsTableViewController.h"
+#import "TypeSelectorTableViewController.h"
 
 @interface ClassTableViewController () <UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableViewCell *propertiesTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *methodsTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *baseClassTableViewCell;
 
 @end
 
@@ -21,27 +26,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     self.title = [self.displayingClass.name stringRepresentation];
+    self.baseClassTableViewCell.detailTextLabel.text = self.displayingClass.baseClass.stringRepresentation;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewController *tvc;
-    switch (indexPath.row) {
-        case 0:
-            tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PropertiesTableViewController"];
-            tvc.title = [NSString stringWithFormat:@"%@ : Properties", self.displayingClass.name.stringRepresentation];
-            ((PropertiesTableViewController *)tvc).displayingProperties = self.displayingClass.properties;
-            break;
-        case 1:
-            tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MethodsTableViewController"];
-            tvc.title = [NSString stringWithFormat:@"%@ : Methods", self.displayingClass.name.stringRepresentation];
-            ((MethodsTableViewController *)tvc).displayingMethods = self.displayingClass.methods;
-            
-        default:
-            break;
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isEqual:self.propertiesTableViewCell]) {
+        UITableViewController *tvc;
+        tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PropertiesTableViewController"];
+        tvc.title = [NSString stringWithFormat:@"%@ : Properties", self.displayingClass.name.stringRepresentation];
+        ((PropertiesTableViewController *)tvc).displayingProperties = self.displayingClass.properties;
+        ((PropertiesTableViewController *)tvc).inFramework = self.inFramework;
+        [self.navigationController pushViewController:tvc animated:YES];
+    } else if ([cell isEqual:self.methodsTableViewCell]){
+        UITableViewController *tvc;
+        tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MethodsTableViewController"];
+        tvc.title = [NSString stringWithFormat:@"%@ : Methods", self.displayingClass.name.stringRepresentation];
+        ((MethodsTableViewController *)tvc).displayingMethods = self.displayingClass.methods;
+        ((MethodsTableViewController *)tvc).inFramework = self.inFramework;
+        ((MethodsTableViewController *)tvc).inClass = self.displayingClass;
+        [self.navigationController pushViewController:tvc animated:YES];
+    } else if ([cell isEqual:self.baseClassTableViewCell]){
+        TypeSelectorTableViewController *tpvc = [self.storyboard instantiateViewControllerWithIdentifier:@"TypeSelectorTableViewController"];
+        tpvc.inFramework = self.inFramework;
+        [tpvc setCompletionBlock:^(XType *selectedType) {
+            self.displayingClass.baseClass = selectedType;
+        }];
+        [self.navigationController pushViewController:tpvc animated:YES];
+
     }
-    [self.navigationController pushViewController:tvc animated:YES];
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 @end

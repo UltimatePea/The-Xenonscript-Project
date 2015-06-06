@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 @class XClass;
+@class XFramework;
+
+#warning SERIOUS DESIGN PROBLEM Each class has to implement inCLass and inFunction Method
 
 @interface ClassTableViewController : UITableViewController
 
 @property (strong, nonatomic) XClass *displayingClass;
-
+@property (strong, nonatomic) XFramework *inFramework;
 @end
