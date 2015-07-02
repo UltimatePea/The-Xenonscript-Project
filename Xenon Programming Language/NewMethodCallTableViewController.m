@@ -43,8 +43,10 @@
 - (void)updateTable
 {
 #warning NEED TO RESEARCH THIS ONE
-    self.selectInstanceTableViewCell.detailTextLabel.text = self.methodCall.instanceStringRepresentation;
+    self.selectInstanceTableViewCell.detailTextLabel.text = [self.methodCall.instanceStringRepresentation isEqualToString:INSTANCE_STRING_REP_NIL]?@"this":self.methodCall.instanceStringRepresentation;
     self.selectFunctionTableViewCell.detailTextLabel.text = self.methodCall.functionName.stringRepresentation;
+    [self.selectFunctionTableViewCell setNeedsLayout];
+    [self.selectInstanceTableViewCell setNeedsLayout];
 }
 
 - (void)awakeFromNib

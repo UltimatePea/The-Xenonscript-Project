@@ -23,6 +23,22 @@
 
 @implementation NewNameTypeTableViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+#warning May not work
+    [super viewWillAppear:animated];
+    if (self.titlesForNameAndType) {
+        self.nameTableViewCell.textLabel.text = self.titlesForNameAndType[0];
+        self.typeTableViewCell.textLabel.text = self.titlesForNameAndType[1];
+    }
+}
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];

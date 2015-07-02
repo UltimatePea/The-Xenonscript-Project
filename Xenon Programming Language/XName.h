@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XSerializationProtocol.h"
 
-@interface XName : NSObject
+@interface XName : NSObject <XSerializationProtocol>
 @property (strong, readonly) NSString *stringRepresentation;
 - (NSString *)stringRepresentation;
 - (instancetype)initWithString:(NSString *)aString;

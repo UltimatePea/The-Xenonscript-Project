@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
-#import "ProjectTableViewController.h"
+#import "ClassesTableViewController.h"
 #import "TypeSelectorTableViewController.h"
 @interface Xenon_Programming_LanguageTests : XCTestCase
 

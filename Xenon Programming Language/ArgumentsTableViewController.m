@@ -36,6 +36,8 @@
         return [super titleLabelForObjectInArray:object];
     } else if ([object isKindOfClass:[XMethodCall class]]){
         return ((XMethodCall *) object).stringRepresentation;
+    } else if ([object isKindOfClass:[NSString class]]){
+        return [NSString stringWithFormat:@"\"%@\"", object];
     }
     return nil;
 }
@@ -52,6 +54,8 @@
         mctvc.inFunction = self.inFunction;
         [self.navigationController pushViewController:mctvc animated:YES];
         return YES;
+    } else if ([object isKindOfClass:[NSString class]]){
+        return [super didSelectObjectInArray:object];
     }
     return [super didSelectObjectInArray:object];
     
@@ -65,6 +69,8 @@
         return [super titleLabelForObjectInArray:object];
     } else if ([object isKindOfClass:[XMethodCall class]]){
         return @"";
+    } else if ([object isKindOfClass:[NSString class]]){
+        return @"String";
     }
     return nil;
 }
@@ -81,7 +87,7 @@
 {
     [UserPrompter actionSheetWithTitle:@"New Argument"
                                message:nil
-                         normalActions:@[@"Variable or Property", @"Method Call"]
+                         normalActions:@[@"Variable or Property", @"Method Call", @"String"]
                          cancelActions:@[@"Cancel"]
                     destructiveActions:nil
                              sendingVC:self
@@ -94,7 +100,10 @@
                         break;
                     case 1:
                         [self selectMethodCall:completionBlock];
-                        
+                        break;
+                    case 2:
+                        [self selectString:completionBlock];
+                        break;
                     default:
                         break;
                 }
@@ -135,6 +144,13 @@
     nmctvc.inFunction = self.inFunction;
     nmctvc.inClass = self.inClass;
     [self.navigationController pushViewController:nmctvc animated:YES];
+}
+
+- (void)selectString:(void(^)(id addedItem))completionBlock
+{
+    [UserPrompter getTextMessageFromUser:@"New String" withViewController:self completionBlock:^(NSString *enteredText) {
+        completionBlock(enteredText);
+    }];
 }
                 
 

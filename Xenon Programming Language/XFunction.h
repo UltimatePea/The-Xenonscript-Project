@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XSerializationProtocol.h"
 @class XName;
 @class XType;
 
-@interface XFunction : NSObject
+@interface XFunction : NSObject <XSerializationProtocol>
 
 @property (strong, nonatomic) XName *name;
 @property (strong, nonatomic) NSMutableArray *parameters;//of Type Parameters

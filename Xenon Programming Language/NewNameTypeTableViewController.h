@@ -15,4 +15,5 @@
 
 @property (strong, nonatomic) void (^completionBlock)(XName *name, XType *type);
 @property (strong, nonatomic) XFramework *searchingFramework;
+@property (strong, nonatomic) NSArray *titlesForNameAndType;
 @end

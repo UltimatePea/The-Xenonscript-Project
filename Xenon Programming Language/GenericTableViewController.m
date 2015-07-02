@@ -14,7 +14,7 @@
 {
 #define BAR_TITLE_EDIT @"Edit"
     [super viewDidLoad];
-    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 - (void)awakeFromNib
 {
@@ -136,10 +136,15 @@
     
     id object = [self.arrayToReturnCount objectAtIndex:indexPath.row];
     cell.textLabel.text = [self titleLabelForObjectInArray:object];
-//    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     if ([self respondsToSelector:@selector(detailLabelForObjectInArrayIfApplicable:)]) {
         cell.detailTextLabel.text = [self detailLabelForObjectInArrayIfApplicable:object];
     }
+//    [[cell contentView] addConstraint:[NSLayoutConstraint constraintWithItem:cell.textLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:cell.contentView attribute:NSLayoutAttributeTopMargin multiplier:1.6 constant:10]];
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+//    [cell sizeToFit];
     return cell;
 }
 

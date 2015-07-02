@@ -34,4 +34,21 @@
     }
     return self;
 }
+
+
+#define STR_REP @"StringRepresentation"
+- (id)JSONObject
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [dic setObject:[self.str JSONObject] forKey:STR_REP];
+    return dic;
+}
+
+- (instancetype)initWithJSONObject:(id)jsonObject
+{
+    return [self initWithXName:[[XName alloc] initWithJSONObject:[jsonObject objectForKey:STR_REP]]];
+}
+
+
+
 @end

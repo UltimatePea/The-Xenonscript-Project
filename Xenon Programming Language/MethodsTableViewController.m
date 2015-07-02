@@ -64,6 +64,7 @@
 {
     NewNameTypeTableViewController *nnttvc =
     [self.storyboard instantiateViewControllerWithIdentifier:@"NewNameTypeTableViewController"];
+    nnttvc.titlesForNameAndType = @[@"Function Name", @"Return Type"];
     [nnttvc setCompletionBlock:^(XName *name, XType *type) {
         XFunction *func = [[XFunction alloc] init];
         func.returnType = type;
