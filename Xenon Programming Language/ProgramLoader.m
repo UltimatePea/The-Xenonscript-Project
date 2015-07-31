@@ -9,7 +9,8 @@
 #import "ProgramLoader.h"
 #import "Xenon.h"
 #import "ProjectAnalyzer.h"
-
+#import "Instance.h"
+#import "MessageDispatcher.h"
 @interface ProgramLoader ()
 
 @property (strong, nonatomic) XProject *rootProject;
@@ -26,7 +27,7 @@
 - (ProjectAnalyzer *)compiler
 {
     if (!_compiler) {
-        _compiler = [[ProjectAnalyzer alloc] init];
+        _compiler = [[ProjectAnalyzer alloc] initWithProject:self.rootProject];
     }
     return _compiler;
 }
@@ -43,12 +44,23 @@
 
 - (void)start
 {
+    MessageDispatcher *dispatcher =[MessageDispatcher sharedMessgeDispatcher];
     XClass *cla = [self.compiler classForName:@"Start"];
     if (!cla) {
-        [self.loaderDelegate programLoader:self outputString:@"No entry point to the program. Class \"Start\" not found in the project."];
+//        [self.loaderDelegate programLoader:self outputString:@"No entry point to the program. Class \"Start\" not found in the project."];
+        [dispatcher dispatchErrorMessage:@"No entry point to the program. Class \"Start\" not found in the project." sender:self];
         return;
     }
-    
+    XType *startType = [[XType alloc] initWithString:@"Start"];
+    XVariable *var = [[XVariable alloc] init];
+    var.type = startType;
+    var.name = [[XName alloc] initWithString:@"Some Random String"];
+    Instance *inst = [Instance newInstanceForVariable:var projectAnalyzer:self.compiler];
+    inst.messageDispatcher = dispatcher;
+    NSDate *dateStart = [NSDate dateWithTimeIntervalSinceNow:0];
+    [inst respondToMethodCallWithName:@"start" andArgumets:nil];
+    NSDate *dateEnd = [NSDate dateWithTimeIntervalSinceNow:0];
+    [dispatcher dispatchInformationMessage:[NSString stringWithFormat:@"Execution Finished in %f seconds.", [dateEnd timeIntervalSinceDate:dateStart]] sender:self];
 }
 
 @end

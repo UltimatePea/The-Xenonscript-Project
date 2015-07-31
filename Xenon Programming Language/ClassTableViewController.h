@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonViewController.h"
 @class XClass;
 @class XFramework;
 
 #warning SERIOUS DESIGN PROBLEM Each class has to implement inCLass and inFunction Method
 
-@interface ClassTableViewController : UITableViewController
+@interface ClassTableViewController : CommonViewController
 
 @property (strong, nonatomic) XClass *displayingClass;
 @property (strong, nonatomic) XFramework *inFramework;

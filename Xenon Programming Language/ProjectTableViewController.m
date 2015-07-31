@@ -22,5 +22,15 @@
     [self.displayingProject saveToURL:self.displayingProject.savingURL];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillResignActiveNotification object:nil queue:nil usingBlock:^(NSNotification * __nonnull note) {
+        [self.displayingProject save];
+    }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"SAVE_PROJ" object:nil queue:nil usingBlock:^(NSNotification * __nonnull note) {
+        [self.displayingProject save];
+    }];
+}
 
 @end

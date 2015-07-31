@@ -7,7 +7,7 @@
 //
 
 #import "XProject.h"
-
+#import "UserPrompter.h"
 #import "FrameworkTableViewController.h"
 
 
@@ -28,6 +28,15 @@
 {
     NSError *error;
     [[NSJSONSerialization dataWithJSONObject:[self JSONObject] options:NSJSONWritingPrettyPrinted error:&error] writeToURL:url atomically:YES];
+    if(error){
+        [UserPrompter promptUserMessage:@"Cannot save the project" withViewController:nil];
+    }
+}
+
+- (void)save
+{
+    [self saveToURL:self.savingURL];
+    NSLog(@"Project Saved");
 }
 
 - (instancetype)initWithURL:(NSURL *)url

@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonViewController.h"
 @class XMethodCall;
 @class XFramework;
 @class XFunction;
 @class XClass;
 
-@interface NewMethodCallTableViewController : UITableViewController
+@interface NewMethodCallTableViewController : CommonViewController
 @property (strong, nonatomic) void (^completionBlock)(XMethodCall *newMethodCall);
 @property (strong, nonatomic) XFramework *inFramework;
 @property (strong, nonatomic) XFunction *inFunction;

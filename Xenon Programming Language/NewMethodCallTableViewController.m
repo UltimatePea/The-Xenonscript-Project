@@ -29,6 +29,7 @@
 {
     if (!_methodCall) {
         _methodCall = [[XMethodCall alloc] init];
+        _methodCall.instanceName = [[XName alloc] initWithString:@"this"];
     }
     return _methodCall;
 }

@@ -7,8 +7,10 @@
 //
 
 @import UIKit;
+#import "CommonViewController.h"
 @class XFramework;
-@interface FrameworkTableViewController : UITableViewController
+
+@interface FrameworkTableViewController : CommonViewController
 
 @property (strong, nonatomic) XFramework    *displayingFramework;
 

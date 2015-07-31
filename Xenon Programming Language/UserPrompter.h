@@ -12,7 +12,11 @@
 @interface UserPrompter : NSObject
 
 + (void)promptUserMessage:(NSString *)message withViewController:(UIViewController *)sender;
+
 + (void)getTextMessageFromUser:(NSString *)prompt withViewController:(UIViewController *)sender completionBlock:(void (^)(NSString *enteredText))completionBlock;
+
++ (void)destructiveAlertWithTitle:(NSString *)title message:(NSString *)msg withViewController:(UIViewController *)sender confirmed:(void (^)())completionBlock;
+
 #define ACTION_TYPE_DEFAULT 1
 #define ACTION_TYPE_CANCEL 2
 #define ACTION_TYPE_DESTRUCTIVE 3
@@ -23,4 +27,5 @@
           destructiveActions:(NSArray *)destructives
                    sendingVC:(UIViewController *)vc
              completionBlock:(void (^)(NSUInteger selectedStringIndex, int actionType))completionBlock;
++ (UIAlertController *)defaultAlertControllerWithTitle:(NSString *)title message:(NSString *)msg style:(UIAlertControllerStyle)style completionBlock:(void (^)())completionBlock;
 @end

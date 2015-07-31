@@ -13,5 +13,6 @@
 @property (strong, nonatomic) NSURL *savingURL;
 - (void)saveToURL:(NSURL *)url;
 - (instancetype)initWithURL:(NSURL *)url;
+- (void)save;
 
 @end

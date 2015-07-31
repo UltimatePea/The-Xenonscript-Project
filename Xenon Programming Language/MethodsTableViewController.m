@@ -30,7 +30,7 @@
 {
     FunctionTableViewController *ftvc = [self.storyboard instantiateViewControllerWithIdentifier:@"FunctionTableViewController"];
     ftvc.displayingFunction = object;
-    ftvc.title = [self.title stringByAppendingString:[NSString stringWithFormat:@": %@", [ftvc.displayingFunction.name stringRepresentation]]];
+//    ftvc.title = [self.title stringByAppendingString:[NSString stringWithFormat:@": %@", [ftvc.displayingFunction.name stringRepresentation]]];
     ftvc.inFramework = self.inFramework;
     ftvc.inClass = self.inClass;
     [self.navigationController pushViewController:ftvc animated:YES];

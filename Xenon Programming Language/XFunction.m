@@ -67,6 +67,7 @@
     [dic setObject:[self.parameters JSONObject] forKey:KEY_PARAMETERS];
     [dic setObject:[self.localVariables JSONObject] forKey:KEY_LOCAL_VARIABLES];
     [dic setObject:[self.localFunctions JSONObject] forKey:KEY_LOCAL_FUNCTIONS];
+    [dic setObject:[self.methodCalls JSONObject] forKey:KEY_METHOD_CALLS];
     return dic;
 }
 

@@ -31,7 +31,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.title = [self.displayingClass.name stringRepresentation];
+    [super viewWillAppear:animated];
+//    self.title = [self.displayingClass.name stringRepresentation];
     self.baseClassTableViewCell.detailTextLabel.text = self.displayingClass.baseClass.stringRepresentation;
 }
 
@@ -42,14 +43,14 @@
     if ([cell isEqual:self.propertiesTableViewCell]) {
         UITableViewController *tvc;
         tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"PropertiesTableViewController"];
-        tvc.title = [NSString stringWithFormat:@"%@ : Properties", self.displayingClass.name.stringRepresentation];
+//        tvc.title = [NSString stringWithFormat:@"%@ : Properties", self.displayingClass.name.stringRepresentation];
         ((PropertiesTableViewController *)tvc).displayingProperties = self.displayingClass.properties;
         ((PropertiesTableViewController *)tvc).inFramework = self.inFramework;
         [self.navigationController pushViewController:tvc animated:YES];
     } else if ([cell isEqual:self.methodsTableViewCell]){
         UITableViewController *tvc;
         tvc = [self.storyboard instantiateViewControllerWithIdentifier:@"MethodsTableViewController"];
-        tvc.title = [NSString stringWithFormat:@"%@ : Methods", self.displayingClass.name.stringRepresentation];
+//        tvc.title = [NSString stringWithFormat:@"%@ : Methods", self.displayingClass.name.stringRepresentation];
         ((MethodsTableViewController *)tvc).displayingMethods = self.displayingClass.methods;
         ((MethodsTableViewController *)tvc).inFramework = self.inFramework;
         ((MethodsTableViewController *)tvc).inClass = self.displayingClass;

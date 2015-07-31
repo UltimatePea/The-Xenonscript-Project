@@ -10,7 +10,7 @@
 #import "XProject.h"
 @interface ProjectsTableViewController : GenericTableViewController
 
-@property (strong, nonatomic) NSMutableArray *displayingProjects;
+@property (strong, nonatomic) NSMutableArray *displayingProjectURLs;
 
 
 

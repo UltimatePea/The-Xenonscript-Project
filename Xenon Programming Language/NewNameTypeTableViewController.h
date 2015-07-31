@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonViewController.h"
 @class XName;
 @class XType;
 @class XFramework;
 
-@interface NewNameTypeTableViewController : UITableViewController
+@interface NewNameTypeTableViewController : CommonViewController
 
 @property (strong, nonatomic) void (^completionBlock)(XName *name, XType *type);
 @property (strong, nonatomic) XFramework *searchingFramework;

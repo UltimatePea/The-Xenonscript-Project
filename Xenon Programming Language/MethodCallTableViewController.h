@@ -11,8 +11,9 @@
 @class XFunction;
 @class XClass;
 @class XFramework;
+#import "CommonViewController.h"
 
-@interface MethodCallTableViewController : UITableViewController
+@interface MethodCallTableViewController : CommonViewController
 
 @property (strong, nonatomic) XMethodCall *displayingMethodCall;
 

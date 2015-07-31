@@ -9,13 +9,17 @@
 #import <Foundation/Foundation.h>
 @class Instance;
 @class XFunction;
+@class InstanceFieldEntry;
 
 @interface Field : NSObject
 
-- (NSArray<Instance *> *)instancesForName:(NSString *)name;
+- (NSArray *)instancesForName:(NSString *)name;
 
 - (void)addInstance:(Instance *)instance;
-@property (strong, nonatomic) Instance *inInstance;
+- (void)addInstanceEntry:(InstanceFieldEntry *)entry;
+- (void)addInstance:(Instance *)instance forEntryName:(NSString *)entryName;
+- (void)assignInstance:(Instance *)instance toName:(NSString *)name;
+@property (strong, nonatomic) Instance *inInstance, *thisResolver;
 //- (void)addInstance:(Instance *)instance forName:(NSString *)name;
 //- (void)addSubField:(Field *)subField;
 //- (void)removeSubField:(Field *)subField;

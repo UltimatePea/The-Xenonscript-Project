@@ -10,79 +10,70 @@
 #import "ProjectTableViewController.h"
 #import "XProject.h"
 #import "XName.h"
-#import "UserPrompter.h"
 
+#import "UserPrompter.h"
+#import "ProjectsManager.h"
+
+#import "XClass.h"
+#import "XType.h"
+#import "XFunction.h"
 @interface ProjectsTableViewController ()
 
-@property (strong, nonatomic) NSFileManager *fileManager;
-@property (strong, nonatomic) NSURL *documentRoot;
+@property (strong, nonatomic)   ProjectsManager *projectsManager;
 
 @end
 
 @implementation ProjectsTableViewController
 
-- (NSFileManager *)fileManager
+- (ProjectsManager *)projectsManager
 {
-    if (!_fileManager) {
-        _fileManager = [NSFileManager defaultManager];
+    if (!_projectsManager) {
+        _projectsManager = [ProjectsManager sharedProjectsManager];
     }
-    return _fileManager;
+    return _projectsManager;
 }
 
-- (NSURL *)documentRoot
-{
-    NSFileManager *fm = self.fileManager;
-    NSURL *documentRoot = [[fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] firstObject];
-    NSURL *documentSaveDomain = [documentRoot URLByAppendingPathComponent:@"projects/"];
-    if (![fm fileExistsAtPath:documentSaveDomain.path]) {
-        NSError *error;
-        [fm createDirectoryAtURL:documentSaveDomain withIntermediateDirectories:YES attributes:nil error:&error];
-        if (error) {
-            [UserPrompter promptUserMessage:@"Cannot Create Root Document Directory" withViewController:self];
-        }
-    }
-    return documentSaveDomain;
-}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self loadDisplayingProjects];
-    self.arrayToReturnCount = self.displayingProjects;
+    self.arrayToReturnCount = self.displayingProjectURLs;
 }
-#define XENON_SCRIPT_PATH_EXTENSION_XSPROJ @"xsproj"
+
 - (void)loadDisplayingProjects
 {
-    self.displayingProjects = [NSMutableArray array];
-    NSURL *documentSaveDomain = self.documentRoot;
-    NSError *err;
-    NSArray *files = [self.fileManager contentsOfDirectoryAtURL:documentSaveDomain includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsHiddenFiles error:&err];
-    if (err) {
-        [UserPrompter promptUserMessage:@"Cannnot Read Root Document Directory" withViewController:self];
-    }
-    [files enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
-        NSURL *url = obj;
-        if ([url.pathExtension isEqualToString:XENON_SCRIPT_PATH_EXTENSION_XSPROJ]) {
-            XProject *proj = [[XProject alloc] initWithURL:url];
-            [self.displayingProjects addObject:proj];
-        };
-    }];
+    self.displayingProjectURLs = [self.projectsManager projectsURLsAvailable];
 }
 
 
 - (NSString *)titleLabelForObjectInArray:(id)object
 {
-    XProject *proj = object;
-    return proj.name.stringRepresentation;
+    NSURL *url = object;
+    return url.pathComponents.lastObject;
 }
 
 - (BOOL)didSelectObjectInArray:(id)object//return NO if you want to deselect
 {
     ProjectTableViewController *ftvc = [self.storyboard instantiateViewControllerWithIdentifier:@"ProjectTableViewController"];
-    ftvc.displayingProject = object;
+    ftvc.displayingProject = [[XProject alloc] initWithURL:object];
     [self.navigationController pushViewController:ftvc animated:YES];
     return YES;
 }
+
+- (void)confirmDeleting:(id)objectToBeDeleted completion:(void (^)(BOOL))completionBlock
+{
+    [UserPrompter actionSheetWithTitle:@"Do you really want to delete this project?" message:@"This action is irreversible" normalActions:nil cancelActions:@[@"Cancel"] destructiveActions:@[@"YES"] sendingVC:self completionBlock:^(NSUInteger selectedStringIndex, int actionType) {
+        if (actionType==ACTION_TYPE_DESTRUCTIVE) {
+            [self.projectsManager deleteProjectAtURL:objectToBeDeleted];
+            completionBlock(YES);
+            
+        }
+    }];
+
+}
+
 - (NSString *)reuseID
 {
     return @"project";
@@ -101,17 +92,26 @@
 - (void)addNewItem:(void (^)(id))completionBlock
 {
     [UserPrompter getTextMessageFromUser:@"New Project Name" withViewController:self completionBlock:^(NSString *enteredText) {
-        XProject *proj = [[XProject alloc] init];
+        __block BOOL shouldReturn = NO;
+        //check legitibility
+        [self.displayingProjectURLs enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+            
+            if ([[self titleLabelForObjectInArray:obj] isEqualToString:enteredText]) {
+                [UserPrompter promptUserMessage:@"Already have a project with the same name" withViewController:self];
+                shouldReturn = YES;
+            }
+            
+        }];
+        if (shouldReturn) {
+            return;
+        }
         
-        proj.name = [[XName alloc] initWithString:enteredText];
-        NSURL *saveURL = [self.documentRoot URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@",enteredText, XENON_SCRIPT_PATH_EXTENSION_XSPROJ]];
-        [self.fileManager createFileAtPath:saveURL.path contents:nil attributes:nil];
-        proj.savingURL = saveURL;
-        [proj saveToURL:saveURL];
         
-        completionBlock(proj);
+        completionBlock([self.projectsManager urlForAddingProjectWithName:enteredText]);
     }];
 }
+
+
 
 
 

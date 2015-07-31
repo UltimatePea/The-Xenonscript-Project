@@ -48,11 +48,11 @@
     self = [super init];
     if (self) {
         self.properties = [[NSMutableArray alloc] initWithJSONObject:[jsonObject objectForKey:PROPERTIES_KEY] generator:^id(id jsonObjectInTheArray) {
-            return [[XProperty alloc] initWithJSONObject:jsonObject];
+            return [[XProperty alloc] initWithJSONObject:jsonObjectInTheArray];
 #warning name-spacing
         }];
         self.methods = [[NSMutableArray alloc] initWithJSONObject:[jsonObject objectForKey:METHODS_KEY] generator:^id(id jsonObjectInTheArray) {
-            return [[XFunction alloc] initWithJSONObject:jsonObject];
+            return [[XFunction alloc] initWithJSONObject:jsonObjectInTheArray];
         }];
         self.name = [[XName alloc] initWithJSONObject:[jsonObject objectForKey:NAME_KEY]];
         self.baseClass = [[XType alloc] initWithJSONObject:[jsonObject objectForKey:BASE_TYPE_KEY]];

@@ -36,7 +36,7 @@
 }
 
 
-#define STR_REP @"StringRepresentation"
+#define STR_REP @"type"
 - (id)JSONObject
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];

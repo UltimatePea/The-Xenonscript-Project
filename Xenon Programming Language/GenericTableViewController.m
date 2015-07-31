@@ -7,6 +7,10 @@
 //
 
 #import "GenericTableViewController.h"
+#import "XProject.h"
+#import "XName.h"
+#import "XClass.h"
+#import "XFunction.h"
 
 @implementation GenericTableViewController
 
@@ -16,6 +20,15 @@
     [super viewDidLoad];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
+
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+//    if ([self.inFramework isKindOfClass:[XProject class]]) {
+//        XProject *proj = (XProject *) self.inFramework;
+//        [proj save];
+//    }
+//}
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -106,9 +119,19 @@
 - (void)removeObjectAtIndexPath:(NSIndexPath *)indexPath
 {
     NSMutableArray *mut = self.arrayToReturnCount;
-    [mut removeObjectAtIndex:indexPath.row];
-   // self.arrayToReturnCount = [NSMutableArray arrayWithArray:mut];
+    id object = [mut objectAtIndex:indexPath.row];
+    if ([self respondsToSelector:@selector(confirmDeleting:completion:)]) {
+        [self confirmDeleting:object completion:^(BOOL ifDelete) {
+            if (ifDelete) {
+                [mut removeObjectAtIndex:indexPath.row];
+                [self.tableView reloadData];
+            }
+        }];
+    } else {
+        [mut removeObjectAtIndex:indexPath.row];
+    }
     
+   // self.arrayToReturnCount = [NSMutableArray arrayWithArray:mut];
     [self.tableView reloadData];
 #warning COPY TO BE TESTED
 }
@@ -117,6 +140,9 @@
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
+    
+    
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

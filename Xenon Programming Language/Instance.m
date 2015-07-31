@@ -9,12 +9,13 @@
 #import "Instance.h"
 #import "Field.h"
 #import "MessageDispatcher.h"
-#import "XMethodCall.h"
-#import "XFunction.h"
-#import "XArgument.h"
-#import "XParameter.h"
+//#import "XMethodCall.h"
+//#import "XFunction.h"
+//#import "XArgument.h"
+//#import "XParameter.h"
 #import "ProjectAnalyzer.h"
-#import "XName.h"
+//#import "XName.h"
+#import "Xenon.h";
 
 @interface Instance ()
 
@@ -24,19 +25,55 @@
 @end
 
 @implementation Instance
+#warning CRASH WORK, SHOULD REDESIGN ALL THROUGH
+
+- (id)objectiveCModel
+{
+    if (!_objectiveCModel) {
+        _objectiveCModel = [self.baseInstance objectiveCModel];
+    }
+    return _objectiveCModel;
+}
+
+- (BOOL)isString
+{
+    if (_isString) {
+        return _isString;
+    } else {
+        return [self.objectiveCModel isKindOfClass:[NSString class]];
+    }
+}
+
+- (MessageDispatcher *)messageDispatcher
+{
+    if (!_messageDispatcher) {
+        _messageDispatcher = [MessageDispatcher sharedMessgeDispatcher];
+    }
+    return _messageDispatcher;
+}
 
 @synthesize field = _field;
 - (Field *)field
 {
     if (!_field) {
         _field = [[Field alloc] init];
+        _field.inInstance = self;
     }
     return _field;
 }
 - (Instance *)respondToMethodCallWithName:(NSString *)functionName andArgumets:(NSMutableArray *)arguments
 {
+    //calculate arguments
+    
+    NSMutableArray *argumentInstances = arguments;
+    
+    
+    
+    
+    
+    //calculate methods
     if ([functionName isEqualToString:@"native"]) {
-        return [self respondToNativeMethodCWithArguments:arguments];
+        return [self respondToNativeMethodCallWithArguments:argumentInstances];
     }
     id instances = [self.field instancesForName:functionName];
     NSMutableArray *eligibleInstances = [NSMutableArray array];
@@ -48,30 +85,49 @@
     Instance *finalFunctionInst;
     //method undefined
     if (eligibleInstances.count == 0) {
-        [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"Attempt to Call a Undefined Method"] sender:self];
+        [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"Attempt to Call an Undefined Method %@", functionName] sender:self];
     } else
     //method overload
     
-    if (eligibleInstances.count>1) {
-        NSMutableArray *overloadEligibleInstances = [NSMutableArray array];
-        for (Instance *overloadInstance in eligibleInstances) {
-            if ([self isArguments:arguments matchedFunction:overloadInstance.objectiveCModel]) {
-                [overloadEligibleInstances addObject:overloadInstance];
-            }
-        }
-        if (overloadEligibleInstances.count == 0) {
-            [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"Attempt to Call a Undefined Method"] sender:self];
-        } else if (overloadEligibleInstances.count > 1){
-            [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"More than one qualified function"] sender:self];
-        } else {
-            finalFunctionInst = overloadEligibleInstances.firstObject;
-        }
-    } else
+//    if (eligibleInstances.count>1) {
+        ////NOT Consider  Method overload
+//        NSMutableArray *overloadEligibleInstances = [NSMutableArray array];
+//        for (Instance *overloadInstance in eligibleInstances) {
+//            if ([self isArguments:arguments matchedFunction:overloadInstance.objectiveCModel]) {
+//                [overloadEligibleInstances addObject:overloadInstance];
+//            }
+//        }
+//        if (overloadEligibleInstances.count == 0) {
+//            [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"Attempt to Call an Undefined Method"] sender:self];
+//        } else if (overloadEligibleInstances.count > 1){//consider method override, arbitrarily select the firs
+////            [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"More than one qualified function"] sender:self];
+//            finalFunctionInst = overloadEligibleInstances.firstObject;
+//        } else {
+//            finalFunctionInst = overloadEligibleInstances.firstObject;
+//        }
+//    } else
         
     {
         finalFunctionInst = eligibleInstances.firstObject;
     }
     
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //execute function
     XFunction *func = finalFunctionInst.objectiveCModel;
     //create child instance
     Instance *childFunctionInstance = [[Instance alloc] init];
@@ -81,8 +137,14 @@
     [func.localVariables enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [childField addInstance:[Instance newInstanceForVariable:obj projectAnalyzer:self.analyzer]];
     }];
+    if (func.parameters.count != argumentInstances.count) {
+        [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Attempt to call method \"%@\" with incorrect number of arguments.", functionName] sender:self];
+        return [Instance nilInstance];
+    }
     [func.parameters enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [childField addInstance:[Instance newInstanceForVariable:obj projectAnalyzer:self.analyzer]];
+//        [childField addInstance:[Instance newInstanceForVariable:obj projectAnalyzer:self.analyzer]];
+        [childField addInstance:argumentInstances[idx] forEntryName:((XParameter *)obj).name.stringRepresentation];
+#warning lacking assignment
     }];
     [func.localFunctions enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [childField addInstance:[Instance functionInstanceWithFunction:obj]];
@@ -117,17 +179,15 @@
 
 - (Instance *)performMethodCall:(XMethodCall *)methodCall
 {
+    //check assignment
+    
+    
+    
+    
     Instance *instanceToPerformMethodOn = [Instance nilInstance];
     if (methodCall.instanceName) {
-        NSArray *availableInstances = [self.field instancesForName:methodCall.instanceName.stringRepresentation];
-        if (availableInstances.count == 0) {
-            [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"Undefined Variable"] sender:self];
-        } else if (availableInstances.count > 2){
-            [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"More than one variable found on the instance"] sender:self];
-        } else {
-            instanceToPerformMethodOn = availableInstances.firstObject;
-        }
-        
+        instanceToPerformMethodOn = [self evaluateInstanceXName:methodCall.instanceName];
+#warning TODO nil detection
     } else if (methodCall.instanceMethodCall) {
         instanceToPerformMethodOn = [self performMethodCall:methodCall];
         
@@ -135,7 +195,34 @@
         instanceToPerformMethodOn = self;
     }
     
-    return [instanceToPerformMethodOn respondToMethodCallWithName:methodCall.functionName.stringRepresentation andArgumets:methodCall.arguments];
+    //calculate arguments
+    NSMutableArray *argumentInstances = [NSMutableArray array];
+    [methodCall.arguments enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+        if ([obj isKindOfClass:[XMethodCall class]]) {
+            [argumentInstances addObject:[self performMethodCall:obj]];
+        } else if ([obj isKindOfClass:[XArgument class]]){
+            [argumentInstances addObject:[self evaluateInstanceXName:((XArgument *) obj).name]];
+        } else if ([obj isKindOfClass:[NSString class]]){
+            [argumentInstances addObject:[Instance stringInstanceWithString:obj]];
+        } else {
+            [argumentInstances addObject:[Instance nilInstance]];//should never be called
+        }
+    }];
+    
+    return [instanceToPerformMethodOn respondToMethodCallWithName:methodCall.functionName.stringRepresentation andArgumets:argumentInstances];
+}
+
+- (Instance *)evaluateInstanceXName:(XName *)instanceName
+{
+    NSArray *availableInstances = [self.field instancesForName:instanceName.stringRepresentation];
+    if (availableInstances.count == 0) {
+        [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"Undefined Variable, %@", instanceName.stringRepresentation] sender:self];
+    } else if (availableInstances.count > 2){
+        [self.messageDispatcher dispatchErrorMessage:[NSString localizedStringWithFormat:@"More than one variable found on the instance with name %@", instanceName.stringRepresentation] sender:self];
+    } else {
+        return availableInstances.firstObject;
+    }
+    return [Instance nilInstance];
 }
 
 - (BOOL)isArguments:(NSArray *)arguments matchedFunction:(XFunction *)function//only check parameters match
@@ -144,30 +231,522 @@
     NSArray *parameters = function.parameters;
     if (arguments.count != parameters.count) {
         return NO;
-    }
-    for (int i = 0; i < arguments.count; i ++) {
-        XArgument *arg = arguments[i];
-        XParameter *para = parameters[i];
-        if (![self.analyzer isArgumentType:arg.type matchedWithParameterType:para.type]) {
-#warning Just arg.Type May Create Problem as explicit type conversion might trick the analyzer
-            return NO;
-        }
-    }
-    return YES;
+    } else{
+//    for (int i = 0; i < arguments.count; i ++) {
+//        XArgument *arg = arguments[i];
+//        XParameter *para = parameters[i];
+//        if (![self.analyzer isArgumentType:arg.type matchedWithParameterType:para.type]) {
+//#warning Just arg.Type May Create Problem as explicit type conversion might trick the analyzer
+//            return NO;
+//        }
+//    }
+        return YES;}
     
 }
 
 
-- (Instance *)respondToNativeMethodCWithArguments:(NSArray *)arguments
-{
-    //TODO
-    return nil;
-}
+
 
 - (void)setField:(Field *)field
 {
     _field = field;
     _field.inInstance = self;
+}
+
++ (instancetype)nilInstance
+{
+    return [[self alloc] init];
+}
++ (instancetype)stringInstanceWithString:(NSString *)string
+{
+    return [[self alloc] initSelfWithString:string];
+}
+
+- (instancetype)initSelfWithString:(NSString *)string
+{
+    self = [self init];
+    if (self) {
+        self.objectiveCModel = string;
+        self.isString = YES;
+    }
+    return self;
+}
+
++ (instancetype)functionInstanceWithFunction:(XFunction *)function
+{
+    return [[self alloc] initSelfWithFunction:function];
+}
+
+- (instancetype)initSelfWithFunction:(XFunction *)function
+{
+    self = [self init];
+    if (self) {
+        self.objectiveCModel = function;
+        self.isFunction = YES;
+        self.name = function.name.stringRepresentation;
+    }
+    return self;
+}
++ (instancetype)newInstanceForVariable:(XVariable *)variable  projectAnalyzer:(ProjectAnalyzer *)analyzer
+{
+    return [[self alloc] initSelfWithVariable:variable projectAnalyzer:analyzer];
+}
+
+- (instancetype)initSelfWithVariable:(XVariable *)variable  projectAnalyzer:(ProjectAnalyzer *)analyzer;
+{
+    self = [self init];
+    if (self) {
+        self.name = variable.name.stringRepresentation;
+        self.analyzer = analyzer;
+        XClass *definingClass = [self.analyzer classForName:variable.type.stringRepresentation];
+        if (definingClass == nil) {
+            [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Undefined Type: %@.", variable.type.stringRepresentation] sender:self];
+            return nil;
+        }
+        [definingClass.properties enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+            XProperty *prop = obj;
+            [self.field addInstance:[Instance newInstanceForVariable:prop projectAnalyzer:analyzer]];
+        }];
+        [definingClass.methods enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+            XFunction *func = obj;
+            [self.field addInstance:[Instance functionInstanceWithFunction:func]];
+        }];
+        if (![definingClass.baseClass.stringRepresentation isEqualToString:@"Native"]) {
+            self.baseInstance = [[Instance alloc] initWithTypeString:definingClass.baseClass.stringRepresentation projectAnalyzer:analyzer];
+            self.baseInstance.analyzer = self.analyzer;
+            self.baseInstance.messageDispatcher = self.messageDispatcher;
+            self.baseInstance.field.thisResolver = self.field.thisResolver;
+        }
+        
+        
+        
+    }
+    return self;
+}
+
+- (instancetype)initWithTypeString:(NSString *)type projectAnalyzer:(ProjectAnalyzer *)analyzer;
+{
+    XVariable *var = [[XVariable alloc] init];
+    var.name = [[XName alloc] initWithString:@"Base Instance"];
+    var.type = [[XType alloc] initWithString:type];
+        
+    
+    return [self initSelfWithVariable:var projectAnalyzer:analyzer];
+}
+#pragma mark - native method calls
+- (Instance *)respondToNativeMethodCallWithArguments:(NSArray *)arguments
+{
+    //TODO
+    NSString *nativeMethodCallName;
+    id pseudoStirng = arguments.firstObject;
+    if ([pseudoStirng isKindOfClass:[NSString class]]) {
+        
+        nativeMethodCallName = pseudoStirng;
+    } else if ([pseudoStirng isKindOfClass:[Instance class]]){
+        Instance *pseudoStirngInst = pseudoStirng;
+        if (pseudoStirngInst.isString) {
+            nativeMethodCallName = pseudoStirngInst.objectiveCModel;
+        } else {
+            [self.messageDispatcher dispatchErrorMessage:@"Native Method Call Argument Mismatch: First argument not a string." sender:self];
+            return [Instance nilInstance];
+#warning Should Declare Function, Consider Revising
+        }
+    } else {
+        [self.messageDispatcher dispatchErrorMessage:@"Native Method Call Argument Mismatch: First argument not a string." sender:self];
+        return [Instance nilInstance];
+    }
+    
+    NSArray *nativeNameComponents = [nativeMethodCallName componentsSeparatedByString:@"-"];
+    if (![nativeNameComponents[0] isEqualToString:@"native"]) {
+        [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Calling native method with non native-leading identifier"] sender:self];
+        return [Instance nilInstance];
+    }
+    
+    
+#pragma mark - Object.print();
+    
+    if ([nativeMethodCallName isEqualToString:@"native-print"]) {
+        //not known what way is the arguemnt going to be
+        if ([self checkArguments:arguments forNumberOfString:1] == false) {
+            return [Instance nilInstance];
+        }
+        if ([arguments[1] isKindOfClass:[NSString class]]) {
+            [self.messageDispatcher dispatchInformationMessage:arguments[1] sender:self];
+            return [Instance nilInstance];
+        } else if ([arguments[1] isKindOfClass:[Instance class]]){
+            Instance *inst = arguments[1];
+            if ([inst isString]){
+                [self.messageDispatcher dispatchInformationMessage:inst.objectiveCModel sender:self];
+                return [Instance nilInstance];
+            }
+        }
+    }
+    
+    
+    
+#warning SERIOUS!!! BAD PRACTICE OF COPYING MATH CODES
+#pragma mark - Math
+    if ([nativeMethodCallName isEqualToString:@"native-math-add"]) {
+        if ([self checkArguments:arguments forNumberOfString:2] == false) {
+            return [Instance nilInstance];
+        }
+        NSArray *strings = [self strFromArguments:arguments];
+        return [Instance stringInstanceWithString:[NSString stringWithFormat:@"%f", [strings[1] floatValue]+[strings[2] floatValue]]];
+    }
+    
+    if ([nativeMethodCallName isEqualToString:@"native-math-subtract"]) {
+        if ([self checkArguments:arguments forNumberOfString:2] == false) {
+            return [Instance nilInstance];
+        }
+        NSArray *strings = [self strFromArguments:arguments];
+        return [Instance stringInstanceWithString:[NSString stringWithFormat:@"%f", [strings[1] floatValue]-[strings[2] floatValue]]];
+    }
+    
+    if ([nativeMethodCallName isEqualToString:@"native-math-multiply"]) {
+        if ([self checkArguments:arguments forNumberOfString:2] == false) {
+            return [Instance nilInstance];
+        }
+        NSArray *strings = [self strFromArguments:arguments];
+        return [Instance stringInstanceWithString:[NSString stringWithFormat:@"%f", [strings[1] floatValue]*[strings[2] floatValue]]];
+    }
+    
+    if ([nativeMethodCallName isEqualToString:@"native-math-divide"]) {
+        if ([self checkArguments:arguments forNumberOfString:2] == false) {
+            return [Instance nilInstance];
+        }
+        NSArray *strings = [self strFromArguments:arguments];
+        return [Instance stringInstanceWithString:[NSString stringWithFormat:@"%f", [strings[1] floatValue]/[strings[2] floatValue]]];
+    }
+#pragma mark - Array
+    if ([nativeNameComponents[1] isEqualToString:@"array"]) {
+        /* native-array-create */
+        if ([nativeMethodCallName isEqualToString:@"native-array-create"]) {
+            self.objectiveCModel = [NSMutableArray array];
+            return [Instance nilInstance];
+        }
+    }
+    
+#define STRING_BOOL_TRUE @"true"
+    //math true or false
+    if ([nativeMethodCallName isEqualToString:@"native-math-equal"]) {
+        if ([self checkArguments:arguments forNumberOfString:2] == false) {
+            return [Instance nilInstance];
+        }
+        NSArray *strings = [self strFromArguments:arguments];
+        return [Instance stringInstanceWithString:[NSString stringWithFormat:@"%@",  [strings[1] floatValue] == [strings[2] floatValue]?STRING_BOOL_TRUE:@"false"]];
+    }
+#pragma mark - Logics
+    //logics
+    if ([nativeMethodCallName isEqualToString:@"native-logics-if-then-end"]) {
+        if (arguments.count != 4) {
+            [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Arguemtn Number Mismatch", nativeMethodCallName] sender:self];
+            return [Instance nilInstance];
+        }
+        Instance *boolInst = arguments[1];
+        Instance *trueResponseFunc = arguments[2];
+        if (![boolInst.objectiveCModel isKindOfClass:[NSString class]]) {
+            [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : First Argument Type Mismatch", nativeMethodCallName] sender:self];
+            return [Instance nilInstance];
+        }
+        if ([boolInst.objectiveCModel isEqualToString:STRING_BOOL_TRUE]) {
+            if (trueResponseFunc.isFunction == false) {
+                [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Second Argument Type Mismatch", nativeMethodCallName] sender:self];
+                return [Instance nilInstance];
+            }
+            XFunction *funcToExec = trueResponseFunc.objectiveCModel;
+            [arguments[3] respondToMethodCallWithName:funcToExec.name.stringRepresentation andArgumets:nil];
+            return [Instance nilInstance];
+        }
+        
+    }
+    
+    if ([nativeMethodCallName isEqualToString:@"native-logics-for"]) {
+        if (arguments.count != 4) {
+            [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Arguemtn Number Mismatch", nativeMethodCallName] sender:self];
+            return [Instance nilInstance];
+        }
+        Instance *intInst = arguments[1];
+        Instance *execFunc = arguments[2];
+        if (![intInst.objectiveCModel isKindOfClass:[NSString class]]) {
+            [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : First Argument Type Mismatch", nativeMethodCallName] sender:self];
+            return [Instance nilInstance];
+        }
+        if (execFunc.isFunction == false) {
+            [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Second Argument Type Mismatch", nativeMethodCallName] sender:self];
+            return [Instance nilInstance];
+        }
+        
+        
+        XFunction *funcToExec = execFunc.objectiveCModel;
+        for (int i = 0; i < [intInst.objectiveCModel intValue]; i ++) {
+            
+            [arguments[3] respondToMethodCallWithName:funcToExec.name.stringRepresentation andArgumets:[NSMutableArray arrayWithArray:@[[NSString stringWithFormat:@"%d", i]]]];
+        }
+        
+        return [Instance nilInstance];
+        
+    }
+#pragma mark - Language
+    //lang
+    if ([nativeMethodCallName isEqualToString:@"native-lang-assign"]) {
+        if (arguments.count != 3) {
+            [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Arguemtn Number Mismatch", nativeMethodCallName] sender:self];
+            return [Instance nilInstance];
+        }
+        Instance *toInst = arguments[1];
+        while (toInst.isSubInstance) {
+            toInst = toInst.baseInstance;
+        }
+        Instance *fromInst = arguments[2];
+        
+        
+        return [toInst assign:fromInst];
+        
+    }
+    
+    if ([nativeMethodCallName isEqualToString:@"native-lang-return"]) {
+        if (arguments.count != 2) {
+            [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Arguemtn Number Mismatch", nativeMethodCallName] sender:self];
+            return [Instance nilInstance];
+        }
+        Instance *returnInst = arguments[1];
+        [self.baseInstance.baseInstance returnObject:returnInst];
+        
+        return [Instance nilInstance];
+        
+    }
+    
+#pragma mark - ObjC (Real Native) (native-objc-...)
+    
+    if (nativeNameComponents.count >= 3) {
+        if ([nativeNameComponents[1] isEqualToString:@"objc"]) {
+            
+            /*
+             Arguments
+             native-objc-create-obj-c-model-012-argument,
+             onInstance,
+             className,
+             selectorName,
+             argument
+             createObjectiveCModel(onInstance, className, selectorName, argument);
+             */
+            if ([nativeMethodCallName isEqualToString:@"native-objc-create-obj-c-model-0-argument"]) {
+                //check count
+                if (arguments.count != 4) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                //check type
+                if (![self checkArguments:arguments forTypes:@[[NSString class],
+                                                               [NSObject class],
+                                                               [NSString class],
+                                                               [NSString class]]]) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                Instance *onInstance = arguments[1];
+                Instance *className = arguments[2];
+                Instance *selectorName = arguments[3];
+//                Instance *argument = arguments[4];
+                onInstance.objectiveCModel = [[NSClassFromString(className.objectiveCModel) alloc] performSelector:NSSelectorFromString(selectorName.objectiveCModel)];
+            }
+            if ([nativeMethodCallName isEqualToString:@"native-objc-create-obj-c-model-1-argument"]) {
+                //check count
+                if (arguments.count != 5) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                //check type
+                if (![self checkArguments:arguments forTypes:@[[NSString class],
+                                                               [NSObject class],
+                                                               [NSString class],
+                                                               [NSString class],
+                                                               [NSObject class]]]) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                Instance *onInstance = arguments[1];
+                Instance *className = arguments[2];
+                Instance *selectorName = arguments[3];
+                Instance *argument = arguments[4];
+                onInstance.objectiveCModel = [[NSClassFromString(className.objectiveCModel) alloc] performSelector:NSSelectorFromString(selectorName.objectiveCModel) withObject:argument.objectiveCModel];
+            }
+            if ([nativeMethodCallName isEqualToString:@"native-objc-create-obj-c-model-2-argument"]) {
+                //check count
+                if (arguments.count != 6) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                //check type
+                if (![self checkArguments:arguments forTypes:@[[NSString class],
+                                                               [NSObject class],
+                                                               [NSString class],
+                                                               [NSString class],
+                                                               [NSObject class],
+                                                               [NSObject class],
+                                                               [NSObject class]]]) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                Instance *onInstance = arguments[1];
+                Instance *className = arguments[2];
+                Instance *selectorName = arguments[3];
+                Instance *argument = arguments[4];
+                Instance *anotherArgument = arguments[5];
+                onInstance.objectiveCModel = [[NSClassFromString(className.objectiveCModel) alloc] performSelector:NSSelectorFromString(selectorName.objectiveCModel) withObject:argument.objectiveCModel withObject:anotherArgument.objectiveCModel];
+            }
+            /*
+             Arguments
+             native-objc-perform-method-call-012-argument,
+             onInstance,
+             className,
+             selectorName,
+             argument
+             createObjectiveCModel(onInstance, selectorName, argument);
+             */
+            if ([nativeMethodCallName isEqualToString:@"native-objc-perform-method-call-0-argument"]) {
+                //check count
+                if (arguments.count != 3) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                //check type
+                if (![self checkArguments:arguments forTypes:@[[NSString class],
+                                                               [NSObject class],
+                                                               [NSString class],
+                                                               ]]) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                Instance *onInstance = arguments[1];
+                
+                Instance *selectorName = arguments[2];
+//                Instance *argument = arguments[3];
+                Instance *returnInst = [[Instance alloc] init];
+                returnInst.objectiveCModel = [onInstance.objectiveCModel performSelector:NSSelectorFromString(selectorName.objectiveCModel)];
+                return returnInst;
+            }
+            if ([nativeMethodCallName isEqualToString:@"native-objc-perform-method-call-1-argument"]) {
+                //check count
+                if (arguments.count != 4) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                //check type
+                if (![self checkArguments:arguments forTypes:@[[NSString class],
+                                                               [NSObject class],
+                                                               [NSString class],
+                                                               [NSObject class]]]) {
+                    [self throwNativeArgumentTypeMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                Instance *onInstance = arguments[1];
+                
+                Instance *selectorName = arguments[2];
+                Instance *argument = arguments[3];
+                Instance *returnInst = [[Instance alloc] init];
+                returnInst.objectiveCModel = [onInstance.objectiveCModel performSelector:NSSelectorFromString(selectorName.objectiveCModel) withObject:argument.objectiveCModel];
+                return returnInst;
+            }
+            if ([nativeMethodCallName isEqualToString:@"native-objc-perform-method-call-2-argument"]) {
+                //check count
+                if (arguments.count != 5) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                //check type
+                if (![self checkArguments:arguments forTypes:@[[NSString class],
+                                                               [NSObject class],
+                                                               [NSString class],
+                                                               [NSObject class],
+                                                               [NSObject class]]]) {
+                    [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+                    return [Instance nilInstance];
+                }
+                Instance *onInstance = arguments[1];
+                
+                Instance *selectorName = arguments[2];
+                Instance *argument = arguments[3];
+                Instance *anothrArgument = arguments[4];
+                Instance *returnInst = [[Instance alloc] init];
+                returnInst.objectiveCModel = [onInstance.objectiveCModel performSelector:NSSelectorFromString(selectorName.objectiveCModel) withObject:argument.objectiveCModel withObject:anothrArgument.objectiveCModel];
+                return returnInst;
+            }
+            
+            
+            
+        }
+    }
+    
+
+    [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Unrecognized Native Method Call"] sender:self];
+    return [Instance nilInstance];
+}
+
+- (BOOL)checkArguments:(NSArray *)arguments forTypes:(NSArray *)types
+{
+    __block BOOL result = YES;
+    [arguments enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+        if ((![((Instance *)obj).objectiveCModel isKindOfClass:types[idx]])||(((Instance *)obj).objectiveCModel != nil)) {
+            result = NO;
+        }
+    }];
+    return YES;
+}
+
+- (void)throwNativeArgumentNumberMismatchError:(NSString *)nativeMethodCallName
+{
+    [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Argument Number Mismatch", nativeMethodCallName] sender:self];
+}
+
+- (void)throwNativeArgumentTypeMismatchError:(NSString *)nativeMethodCallName
+{
+    [self.messageDispatcher dispatchWarningMessage:[NSString stringWithFormat:@"Calling Native Method %@ : Argument Type Mismatch", nativeMethodCallName] sender:self];
+}
+
+- (Instance *)assign:(Instance *)valueToBeAssigned
+{
+    self.objectiveCModel = valueToBeAssigned.objectiveCModel;
+    self.field = valueToBeAssigned.field;
+    self.messageDispatcher = valueToBeAssigned.messageDispatcher;
+    self.analyzer = valueToBeAssigned.analyzer;
+    self.baseInstance = valueToBeAssigned.baseInstance;
+    self.definingClass = valueToBeAssigned.definingClass;
+    self.isNil = valueToBeAssigned.isNil;
+    self.isFunction = valueToBeAssigned.isFunction;
+    self.isString = valueToBeAssigned.isString;
+    return valueToBeAssigned;
+}
+
+- (BOOL)checkArguments:(NSArray *)arguments forNumberOfString:(int)numberOfString//arguemnt includes 'native-...', number of strings does not include
+{
+    if (arguments.count-1 != numberOfString) {
+        return false;
+    }
+    __block BOOL result = true;
+    [arguments enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+
+        if ([obj isKindOfClass:[Instance class]]) {
+            Instance *instance = obj;
+            if (instance.isString&&[instance.objectiveCModel isKindOfClass:[NSString class]]) {
+                
+            } else {
+                result = false;
+            }
+        } else {
+            result = false;
+        }
+    }];
+    return result;
+}
+
+- (NSArray *)strFromArguments:(NSArray *)arguemnts//make sure to call checkArguments:forNumberOfStrings: before calling this mehtod, contains native method
+{
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    for (Instance *inst in arguemnts) {
+        [array addObject:inst.objectiveCModel];
+    }
+    return array;
 }
 
 @end

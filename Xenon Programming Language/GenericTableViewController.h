@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonViewController.h"
 @class XFramework;
-@interface GenericTableViewController : UITableViewController
+@interface GenericTableViewController : CommonViewController
 
 @property (strong, nonatomic) XFramework *inFramework;
 @property (strong, nonatomic) NSMutableArray *arrayToReturnCount;
@@ -25,4 +26,5 @@
 - (BOOL)canAddItem;//NO
 - (void)addNewItem:(void(^)(id addedItem))completionBlock;
 - (BOOL)shouldDeleteObject:(id)object;//YES
+- (void)confirmDeleting:(id)objectToBeDeleted completion:(void (^)(BOOL ifDelete))completionBlock;
 @end

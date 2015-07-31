@@ -14,5 +14,5 @@
 @property (strong, nonatomic) XName *name;
 @property (strong, nonatomic) NSMutableArray *classes;//of Type XClass
 @property (strong, nonatomic) NSMutableArray *linkedFrameworks;
-
+//dependency: Framework Mianager
 @end

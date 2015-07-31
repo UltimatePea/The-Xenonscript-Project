@@ -40,4 +40,10 @@
     return result;
 }
 
+- (BOOL)isArgumentType:(XType *)argType matchedWithParameterType:(XType *)paraType
+{
+    return YES;
+#warning SERIOUS Incomplete Method Implementation
+}
+
 @end

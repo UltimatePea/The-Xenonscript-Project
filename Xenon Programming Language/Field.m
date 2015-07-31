@@ -8,44 +8,79 @@
 
 #import "Field.h"
 #import "Instance.h"
+#import "InstanceFieldEntry.h"
 
 @interface Field ()
 
 
-@property (strong, nonatomic) NSMutableArray *subFields;
-@property (strong, nonatomic) NSMutableArray *instances;
+//@property (strong, nonatomic) NSMutableArray *subFields;
+@property (strong, nonatomic) NSMutableArray *instanceEntries;
 
 @end
 
 
 @implementation Field
 
-- (NSMutableArray *)instances
+- (NSMutableArray *)instanceEntries
 {
-    if (!_instances) {
-        _instances = [NSMutableArray array];
+    if (!_instanceEntries) {
+        _instanceEntries = [NSMutableArray array];
     }
-    return _instances;
-}
-- (void)addInstance:(Instance *)instance
-{
-    [self.instances addObject:instance];
+    return _instanceEntries;
 }
 
-- (NSArray<Instance *> *)instancesForName:(NSString *)name
+- (Instance *)thisResolver
 {
+    if (!_thisResolver) {
+        _thisResolver = self.inInstance;
+    }
+    return _thisResolver;
+}
+
+- (void)addInstance:(Instance *)instance
+{
+    [self.instanceEntries addObject:[[InstanceFieldEntry alloc] initWithInstance:instance]];
+}
+
+- (NSArray *)instancesForName:(NSString *)name
+{
+    if ([name isEqualToString:@"this"]) {
+        return @[self.thisResolver];
+    }
     NSMutableArray *result = [NSMutableArray array];
-    [self.instances enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
-        Instance *inst = obj;
+    [self.instanceEntries enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+        InstanceFieldEntry *inst = obj;
         if ([inst.name isEqualToString:name]) {
-            [result addObject:obj];
+            [result addObject:inst.containingInstance];
         }
     }];
     [result addObjectsFromArray:[self.inInstance.baseInstance.field instancesForName:name]];
     return result;
 }
 
+- (void)assignInstance:(Instance *)instance toName:(NSString *)name;
+{
+    if ([name isEqualToString:@"this"]) {
+        return;
+    }
+    [self.instanceEntries enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
+        InstanceFieldEntry *inst = obj;
+        if ([inst.name isEqualToString:name]) {
+            inst.containingInstance = instance;
+        }
+    }];
+}
 
+- (void)addInstanceEntry:(InstanceFieldEntry *)entry
+{
+    [self.instanceEntries addObject:entry];
+}
+
+
+- (void)addInstance:(Instance *)instance forEntryName:(NSString *)entryName
+{
+    [self.instanceEntries addObject:[[InstanceFieldEntry alloc] initWithInstance:instance name:entryName]];
+}
 
 
 @end

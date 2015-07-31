@@ -95,19 +95,21 @@
         }
         self.functionName = [[XName alloc] initWithJSONObject:[jsonObject objectForKey:KEY_FUNCTION_NAME]];
         NSArray *argTypes = [jsonObject objectForKey:KEY_ARGUMENT_TYPE];
-        int i = 0;
+        __block    int i = 0;
         self.arguments = [[NSMutableArray alloc] initWithJSONObject:[jsonObject objectForKey:KEY_ARGUMENTS] generator:^id(id jsonObjectInTheArray) {
             NSString *argType = argTypes[i];
+            i++;
             if ([argType isEqualToString:TYPE_XARGUMENT]) {
                 return [[XArgument alloc] initWithJSONObject:jsonObjectInTheArray];
             } else if ([argType isEqualToString:TYPE_METHOD_CALL]){
                 return [[XMethodCall alloc] initWithJSONObject:jsonObjectInTheArray];
             } else if ([argType isEqualToString:TYPE_NSSTRING]){
-                return jsonObject;
+                return jsonObjectInTheArray;
             } else {
                 NSLog(@"error when initialize arguements in xmethod call");
                 return nil;
             }
+            
         }];
 
     }

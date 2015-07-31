@@ -100,6 +100,7 @@
     LocalVariablesTableViewController *lvtvc = [self.storyboard instantiateViewControllerWithIdentifier:@"LocalVariablesTableViewController"];
     lvtvc.displayingLocalVariables = self.displayingFunction.localVariables;
     lvtvc.inFramework = self.inFramework;
+    
     [self.navigationController pushViewController:lvtvc animated:YES];
 }
 

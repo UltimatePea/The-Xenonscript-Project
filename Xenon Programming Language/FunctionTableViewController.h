@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CommonViewController.h"
 @class XFunction;
 @class XClass;
 @class XFramework;
-@interface FunctionTableViewController : UITableViewController
+@interface FunctionTableViewController : CommonViewController
 
 @property (strong, nonatomic) XFunction *displayingFunction;
 @property (strong, nonatomic) XClass *inClass;
