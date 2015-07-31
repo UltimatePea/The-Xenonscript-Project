@@ -35,8 +35,8 @@
     [super viewDidLoad];
     
     
-    self.functionNameTableViewCell.textLabel.text = [self.displayingFunction.name stringRepresentation];
-    self.functionReturnTypeTableViewCell.textLabel.text = [self.displayingFunction.returnType stringRepresentation];
+    self.functionNameTableViewCell.detailTextLabel.text = [self.displayingFunction.name stringRepresentation];
+    self.functionReturnTypeTableViewCell.detailTextLabel.text = [self.displayingFunction.returnType stringRepresentation];
 /*
 //    [self addTapGestureToView:self.argumentTableViewCell withSelector:@selector(tapArgument:)];
 //    [self addTapGestureToView:self.methodCallsTableViewCell withSelector:@selector(tapMethodCalls:)];

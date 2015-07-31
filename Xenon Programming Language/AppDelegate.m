@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ProjectsManager.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +15,13 @@
 
 @implementation AppDelegate
 
-
-
+- (BOOL)application:(nonnull UIApplication *)application openURL:(nonnull NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(nonnull id)annotation
+{
+    if ([url.pathExtension isEqualToString:@"xsproj"]) {
+        return [[ProjectsManager sharedProjectsManager] openProjectURL:url];
+    }
+    return NO;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     return YES;

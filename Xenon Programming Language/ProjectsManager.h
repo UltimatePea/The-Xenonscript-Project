@@ -17,5 +17,6 @@
 - (NSURL *)mostRecentModifiedProjectURL;
 - (NSMutableArray *)projectsURLsAvailableSortedByDate:(BOOL)latestFirst;
 - (void)deleteProjectAtURL:(NSURL *)projectURL;
+- (BOOL)openProjectURL:(NSURL *)url;
 + (instancetype)sharedProjectsManager;
 @end

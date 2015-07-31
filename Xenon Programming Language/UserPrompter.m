@@ -93,7 +93,29 @@
 
 + (void)destructiveAlertWithTitle:(NSString *)title message:(NSString *)msg withViewController:(UIViewController *)sender confirmed:(void (^)())completionBlock;
 {
-    
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * __nonnull action) {
+        [ac dismissViewControllerAnimated:YES completion:nil];
+    }];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * __nonnull action) {
+        completionBlock();
+        [ac dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [ac addAction:cancel];
+    [ac addAction:ok];
+    [sender presentViewController:ac animated:YES completion:nil];
+}
+
++ (void)presentBlocking:(UIViewController *)vc
+{
+    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"Loading" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [vc presentViewController:ac animated:YES completion:nil];
+//    [self promptUserMessage:@"Loading" withViewController:vc];
+}
+
++ (void)dismissBlocking:(UIViewController *)vc
+{
+    [vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

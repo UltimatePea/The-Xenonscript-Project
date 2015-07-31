@@ -13,6 +13,7 @@
 #import "GitHubCommunicationTableViewController.h"
 #import "NSArray+PerformSelectorAndAssign.h"
 #import "UserPrompter.h"
+#import "RepositorySelector.h"
 #import "QuickStorage.h"
 @import Security;
 
@@ -23,7 +24,7 @@
 
 @property (strong, nonatomic) UAGithubEngine *engine;
 @property (weak, nonatomic) IBOutlet UISwitch *saveCredentialSwitch;
-@property (strong, nonatomic) UIAlertController *theNewRepoAlert;
+
 @property (strong, nonatomic) NSURLProtectionSpace *loginProtectionSpace;
 @property (strong, nonatomic) NSString *server, *repoName;
 @end
@@ -106,37 +107,17 @@
 {
     UAGithubEngine *engine = [[UAGithubEngine alloc] initWithUsername:self.usernameTextField.text password:self.passwordTextField.text withReachability:YES];
     self.engine = engine;
-    [self.engine repositoriesForUser:self.engine.username includeWatched:YES success:^(id obj) {
-        //suc
-        NSLog(@"SUCCESS");
-        NSArray *repos = obj;
-        NSArray *names = [repos arrayByReplacingObjectsUsingBlock:^id(id objectInTheArray) {
-            NSDictionary *dic = objectInTheArray;
-            return dic[@"name"];
-        }];
-        [UserPrompter actionSheetWithTitle:@"Please Select A Repository To Store Your Project" message:nil normalActions:[names arrayByAddingObject:@"Create a New Git Repository"] cancelActions:@[@"Cancel"] destructiveActions:nil sendingVC:self completionBlock:^(NSUInteger selectedStringIndex, int actionType) {
-            switch (actionType) {
-                case ACTION_TYPE_CANCEL:
-                    
-                    break;
-                case ACTION_TYPE_DEFAULT:
-                    if (selectedStringIndex<names.count) {
-                        [self confirmedRepositoryWithName:names[selectedStringIndex]];
-                    } else {
-                        [self createNewRepository];
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }];
-    } failure:^(NSError *error) {
-        //fai
-        NSLog(@"FAILED");
-        [UserPrompter promptUserMessage:@"Failed to load repositories. Please check your username and passwords." withViewController:self];
+    
+    [self beginRepositorySelection];
+    
+}
+
+- (void)beginRepositorySelection
+{
+    
+    [RepositorySelector startRepositorySelectionWithEngine:self.engine viewController:self completionBlock:^(NSString *selectedRepositoryName) {
+        [self confirmedRepositoryWithName:selectedRepositoryName];
     }];
-    
-    
 }
 
 - (void)confirmedRepositoryWithName:(NSString *)name
@@ -173,34 +154,6 @@
     
 }
 
-- (void)createNewRepository
-{
-    UIAlertController *ac = [UserPrompter defaultAlertControllerWithTitle:@"Create New Repository" message:@"Please provide some important information. You can also edit the information later on GitHub website." style:UIAlertControllerStyleAlert completionBlock:^{
-        NSDictionary *info = @{ @"name":self.theNewRepoAlert.textFields[0].text ,
-                                @"description":self.theNewRepoAlert.textFields[1].text,
-                                @"homepage":self.theNewRepoAlert.textFields[2].text
-                                };
-        
-        [self.engine createRepositoryWithInfo:info success:^(id response) {
-            [self confirmedRepositoryWithName:response[0][@"name"]];
-        } failure:^(NSError *err) {
-            [ac dismissViewControllerAnimated:YES completion:nil];
-            [UserPrompter promptUserMessage:@"Failed to create repository" withViewController:self];
-        }];
-    }];
-    [ac addTextFieldWithConfigurationHandler:^(UITextField * __nonnull textField) {
-        textField.placeholder = @"Name";
-    }];
-    [ac addTextFieldWithConfigurationHandler:^(UITextField * __nonnull textField) {
-        textField.placeholder = @"Description";
-    }];
-    [ac addTextFieldWithConfigurationHandler:^(UITextField * __nonnull textField) {
-        textField.placeholder = @"Homepage URL";
-    }];
-    self.theNewRepoAlert = ac;
-    [self presentViewController:ac animated:YES completion:nil];
-        
-}
 
 #pragma mark - Navigation
 - (void)prepareForSegue:(nonnull UIStoryboardSegue *)segue sender:(nullable id)sender

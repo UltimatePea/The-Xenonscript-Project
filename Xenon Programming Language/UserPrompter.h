@@ -28,4 +28,7 @@
                    sendingVC:(UIViewController *)vc
              completionBlock:(void (^)(NSUInteger selectedStringIndex, int actionType))completionBlock;
 + (UIAlertController *)defaultAlertControllerWithTitle:(NSString *)title message:(NSString *)msg style:(UIAlertControllerStyle)style completionBlock:(void (^)())completionBlock;
+
++ (void)presentBlocking:(UIViewController *)vc;
++ (void)dismissBlocking:(UIViewController *)vc;
 @end

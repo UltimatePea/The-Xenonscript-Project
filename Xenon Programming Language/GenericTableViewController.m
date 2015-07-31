@@ -140,7 +140,7 @@
 {
     [super viewWillAppear:animated];
     [self.tableView reloadData];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"SAVE_PROJ" object:self];
     
     
 }

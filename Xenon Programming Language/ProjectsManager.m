@@ -136,6 +136,14 @@
     return saveURL;
 }
 
+- (BOOL)openProjectURL:(NSURL *)url;
+{
+    XProject *proj = [[XProject alloc] initWithURL:url];
+    proj.savingURL = [self.documentRootForProjects URLByAppendingPathComponent:url.lastPathComponent];
+    [proj save];
+    return YES;
+}
+
 
 + (instancetype)sharedProjectsManager
 {

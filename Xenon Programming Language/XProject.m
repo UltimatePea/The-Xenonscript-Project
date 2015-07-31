@@ -42,7 +42,7 @@
 - (instancetype)initWithURL:(NSURL *)url
 {
     NSError *error;
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:NSJSONReadingMutableContainers error:&error];
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfURL:url] options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:&error];
     if (jsonObject == nil || error) {
         NSLog(@"Project init Error");
     }

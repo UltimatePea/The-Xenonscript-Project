@@ -13,6 +13,7 @@
 @interface FrameworkTableViewController ()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableViewCell *linkedFrameworkTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *classesTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *shareButton;
 
 @end
 
@@ -39,6 +40,8 @@
         ctvc.inFramework = self.displayingFramework;
         ctvc.displayingClasses = self.displayingFramework.classes;
         [self.navigationController pushViewController:ctvc animated:YES];
+    } else if([cell isEqual:self.shareButton]){
+        NSLog(@" shared button tapped");
     }
 }
 
