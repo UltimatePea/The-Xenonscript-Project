@@ -15,6 +15,7 @@
 #import "ProgramLoader.h"
 #import "ConsoleAlertViewController.h"
 #import "ProjectSelectorTableViewCell.h"
+
 @interface ProgramRunnerTableViewController ()
 @property (weak, nonatomic) IBOutlet ProjectSelectorTableViewCell *projectTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *startTableViewCell;
@@ -46,10 +47,16 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SAVE_PROJ" object:self];
+    
+    
+    
     NSURL *expectedProjURL = [self.manager mostRecentModifiedProjectURL];
     if (expectedProjURL) {
-        self.projectTableViewCell.selectedProjectURL = expectedProjURL;
-        self.projectTableViewCell.detailTextLabel.text = expectedProjURL.pathComponents.lastObject;
+        if (self.projectTableViewCell.selectedProjectURL == nil) {
+            self.projectTableViewCell.selectedProjectURL = expectedProjURL;
+            self.projectTableViewCell.detailTextLabel.text = expectedProjURL.pathComponents.lastObject;
+        }
+        
     } else {
         [UserPrompter promptUserMessage:@"You do not have a project to run" withViewController:self];
     }
@@ -62,7 +69,9 @@
     if ([cell isEqual:self.startTableViewCell]) {
         [self runProject];
     } else if ([cell isEqual:self.projectTableViewCell]){
-        [self.projectTableViewCell pickProject:self];
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [self.projectTableViewCell pickProject:self completion:^{
+                    }];
     }
 }
 
@@ -72,13 +81,15 @@
         [UserPrompter promptUserMessage:@"Please first select a project or create one." withViewController:self];
         return;
     }
-    ConsoleAlertViewController *ac = [ConsoleAlertViewController alertControllerWithTitle:@"Running" message:@"" preferredStyle:UIAlertControllerStyleAlert];
-    [self presentViewController:ac animated:YES completion:^{
+//    ConsoleAlertViewController *ac = [ConsoleAlertViewController alertControllerWithTitle:@"Running" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"TabBarDebugger"];
+    [self presentViewController:vc animated:YES completion:^{
         ProgramLoader *loader = [[ProgramLoader alloc] initWithProject:[[XProject alloc] initWithURL:self.projectTableViewCell.selectedProjectURL] delegate:nil];
         dispatch_queue_t queue = dispatch_queue_create("queue for custom programms", NULL);
         dispatch_async(queue, ^{
             [loader start];
         });
+        NSLog(@"PROGRAM FINISHED RUNNING");
         
     }];
     

@@ -1,13 +1,13 @@
+////
+////  ConsoleAlertViewController.h
+////  Xenon Programming Language
+////
+////  Created by Chen Zhibo on 7/4/15.
+////  Copyright © 2015 Chen Zhibo. All rights reserved.
+////
 //
-//  ConsoleAlertViewController.h
-//  Xenon Programming Language
+//#import <UIKit/UIKit.h>
 //
-//  Created by Chen Zhibo on 7/4/15.
-//  Copyright © 2015 Chen Zhibo. All rights reserved.
+//@interface ConsoleAlertViewController : UIAlertController
 //
-
-#import <UIKit/UIKit.h>
-
-@interface ConsoleAlertViewController : UIAlertController
-
-@end
+//@end

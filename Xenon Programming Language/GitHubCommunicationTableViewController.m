@@ -41,8 +41,11 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"SAVE_PROJ" object:self];
     NSURL *expectedProjURL = [[ProjectsManager sharedProjectsManager] mostRecentModifiedProjectURL];
     if (expectedProjURL) {
-        self.projectTableViewCell.selectedProjectURL = expectedProjURL;
-        self.projectTableViewCell.detailTextLabel.text = expectedProjURL.pathComponents.lastObject;
+        if (self.projectTableViewCell.selectedProjectURL == nil) {
+            self.projectTableViewCell.selectedProjectURL = expectedProjURL;
+            self.projectTableViewCell.detailTextLabel.text = expectedProjURL.pathComponents.lastObject;
+
+        }
     } else {
         [UserPrompter promptUserMessage:@"You do not have a project." withViewController:self];
     }
@@ -51,7 +54,10 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell isEqual:self.projectTableViewCell]){
-        [self.projectTableViewCell pickProject:self];
+        [self.projectTableViewCell pickProject:self completion:^{
+           ;
+            
+        }];
     } else if ([cell isEqual:self.repositoryTableViewCell]){
         [RepositorySelector startRepositorySelectionWithEngine:self.engine viewController:self completionBlock:^(NSString *selectedRepositoryName) {
             self.repositoryName = selectedRepositoryName;

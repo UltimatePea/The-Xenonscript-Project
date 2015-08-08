@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *instanceTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *functionNameTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *argumentsTableViewCell;
+@property (weak, nonatomic) IBOutlet UISwitch *breakpointSwitch;
 
 @end
 
@@ -25,6 +26,7 @@
     [super viewWillAppear:animated];
     self.instanceTableViewCell.textLabel.text = ([self.displayingMethodCall.instanceStringRepresentation isEqualToString:INSTANCE_STRING_REP_NIL])?@"this":self.displayingMethodCall.instanceStringRepresentation;
     self.functionNameTableViewCell.textLabel.text = self.displayingMethodCall.functionName.stringRepresentation;
+    self.breakpointSwitch.on = self.displayingMethodCall.shouldBreak;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -38,6 +40,9 @@
         atvc.inFunction = self.inFunction;
         [self.navigationController pushViewController:atvc animated:YES];
     }
+}
+- (IBAction)changeBreakpointStatus:(UISwitch *)sender {
+    self.displayingMethodCall.shouldBreak = sender.on;
 }
 
 

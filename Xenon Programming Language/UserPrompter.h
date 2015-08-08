@@ -31,4 +31,5 @@
 
 + (void)presentBlocking:(UIViewController *)vc;
 + (void)dismissBlocking:(UIViewController *)vc;
++ (void)dismissBlocking:(UIViewController *)vc completion:(void (^)())block;
 @end

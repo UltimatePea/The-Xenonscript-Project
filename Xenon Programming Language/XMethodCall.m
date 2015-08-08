@@ -70,6 +70,7 @@
 #define KEY_INSTANCE @"instance"
 #define KEY_FUNCTION_NAME @"function"
 #define KEY_ARGUMENTS @"arguments"
+#define KEY_SHOULD_BREAK @"breakpoint"
 - (id)JSONObject
 {
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
@@ -78,6 +79,7 @@
     [dic setObject:[(self.instanceName?self.instanceName:self.instanceMethodCall) JSONObject]forKeyedSubscript:KEY_INSTANCE];
     [dic setObject:[self getArgumentsTypes] forKeyedSubscript:KEY_ARGUMENT_TYPE];
     [dic setObject:[self.arguments JSONObject] forKeyedSubscript:KEY_ARGUMENTS];
+    [dic setObject:[NSNumber numberWithBool:self.shouldBreak] forKey:KEY_SHOULD_BREAK];
     return dic;
 }
 
@@ -94,6 +96,7 @@
             NSLog(@"Unable to init String, serious error");
         }
         self.functionName = [[XName alloc] initWithJSONObject:[jsonObject objectForKey:KEY_FUNCTION_NAME]];
+        
         NSArray *argTypes = [jsonObject objectForKey:KEY_ARGUMENT_TYPE];
         __block    int i = 0;
         self.arguments = [[NSMutableArray alloc] initWithJSONObject:[jsonObject objectForKey:KEY_ARGUMENTS] generator:^id(id jsonObjectInTheArray) {
@@ -112,6 +115,8 @@
             
         }];
 
+        
+        self.shouldBreak = [[jsonObject objectForKey:KEY_SHOULD_BREAK] boolValue];
     }
     return self;
 }

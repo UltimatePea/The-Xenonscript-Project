@@ -26,12 +26,12 @@
 @property (strong, nonatomic) MessageDispatcher *messageDispatcher;
 @property (strong, nonatomic) ProjectAnalyzer *analyzer;
 //@property (strong, nonatomic) ProgramExecuter *programExecuter;
-@property (strong, nonatomic) Instance *baseInstance;
+@property (strong, nonatomic) Instance *baseInstance;//for inheritance
 - (Instance *)respondToMethodCallWithName:(NSString *)functionName andArgumets:(NSMutableArray *)arguments;
 - (Instance *)performMethodCall:(XMethodCall *)methodCall;
 @property (strong, nonatomic) XClass *definingClass;//this one or the two methods under field or cimpiler
-
-
+@property (strong, nonatomic) Instance *parentInstance;//for stack trace
+@property (strong, nonatomic) NSString *currentlyRespondingToMethodName;
 
 
 

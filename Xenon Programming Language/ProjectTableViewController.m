@@ -9,7 +9,11 @@
 #import "ProjectTableViewController.h"
 #import "XProject.h"
 
+@interface ProjectTableViewController () <UIDocumentInteractionControllerDelegate>
 
+@property (strong, nonatomic) UIDocumentInteractionController *docInteractionController;
+
+@end
 
 
 @implementation ProjectTableViewController
@@ -34,6 +38,16 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"SAVE_PROJ" object:nil queue:nil usingBlock:^(NSNotification * __nonnull note) {
         [self.displayingProject save];
     }];
+}
+
+- (void)share
+{
+    [self.displayingProject save];
+    UIDocumentInteractionController *dic = [UIDocumentInteractionController interactionControllerWithURL:self.displayingProject.savingURL];
+//    [dic presentOpenInMenuFromRect:self.view.frame inView:self.view animated:YES];;
+    [dic presentOptionsMenuFromRect:self.view.frame inView:self.view animated:YES];
+    dic.delegate = self;
+    self.docInteractionController = dic;
 }
 
 @end

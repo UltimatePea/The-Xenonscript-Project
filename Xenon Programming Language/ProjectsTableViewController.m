@@ -38,6 +38,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadData  ];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"NEW_PROJ" object:nil queue:nil usingBlock:^(NSNotification * __nonnull note) {
+        [self loadData];
+        [self.tableView reloadData];
+    }];
+}
+- (void)loadData
+{
     [self loadDisplayingProjects];
     self.arrayToReturnCount = self.displayingProjectURLs;
 }

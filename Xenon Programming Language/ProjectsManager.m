@@ -140,7 +140,9 @@
 {
     XProject *proj = [[XProject alloc] initWithURL:url];
     proj.savingURL = [self.documentRootForProjects URLByAppendingPathComponent:url.lastPathComponent];
+    
     [proj save];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NEW_PROJ" object:self];
     return YES;
 }
 

@@ -18,4 +18,6 @@
 
 @property (strong, nonatomic, readonly) NSString *stringRepresentation;
 @property (strong, nonatomic, readonly) NSString *instanceStringRepresentation;
+
+@property (nonatomic) BOOL shouldBreak;
 @end

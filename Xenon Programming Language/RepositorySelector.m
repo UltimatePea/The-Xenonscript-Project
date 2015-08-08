@@ -31,31 +31,33 @@
         [engine repositoriesForUser:engine.username includeWatched:YES success:^(id obj) {
             //suc
             dispatch_async(dispatch_get_main_queue(), ^{
-//                [UserPrompter dismissBlocking:vc];
+                [UserPrompter dismissBlocking:vc completion:^{
+                    NSLog(@"SUCCESS");
+                    NSArray *repos = obj;
+                    NSArray *names = [repos arrayByReplacingObjectsUsingBlock:^id(id objectInTheArray) {
+                        NSDictionary *dic = objectInTheArray;
+                        return dic[@"name"];
+                    }];
+                    [UserPrompter actionSheetWithTitle:@"Please Select A Repository To Store Your Project" message:nil normalActions:[names arrayByAddingObject:@"Create a New Git Repository"] cancelActions:@[@"Cancel"] destructiveActions:nil sendingVC:vc completionBlock:^(NSUInteger selectedStringIndex, int actionType) {
+                        switch (actionType) {
+                            case ACTION_TYPE_CANCEL:
+                                
+                                break;
+                            case ACTION_TYPE_DEFAULT:
+                                if (selectedStringIndex<names.count) {
+                                    block(names[selectedStringIndex]);
+                                } else {
+                                    [[[RepositorySelector alloc] initWithEngine:engine viewController:vc block:block] createNewRepository];
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                    }];
+
+                }];
 #warning behaviour may change to up dismissBlocking
-                [vc dismissViewControllerAnimated:YES completion:nil];
-                NSLog(@"SUCCESS");
-                NSArray *repos = obj;
-                NSArray *names = [repos arrayByReplacingObjectsUsingBlock:^id(id objectInTheArray) {
-                    NSDictionary *dic = objectInTheArray;
-                    return dic[@"name"];
-                }];
-                [UserPrompter actionSheetWithTitle:@"Please Select A Repository To Store Your Project" message:nil normalActions:[names arrayByAddingObject:@"Create a New Git Repository"] cancelActions:@[@"Cancel"] destructiveActions:nil sendingVC:vc completionBlock:^(NSUInteger selectedStringIndex, int actionType) {
-                    switch (actionType) {
-                        case ACTION_TYPE_CANCEL:
-                            
-                            break;
-                        case ACTION_TYPE_DEFAULT:
-                            if (selectedStringIndex<names.count) {
-                                block(names[selectedStringIndex]);
-                            } else {
-                                [[[RepositorySelector alloc] initWithEngine:engine viewController:vc block:block] createNewRepository];
-                            }
-                            break;
-                        default:
-                            break;
-                    }
-                }];
+//                [vc dismissViewControllerAnimated:YES completion:nil];
             });
             
         } failure:^(NSError *error) {

@@ -10,7 +10,8 @@
 
 @interface ProjectSelectorTableViewCell : UITableViewCell
 
-- (void)pickProject:(UIViewController *)sender;
+- (void)pickProject:(UIViewController *)sender completion:(void (^)())comp
+;
 @property (strong, nonatomic) NSURL *selectedProjectURL;
 
 @end

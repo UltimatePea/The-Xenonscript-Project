@@ -15,7 +15,9 @@
 //#import "XParameter.h"
 #import "ProjectAnalyzer.h"
 //#import "XName.h"
-#import "Xenon.h";
+#import "Xenon.h"
+#import "ThreadLockingManager.h"
+#import "Stack.h"
 
 @interface Instance ()
 
@@ -33,6 +35,17 @@
         _objectiveCModel = [self.baseInstance objectiveCModel];
     }
     return _objectiveCModel;
+}
+
+- (XClass *)definingClass
+{
+    if (_definingClass) {
+        return _definingClass;
+    }
+    if (self.baseInstance) {
+        return [self.baseInstance definingClass];
+    }
+    return nil;
 }
 
 - (BOOL)isString
@@ -155,11 +168,52 @@
     childFunctionInstance.analyzer = self.analyzer;
     childFunctionInstance.baseInstance = self;
     childFunctionInstance.isSubInstance = YES;
-    
+    childFunctionInstance.parentInstance = self;
+    self.currentlyRespondingToMethodName = functionName;
+    NSLog(@"Responding to method: %@",functionName);
     NSArray *methodCallsToExecute = func.methodCalls;
     
     for (XMethodCall *mtdCall in methodCallsToExecute) {
+        NSLog(@"SHOULD BRK: %d", mtdCall.shouldBreak);
+        if (mtdCall.shouldBreak == YES || [[ThreadLockingManager sharedManager] shouldPause]) {
+            NSLog(@"Breaking");
+            
+//            dispatch_suspend(dispatch_get_current_queue());
+//            [NSThread sleepForTimeInterval:10];
+            ThreadLockingManager *lockManager = [ThreadLockingManager sharedManager];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"BREAK_POINT_NOTIFICATION" object:self userInfo:@{@"info":self}];
+            [lockManager.condition lock];
+            lockManager.lock = YES;
+            while(lockManager.lock)
+            {
+                NSLog(@"Will Wait");
+                [lockManager.condition wait];
+                
+                // the "did wait" will be printed only when you have signaled the condition change in the sendNewEvent method
+                NSLog(@"Did Wait");
+            }
+            [lockManager.condition unlock];
+            // read your event from your event queue
+            
+            
+            
+            // lock the condition again
+            
+        }
+        
+         //performing method call
+        
+        
+        
+            
+        
         [childFunctionInstance performMethodCall:mtdCall];
+        
+        
+        
+        
+       
+        
         if (self.shouldReturn) {
             self.shouldReturn = NO;
             Instance *returnInstance = self.returnValue;
@@ -209,7 +263,11 @@
         }
     }];
     
-    return [instanceToPerformMethodOn respondToMethodCallWithName:methodCall.functionName.stringRepresentation andArgumets:argumentInstances];
+    [[Stack sharedStack] willCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
+    Instance *returnValue =  [instanceToPerformMethodOn respondToMethodCallWithName:methodCall.functionName.stringRepresentation andArgumets:argumentInstances];
+    [[Stack sharedStack] didCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
+    
+    return returnValue;
 }
 
 - (Instance *)evaluateInstanceXName:(XName *)instanceName
@@ -298,6 +356,7 @@
     if (self) {
         self.name = variable.name.stringRepresentation;
         self.analyzer = analyzer;
+        NSLog(@"Analyzing Type %@ on Instance %@", variable.type.stringRepresentation, self);
         XClass *definingClass = [self.analyzer classForName:variable.type.stringRepresentation];
         if (definingClass == nil) {
             [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Undefined Type: %@.", variable.type.stringRepresentation] sender:self];
@@ -317,7 +376,7 @@
             self.baseInstance.messageDispatcher = self.messageDispatcher;
             self.baseInstance.field.thisResolver = self.field.thisResolver;
         }
-        
+        self.definingClass = definingClass;
         
         
     }

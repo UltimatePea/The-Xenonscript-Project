@@ -115,7 +115,12 @@
 
 + (void)dismissBlocking:(UIViewController *)vc
 {
-    [vc dismissViewControllerAnimated:YES completion:nil];
+    [self dismissBlocking:vc completion:nil];
+}
+
++ (void)dismissBlocking:(UIViewController *)vc completion:(void (^)())block
+{
+    [vc dismissViewControllerAnimated:YES completion:block];
 }
 
 @end

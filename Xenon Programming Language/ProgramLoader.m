@@ -11,6 +11,9 @@
 #import "ProjectAnalyzer.h"
 #import "Instance.h"
 #import "MessageDispatcher.h"
+#import "Stack.h"
+#import "Console.h"
+#import "ThreadLockingManager.h"
 @interface ProgramLoader ()
 
 @property (strong, nonatomic) XProject *rootProject;
@@ -54,9 +57,14 @@
     XType *startType = [[XType alloc] initWithString:@"Start"];
     XVariable *var = [[XVariable alloc] init];
     var.type = startType;
-    var.name = [[XName alloc] initWithString:@"Some Random String"];
+    var.name = [[XName alloc] initWithString:@"Program Loader Initialization String"];
     Instance *inst = [Instance newInstanceForVariable:var projectAnalyzer:self.compiler];
     inst.messageDispatcher = dispatcher;
+    //initialization
+    [[Stack sharedStack] clear];
+    [[Console sharedConsole] clear];
+    [[ThreadLockingManager sharedManager] clear];
+    
     NSDate *dateStart = [NSDate dateWithTimeIntervalSinceNow:0];
     [inst respondToMethodCallWithName:@"start" andArgumets:nil];
     NSDate *dateEnd = [NSDate dateWithTimeIntervalSinceNow:0];

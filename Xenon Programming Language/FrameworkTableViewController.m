@@ -41,8 +41,13 @@
         ctvc.displayingClasses = self.displayingFramework.classes;
         [self.navigationController pushViewController:ctvc animated:YES];
     } else if([cell isEqual:self.shareButton]){
-        NSLog(@" shared button tapped");
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+        [self share];
     }
+}
+- (void)share
+{
+    
 }
 
 @end
