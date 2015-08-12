@@ -32,6 +32,14 @@
 {
     self.lock = NO;
     self.shouldPause = NO;
+    self.shouldPauseForInstance = NO;
+    self.shouldPauseForInstanceInstance = nil;
+    self.shouldCancel = NO;
+}
+
+- (BOOL)shouldPauseForInstance:(id)instance
+{
+    return self.shouldPauseForInstance&&[self.shouldPauseForInstanceInstance isEqual:instance];
 }
 
 @end

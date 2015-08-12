@@ -152,4 +152,9 @@
     return result;
 }
 
+- (NSString *)debugDescription
+{
+    return [self stringRepresentation];
+}
+
 @end

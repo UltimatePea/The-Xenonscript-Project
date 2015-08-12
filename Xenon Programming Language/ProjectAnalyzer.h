@@ -10,10 +10,12 @@
 @class XProject;
 @class XClass;
 @class XType;
+@class XFunction;
+@class XMethodCall;
 @interface ProjectAnalyzer : NSObject
 
 - (instancetype)initWithProject:(XProject *)project;
 - (XClass *)classForName:(NSString *)className;
 - (BOOL)isArgumentType:(XType *)argType matchedWithParameterType:(XType *)paraType;
-
+- (XFunction *)functionWhichMethodCallIsIn:(XMethodCall *)methodCall;
 @end

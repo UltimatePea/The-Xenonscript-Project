@@ -7,10 +7,7 @@
 //
 
 #import "ProjectAnalyzer.h"
-#import "XProject.h"
-#import "XClass.h"
-#import "XName.h"
-
+#import "Xenon.h"
 @interface ProjectAnalyzer ()
 
 @property (strong, nonatomic) XProject *project;
@@ -44,6 +41,43 @@
 {
     return YES;
 #warning SERIOUS Incomplete Method Implementation
+}
+
+- (XFunction *)functionWhichMethodCallIsIn:(XMethodCall *)methodCall
+{
+    __block XFunction *result;
+    [self.project.classes enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        XClass *class = obj;
+        [class.methods enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            XFunction *function = obj;
+            XFunction *calculatedResult = [self functionAnalysisForMethodCall:methodCall analyzingFunction:function];
+            if (calculatedResult) {
+                result = calculatedResult;
+            }
+            
+        }];
+    }];
+    return result;
+}
+
+- (XFunction *)functionAnalysisForMethodCall:(XMethodCall *)methodCall analyzingFunction:(XFunction *)function
+{
+    __block XFunction *result;
+    [function.methodCalls enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isEqual:methodCall]) {
+            result = function;
+        }
+    }];
+    if (result == nil) {
+        [function.localFunctions enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            XFunction *func = [self functionAnalysisForMethodCall:methodCall analyzingFunction:obj];
+            if (func) {
+                result = func;
+            }
+        }];
+    }
+    
+    return  result;
 }
 
 @end

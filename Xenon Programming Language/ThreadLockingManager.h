@@ -12,8 +12,11 @@
 
 @property (strong, nonatomic) NSCondition *condition;
 @property ( nonatomic) BOOL lock;
-@property ( nonatomic) BOOL shouldPause;
+@property ( nonatomic) BOOL shouldPause, shouldPauseForInstance, shouldCancel;
+@property (weak, nonatomic) id shouldPauseForInstanceInstance;
+
 
 + (instancetype)sharedManager;
 - (void)clear;
+- (BOOL)shouldPauseForInstance:(id)instance;
 @end

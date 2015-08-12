@@ -21,6 +21,12 @@
     self.arrayToReturnCount = self.displayingMethodCalls;
 }
 
+- (void)setDisplayingMethodCalls:(NSMutableArray *)displayingMethodCalls
+{
+    _displayingMethodCalls = displayingMethodCalls;
+    [super setArrayToReturnCount:displayingMethodCalls];
+}
+
 - (NSString *)titleLabelForObjectInArray:(id)object
 {
     XMethodCall *mc = object;

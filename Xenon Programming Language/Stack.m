@@ -10,6 +10,10 @@
 #import "StackTraceEntry.h"
 #import "Instance.h"
 #import "XMethodCall.h"
+#import "StackTraceEntryContext.h"
+#import "Instance.h"
+#import "XFunction.h"
+#import "ProjectAnalyzer.h"
 @interface Stack ()
 
 @property (strong, readwrite, nonatomic) NSMutableArray<StackTraceEntry *> *stackInstanceEntries;
@@ -70,6 +74,29 @@
 {
     self.stackInstanceEntries = nil;
 }
+
+/*
+ 
+ HERE DUE to the implementation of the stack
+ (class property order)
+ entry1   context1
+ entry2   context2
+ entry3   context3
+ entry4   context4
+ 
+ entry2 corresponds to context1
+*/
+- (StackTraceEntryContext *)contextForStackTraceEntry:(StackTraceEntry *)entry;
+{
+    StackTraceEntryContext *context = [[StackTraceEntryContext alloc] init];
+    StackTraceEntry *resultEntry = [self.stackInstanceEntries.lastObject isEqual:entry]?nil:self.stackInstanceEntries[[self.stackInstanceEntries indexOfObject:entry] + 1];
+    
+        context.inFunction = [resultEntry.creatingInstance.analyzer functionWhichMethodCallIsIn:resultEntry.methodCall];
+        context.showingMethodCall = resultEntry.methodCall;
+    return context;
+    
+}
+
 
 
 @end

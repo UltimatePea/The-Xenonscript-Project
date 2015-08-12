@@ -13,8 +13,9 @@
 #import "StackTraceEntry.h"
 #import "Stack.h"
 #import "DebugProgramControllToolbar.h"
+#import "NotificationCenterNameRecord.h"
 @interface StackTraceTableViewController ()
-@property (strong, nonatomic) NSMutableArray<StackTraceEntry *> *methodCalls;
+@property (strong, nonatomic) NSArray<StackTraceEntry *> *methodCalls;
 @end
 
 @implementation StackTraceTableViewController
@@ -43,7 +44,7 @@
 - (void)loadView
 {
     [super loadView];
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"BREAK_POINT_NOTIFICATION" object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFICATION_CENTER_BREAK_POINT_NOTIFICATION object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self generateStackTrace:note.userInfo[@"info"]];
         });
@@ -65,8 +66,14 @@
 //    }
     [[Stack sharedStack] stackInstanceEntries];
     
-    self.methodCalls = stackTrace;
+    self.methodCalls = [[stackTrace reverseObjectEnumerator] allObjects];
+    [self sendNotificationForSelectedEntry:self.methodCalls.firstObject];
     [self.tableView reloadData];
+}
+
+- (void)sendNotificationForSelectedEntry:(StackTraceEntry *)entry
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CENTER_SELECTED_STACK_TRACE_NOTIFICATION object:self userInfo:@{NOTIFICATION_CENTER_SELECTED_STACK_TRACE_NOTIFICATION_USER_INFO_KEY_ENTRY:entry}];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(nonnull UITableView *)tableView
@@ -85,6 +92,11 @@
     cell.textLabel.text = self.methodCalls[indexPath.row].className;
     cell.detailTextLabel.text = self.methodCalls[indexPath.row].callingMethodName;
     return cell;
+}
+
+- (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    [self sendNotificationForSelectedEntry:self.methodCalls[indexPath.row]];
 }
 
 

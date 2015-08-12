@@ -18,6 +18,8 @@
 #import "Xenon.h"
 #import "ThreadLockingManager.h"
 #import "Stack.h"
+#import "SharedRuntimeUI.h"
+#import "NotificationCenterNameRecord.h"
 
 @interface Instance ()
 
@@ -74,6 +76,9 @@
     }
     return _field;
 }
+
+#pragma mark - Runtime Behaviour
+
 - (Instance *)respondToMethodCallWithName:(NSString *)functionName andArgumets:(NSMutableArray *)arguments
 {
     //calculate arguments
@@ -168,20 +173,43 @@
     childFunctionInstance.analyzer = self.analyzer;
     childFunctionInstance.baseInstance = self;
     childFunctionInstance.isSubInstance = YES;
+    
     childFunctionInstance.parentInstance = self;
+    self.childInstance = childFunctionInstance;
+    
     self.currentlyRespondingToMethodName = functionName;
     NSLog(@"Responding to method: %@",functionName);
     NSArray *methodCallsToExecute = func.methodCalls;
     
     for (XMethodCall *mtdCall in methodCallsToExecute) {
+        
         NSLog(@"SHOULD BRK: %d", mtdCall.shouldBreak);
-        if (mtdCall.shouldBreak == YES || [[ThreadLockingManager sharedManager] shouldPause]) {
+        
+        
+        [[Stack sharedStack] willCallMethod:mtdCall.functionName.stringRepresentation onClass:childFunctionInstance.definingClass.name.stringRepresentation methodCall:mtdCall sendingInstance:childFunctionInstance];
+        
+        
+        
+        if ([[ThreadLockingManager sharedManager] shouldCancel]) {
+            if ([[NSThread currentThread] isCancelled]) {
+                self.shouldReturn = YES;
+            }else
+            {
+                [[NSThread currentThread] cancel];
+            }
+        }
+        
+        if (mtdCall.shouldBreak == YES ||
+            [[ThreadLockingManager sharedManager] shouldPause]
+            ||
+            [[ThreadLockingManager sharedManager] shouldPauseForInstance:self]
+            ) {
             NSLog(@"Breaking");
             
 //            dispatch_suspend(dispatch_get_current_queue());
 //            [NSThread sleepForTimeInterval:10];
             ThreadLockingManager *lockManager = [ThreadLockingManager sharedManager];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"BREAK_POINT_NOTIFICATION" object:self userInfo:@{@"info":self}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CENTER_BREAK_POINT_NOTIFICATION object:self userInfo:@{@"info":self}];
             [lockManager.condition lock];
             lockManager.lock = YES;
             while(lockManager.lock)
@@ -205,11 +233,12 @@
         
         
         
-            
+        
         
         [childFunctionInstance performMethodCall:mtdCall];
         
         
+        [[Stack sharedStack] didCallMethod:mtdCall.functionName.stringRepresentation onClass:childFunctionInstance.definingClass.name.stringRepresentation methodCall:mtdCall sendingInstance:childFunctionInstance];
         
         
        
@@ -243,7 +272,9 @@
         instanceToPerformMethodOn = [self evaluateInstanceXName:methodCall.instanceName];
 #warning TODO nil detection
     } else if (methodCall.instanceMethodCall) {
+        [[Stack sharedStack] willCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
         instanceToPerformMethodOn = [self performMethodCall:methodCall];
+        [[Stack sharedStack] didCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
         
     } else {
         instanceToPerformMethodOn = self;
@@ -253,7 +284,9 @@
     NSMutableArray *argumentInstances = [NSMutableArray array];
     [methodCall.arguments enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
         if ([obj isKindOfClass:[XMethodCall class]]) {
+            [[Stack sharedStack] willCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
             [argumentInstances addObject:[self performMethodCall:obj]];
+            [[Stack sharedStack] didCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
         } else if ([obj isKindOfClass:[XArgument class]]){
             [argumentInstances addObject:[self evaluateInstanceXName:((XArgument *) obj).name]];
         } else if ([obj isKindOfClass:[NSString class]]){
@@ -263,9 +296,9 @@
         }
     }];
     
-    [[Stack sharedStack] willCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
+    
     Instance *returnValue =  [instanceToPerformMethodOn respondToMethodCallWithName:methodCall.functionName.stringRepresentation andArgumets:argumentInstances];
-    [[Stack sharedStack] didCallMethod:methodCall.functionName.stringRepresentation onClass:instanceToPerformMethodOn.definingClass.name.stringRepresentation methodCall:methodCall sendingInstance:self];
+    
     
     return returnValue;
 }
@@ -310,6 +343,8 @@
     _field = field;
     _field.inInstance = self;
 }
+
+#pragma mark - Initialization Codes
 
 + (instancetype)nilInstance
 {
@@ -392,6 +427,8 @@
     
     return [self initSelfWithVariable:var projectAnalyzer:analyzer];
 }
+
+
 #pragma mark - native method calls
 - (Instance *)respondToNativeMethodCallWithArguments:(NSArray *)arguments
 {
@@ -422,7 +459,7 @@
     }
     
     
-#pragma mark - Object.print();
+#pragma mark  Object.print();
     
     if ([nativeMethodCallName isEqualToString:@"native-print"]) {
         //not known what way is the arguemnt going to be
@@ -444,7 +481,7 @@
     
     
 #warning SERIOUS!!! BAD PRACTICE OF COPYING MATH CODES
-#pragma mark - Math
+#pragma mark  Math
     if ([nativeMethodCallName isEqualToString:@"native-math-add"]) {
         if ([self checkArguments:arguments forNumberOfString:2] == false) {
             return [Instance nilInstance];
@@ -476,7 +513,7 @@
         NSArray *strings = [self strFromArguments:arguments];
         return [Instance stringInstanceWithString:[NSString stringWithFormat:@"%f", [strings[1] floatValue]/[strings[2] floatValue]]];
     }
-#pragma mark - Array
+#pragma mark  Array
     if ([nativeNameComponents[1] isEqualToString:@"array"]) {
         /* native-array-create */
         if ([nativeMethodCallName isEqualToString:@"native-array-create"]) {
@@ -494,7 +531,7 @@
         NSArray *strings = [self strFromArguments:arguments];
         return [Instance stringInstanceWithString:[NSString stringWithFormat:@"%@",  [strings[1] floatValue] == [strings[2] floatValue]?STRING_BOOL_TRUE:@"false"]];
     }
-#pragma mark - Logics
+#pragma mark  Logics
     //logics
     if ([nativeMethodCallName isEqualToString:@"native-logics-if-then-end"]) {
         if (arguments.count != 4) {
@@ -545,7 +582,68 @@
         return [Instance nilInstance];
         
     }
-#pragma mark - Language
+    
+#pragma mark  Multithreading
+    /*
+     Arguments 
+     native-multithreading-dispatch-async(-onmainthread)
+     
+     function
+     target
+     arguments...
+     */
+     
+     
+    
+    if ([nativeNameComponents[1] isEqualToString:@"multithreading"]) {
+        if (arguments.count <= 3) {
+            [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+            return [Instance nilInstance];
+        }
+        Instance *funcInst = arguments[1];
+        Instance *target = arguments[2];
+        XFunction *funcToExec = funcInst.objectiveCModel;
+        
+        NSRange range;
+        range.location = 3;
+        range.length = arguments.count - 3;
+        
+        dispatch_queue_t queue;
+        if ([nativeMethodCallName isEqualToString:@"native-multithreading-dispatch-async"]) {
+            queue = dispatch_queue_create("queue created programmaticallly", NULL);
+        } else if ([nativeMethodCallName isEqualToString:@"native-multithreading-dispatch-async-onmainthread"]){
+            queue = dispatch_get_main_queue();
+        } else {
+            queue = dispatch_get_main_queue();
+        }
+        
+        dispatch_async(queue, ^{
+            [target respondToMethodCallWithName:funcToExec.name.stringRepresentation andArgumets:[NSMutableArray arrayWithArray:[arguments subarrayWithRange:range]]];
+        });
+    }
+    
+#pragma mark UI
+    
+    /*
+     Arguments
+     
+     native-ui-get-main-vc
+     
+     target
+     
+     */
+    
+    if ([nativeNameComponents[1] isEqualToString:@"ui"]) {
+        if (arguments.count != 2) {
+            [self throwNativeArgumentNumberMismatchError:nativeMethodCallName];
+            return [Instance nilInstance];
+        }
+        Instance *target = arguments[1];
+        target.objectiveCModel = [[SharedRuntimeUI sharedRuntimeUI] sharedViewController];
+        return [Instance nilInstance];
+    }
+    
+#pragma mark  Language
     //lang
     if ([nativeMethodCallName isEqualToString:@"native-lang-assign"]) {
         if (arguments.count != 3) {
@@ -575,7 +673,7 @@
         
     }
     
-#pragma mark - ObjC (Real Native) (native-objc-...)
+#pragma mark  ObjC (Real Native) (native-objc-...)
     
     if (nativeNameComponents.count >= 3) {
         if ([nativeNameComponents[1] isEqualToString:@"objc"]) {
@@ -608,6 +706,7 @@
                 Instance *selectorName = arguments[3];
 //                Instance *argument = arguments[4];
                 onInstance.objectiveCModel = [[NSClassFromString(className.objectiveCModel) alloc] performSelector:NSSelectorFromString(selectorName.objectiveCModel)];
+                return [Instance nilInstance];
             }
             if ([nativeMethodCallName isEqualToString:@"native-objc-create-obj-c-model-1-argument"]) {
                 //check count
@@ -629,6 +728,7 @@
                 Instance *selectorName = arguments[3];
                 Instance *argument = arguments[4];
                 onInstance.objectiveCModel = [[NSClassFromString(className.objectiveCModel) alloc] performSelector:NSSelectorFromString(selectorName.objectiveCModel) withObject:argument.objectiveCModel];
+                return [Instance nilInstance];
             }
             if ([nativeMethodCallName isEqualToString:@"native-objc-create-obj-c-model-2-argument"]) {
                 //check count
@@ -653,12 +753,13 @@
                 Instance *argument = arguments[4];
                 Instance *anotherArgument = arguments[5];
                 onInstance.objectiveCModel = [[NSClassFromString(className.objectiveCModel) alloc] performSelector:NSSelectorFromString(selectorName.objectiveCModel) withObject:argument.objectiveCModel withObject:anotherArgument.objectiveCModel];
+                return [Instance nilInstance];
             }
             /*
              Arguments
              native-objc-perform-method-call-012-argument,
              onInstance,
-             className,
+             
              selectorName,
              argument
              createObjectiveCModel(onInstance, selectorName, argument);
@@ -738,7 +839,7 @@
     }
     
 
-    [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Unrecognized Native Method Call"] sender:self];
+    [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Unrecognized Native Method Call, %@",nativeMethodCallName] sender:self];
     return [Instance nilInstance];
 }
 

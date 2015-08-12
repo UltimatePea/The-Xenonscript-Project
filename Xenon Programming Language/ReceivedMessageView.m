@@ -27,7 +27,7 @@
             imageTitle = @"Bubble-Gray.png";
             break;
     }
-    UIImage *background = [[UIImage imageNamed:imageTitle] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 30, 20, 30) resizingMode:UIImageResizingModeTile];
+    UIImage *background = [[UIImage imageNamed:imageTitle] resizableImageWithCapInsets:UIEdgeInsetsMake(10, 30, 30, 30) resizingMode:UIImageResizingModeTile];
 //    background.size = rect.size;
     [background drawInRect:rect];
     

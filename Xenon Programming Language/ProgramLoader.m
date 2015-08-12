@@ -62,6 +62,7 @@
     inst.messageDispatcher = dispatcher;
     //initialization
     [[Stack sharedStack] clear];
+    [[Stack sharedStack] willCallMethod:@"start" onClass:@"Start" methodCall:nil sendingInstance:nil];
     [[Console sharedConsole] clear];
     [[ThreadLockingManager sharedManager] clear];
     

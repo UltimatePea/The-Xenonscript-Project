@@ -30,7 +30,7 @@
 - (Instance *)respondToMethodCallWithName:(NSString *)functionName andArgumets:(NSMutableArray *)arguments;
 - (Instance *)performMethodCall:(XMethodCall *)methodCall;
 @property (strong, nonatomic) XClass *definingClass;//this one or the two methods under field or cimpiler
-@property (strong, nonatomic) Instance *parentInstance;//for stack trace
+@property (strong, nonatomic) Instance *parentInstance, *childInstance;//for stack trace
 @property (strong, nonatomic) NSString *currentlyRespondingToMethodName;
 
 
