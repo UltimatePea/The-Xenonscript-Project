@@ -93,6 +93,7 @@
     
         context.inFunction = [resultEntry.creatingInstance.analyzer functionWhichMethodCallIsIn:resultEntry.methodCall];
         context.showingMethodCall = resultEntry.methodCall;
+        context.instance = resultEntry.creatingInstance;
     return context;
     
 }

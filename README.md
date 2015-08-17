@@ -1,7 +1,7 @@
 # The-Xenonscript-Project
 Xenonscript is a introductory programming language. This repository is used for storing project files. You could visit http://xenonscript.com/ if interested.
 
-The Xenonscript Project is a XCode project, written in Objective-C. The intent of the project is to create a fully qualified programming language on iOS, which conforms to most designing principles by default. The goal of the project is to implement a fully qualified IDE that can perform the following tasks:
+The Xenonscript Project is a Xcode project, written in Objective-C. The intent of the project is to create a fully qualified programming language on iOS, which conforms to most designing principles by default. The goal of the project is to implement a fully qualified IDE that can perform the following tasks:
 
 <h4>1. Write the program in a GUI window in instead of in a TextEdit window.</h4>
 As intended for beginnner, also considering the ease of use, a Xenonscript program can be written in a fully non-textediting window.

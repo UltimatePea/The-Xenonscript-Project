@@ -40,6 +40,11 @@
             [self analyzeStackEntry:note.userInfo[NOTIFICATION_CENTER_SELECTED_STACK_TRACE_NOTIFICATION_USER_INFO_KEY_ENTRY]];
         });
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFICATION_CENTER_RESUMED_EXECUTION object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        self.showingMethodCall = nil;
+        self.displayingMethodCalls = nil;
+    }];
 }
 
 - (void)analyzeStackEntry:(StackTraceEntry *)entry

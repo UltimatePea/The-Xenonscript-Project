@@ -9,9 +9,29 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Xenonscript OS X.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>E727509C1B8084B400807E1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E72750B11B8084B400807E1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E72750BC1B8084B400807E1C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E75332911B04982C00B1059F</key>
 		<dict>
 			<key>primary</key>

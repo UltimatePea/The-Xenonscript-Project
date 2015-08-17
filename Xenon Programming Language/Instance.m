@@ -231,7 +231,7 @@
         
          //performing method call
         
-        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CENTER_RESUMED_EXECUTION object:self];
         
         
         

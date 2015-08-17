@@ -14,7 +14,6 @@
 
 
 //@property (strong, nonatomic) NSMutableArray *subFields;
-@property (strong, nonatomic) NSMutableArray *instanceEntries;
 
 @end
 

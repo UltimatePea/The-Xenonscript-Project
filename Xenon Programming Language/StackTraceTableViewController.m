@@ -7,6 +7,8 @@
 //
 
 #import "StackTraceTableViewController.h"
+#import "StackTraceEntryContext.h"
+#import "InstanceInspectorTableViewController.h"
 #import "Instance.h"
 #import "XClass.h"
 #import "XName.h"
@@ -14,6 +16,7 @@
 #import "Stack.h"
 #import "DebugProgramControllToolbar.h"
 #import "NotificationCenterNameRecord.h"
+#import "InstanceFieldEntry.h"
 @interface StackTraceTableViewController ()
 @property (strong, nonatomic) NSArray<StackTraceEntry *> *methodCalls;
 @end
@@ -49,6 +52,12 @@
             [self generateStackTrace:note.userInfo[@"info"]];
         });
     }];
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFICATION_CENTER_RESUMED_EXECUTION object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        self.methodCalls = nil;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        });
+    }];
 }
 
 - (void)generateStackTrace:(Instance *)inst
@@ -67,7 +76,7 @@
     [[Stack sharedStack] stackInstanceEntries];
     
     self.methodCalls = [[stackTrace reverseObjectEnumerator] allObjects];
-    [self sendNotificationForSelectedEntry:self.methodCalls.firstObject];
+    [self sendNotificationForSelectedEntry:self.methodCalls[1]];
     [self.tableView reloadData];
 }
 
@@ -99,5 +108,18 @@
     [self sendNotificationForSelectedEntry:self.methodCalls[indexPath.row]];
 }
 
+- (void)prepareForSegue:(nonnull UIStoryboardSegue *)segue sender:(nullable id)sender
+{
+    UITableViewCell *cell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    NSString *identifier = [NSString stringWithFormat:@"%@To%@Segue", NSStringFromClass([self class]), NSStringFromClass([InstanceInspectorTableViewController class])];
+    if ([segue.identifier isEqualToString:identifier
+        ]
+        ) {
+        InstanceInspectorTableViewController *iitvc = segue.destinationViewController;
+        StackTraceEntryContext *context = [[Stack sharedStack] contextForStackTraceEntry:self.methodCalls[indexPath.row]];
+        iitvc.displayingInstance = context.instance;
+    }
+}
 
 @end

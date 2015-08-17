@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 @class XFunction;
 @class XMethodCall;
-
+@class Instance;
 @interface StackTraceEntryContext : NSObject
 
 @property (strong, nonatomic) XFunction *inFunction;
 @property (strong, nonatomic) XMethodCall *showingMethodCall;
-
+@property (strong, nonatomic) Instance *instance;
 @end

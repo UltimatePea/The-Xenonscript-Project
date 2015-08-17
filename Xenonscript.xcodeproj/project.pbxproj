@@ -10,6 +10,11 @@
 		E71B464F1B20818900C35E39 /* FunctionSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */; };
 		E71F5EA41B48C90300A0362E /* InstanceFieldEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E71F5EA31B48C90300A0362E /* InstanceFieldEntry.m */; };
 		E723EB031B53DD3C00347A08 /* Foundation.xsproj in Resources */ = {isa = PBXBuildFile; fileRef = E723EB021B53DD3C00347A08 /* Foundation.xsproj */; };
+		E72513F51B8192FF007754A5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513F41B8192FF007754A5 /* AVFoundation.framework */; };
+		E72513F71B819305007754A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513F61B819305007754A5 /* CoreLocation.framework */; };
+		E72513F91B81931D007754A5 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513F81B81931D007754A5 /* SpriteKit.framework */; };
+		E72513FB1B819324007754A5 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513FA1B819324007754A5 /* SceneKit.framework */; };
+		E72513FE1B819734007754A5 /* InstanceInspectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72513FD1B819734007754A5 /* InstanceInspectorTableViewController.m */; };
 		E72ACA521B5794A8008D670E /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA511B5794A8008D670E /* CommonViewController.m */; };
 		E72BF9BD1B29DB6A00ED7BF9 /* ProjectAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = E72BF9BC1B29DB6A00ED7BF9 /* ProjectAnalyzer.m */; };
 		E72BF9D81B2BDF4A00ED7BF9 /* SharedInstanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E72BF9D71B2BDF4A00ED7BF9 /* SharedInstanceManager.m */; };
@@ -148,6 +153,12 @@
 		E71F5EA21B48C90300A0362E /* InstanceFieldEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstanceFieldEntry.h; sourceTree = "<group>"; };
 		E71F5EA31B48C90300A0362E /* InstanceFieldEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstanceFieldEntry.m; sourceTree = "<group>"; };
 		E723EB021B53DD3C00347A08 /* Foundation.xsproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Foundation.xsproj; sourceTree = "<group>"; };
+		E72513F41B8192FF007754A5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E72513F61B819305007754A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E72513F81B81931D007754A5 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		E72513FA1B819324007754A5 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		E72513FC1B819734007754A5 /* InstanceInspectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstanceInspectorTableViewController.h; sourceTree = "<group>"; };
+		E72513FD1B819734007754A5 /* InstanceInspectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstanceInspectorTableViewController.m; sourceTree = "<group>"; };
 		E72ACA501B5794A8008D670E /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
 		E72ACA511B5794A8008D670E /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
 		E72BF9BB1B29DB6A00ED7BF9 /* ProjectAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectAnalyzer.h; sourceTree = "<group>"; };
@@ -235,7 +246,7 @@
 		E76A94201B47CC0100027A94 /* Xenonscript.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Xenonscript.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E76A94221B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xenon_Programming_Language_UI_Tests_Swift.swift; sourceTree = "<group>"; };
 		E76A94241B47CC0100027A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E78042E91B7AF7BB004D6464 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E78042E91B7AF7BB004D6464 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		E79485751B6A07AB00547D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E79485761B6A07AB00547D61 /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
 		E79485771B6A07AB00547D61 /* NSArray+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Utilities.m"; sourceTree = "<group>"; };
@@ -369,6 +380,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72513FB1B819324007754A5 /* SceneKit.framework in Frameworks */,
+				E72513F91B81931D007754A5 /* SpriteKit.framework in Frameworks */,
+				E72513F71B819305007754A5 /* CoreLocation.framework in Frameworks */,
+				E72513F51B8192FF007754A5 /* AVFoundation.framework in Frameworks */,
 				E794859D1B6A343500547D61 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +499,10 @@
 			isa = PBXGroup;
 			children = (
 				E78042E91B7AF7BB004D6464 /* README.md */,
+				E72513FA1B819324007754A5 /* SceneKit.framework */,
+				E72513F81B81931D007754A5 /* SpriteKit.framework */,
+				E72513F61B819305007754A5 /* CoreLocation.framework */,
+				E72513F41B8192FF007754A5 /* AVFoundation.framework */,
 				E794859C1B6A343500547D61 /* Security.framework */,
 				E75332941B04982C00B1059F /* Xenon Programming Language */,
 				E75332B11B04982C00B1059F /* Xenon Programming LanguageTests */,
@@ -583,6 +602,8 @@
 				E7BCF5571B765A0B007EF1F4 /* ProgramControllerViewController.m */,
 				E7BCF5A41B78C6A2007EF1F4 /* CodesDebuggerTableViewController.h */,
 				E7BCF5A51B78C6A2007EF1F4 /* CodesDebuggerTableViewController.m */,
+				E72513FC1B819734007754A5 /* InstanceInspectorTableViewController.h */,
+				E72513FD1B819734007754A5 /* InstanceInspectorTableViewController.m */,
 				E7BCF5A31B78C594007EF1F4 /* UI */,
 				E7BCF5A21B78C58A007EF1F4 /* Stack Trace */,
 				E7A5402F1B763135002331FA /* Console */,
@@ -1046,6 +1067,7 @@
 				E79485A91B6A925A00547D61 /* ProjectSelectorTableViewCell.m in Sources */,
 				E7A5400E1B759214002331FA /* PlayBarItem.m in Sources */,
 				E7A540141B75936B002331FA /* StepInBarItem.m in Sources */,
+				E72513FE1B819734007754A5 /* InstanceInspectorTableViewController.m in Sources */,
 				E7E26B401B1A111000FF2E60 /* TypeSelectorTableViewController.m in Sources */,
 				E72BF9BD1B29DB6A00ED7BF9 /* ProjectAnalyzer.m in Sources */,
 				E75332CA1B0498E700B1059F /* XFramework.m in Sources */,
@@ -1245,6 +1267,7 @@
 				PRODUCT_NAME = Xenonscript;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -1267,6 +1290,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Xenonscript;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

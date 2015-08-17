@@ -13,6 +13,9 @@
 
 @interface Field : NSObject
 
+@property (strong, nonatomic) NSMutableArray *instanceEntries;
+
+
 - (NSArray *)instancesForName:(NSString *)name;
 
 - (void)addInstance:(Instance *)instance;

@@ -7,6 +7,7 @@
 //
 
 #import "TabBarDebugger.h"
+#import "NotificationCenterNameRecord.h"
 //#import "ConsoleAlertViewController.h"
 
 @implementation TabBarDebugger
@@ -21,6 +22,23 @@
 //    ConsoleAlertViewController *ac = [ConsoleAlertViewController alertControllerWithTitle:@"Running" message:@"" preferredStyle:UIAlertControllerStyleAlert];
 //    [array insertObject:ac atIndex:0];
 //    self.viewControllers = array;
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFICATION_CENTER_SELECTED_STACK_TRACE_NOTIFICATION
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.selectedViewController = self.viewControllers[self.viewControllers.count - 2];
+        });
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFICATION_CENTER_RESUMED_EXECUTION
+                                                      object:nil
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.selectedViewController = self.viewControllers.firstObject;
+        });
+    }];
 }
 
 @end
