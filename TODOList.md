@@ -14,16 +14,16 @@ TODO:
 4. Construct a Pure Object Orientied Framework mimicing Foundation, UIKit, and so on. Pure Object Oriented Framework means every method receives a parameter of kind Object (rewrite iOS APIs containing the use of such types as int, bool, double).
 </h4>
 Example:
-
+<code>
 @interface UIViewController
 
 - (void)presentViewController:(UIViewController *)viewController animated:(BOOL)flag;
-
+</code>
 now will be modified to
-
+<code>
 @interface Boolean
 
 @interace UIViewController
 
 - (void)presentViewController:(UIViewController *)viewController animated:(Boolean *)flag;
-.
+</code>
