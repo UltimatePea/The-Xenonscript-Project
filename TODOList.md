@@ -21,8 +21,8 @@ Example:
 
 now will be modified to
 
-@interface Boolean
+@interface XSBoolean
 
-@interace UIViewController
+@interace XSUIViewController
 
 - (void)presentViewController:(UIViewController *)viewController animated:(Boolean *)flag;
