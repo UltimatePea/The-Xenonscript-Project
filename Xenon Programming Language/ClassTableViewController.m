@@ -13,11 +13,13 @@
 #import "PropertiesTableViewController.h"
 #import "MethodsTableViewController.h"
 #import "TypeSelectorTableViewController.h"
+#import "EditAsScriptViewController.h"
 
 @interface ClassTableViewController () <UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableViewCell *propertiesTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *methodsTableViewCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *baseClassTableViewCell;
+@property (weak, nonatomic) IBOutlet UITableViewCell *editAsScriptTableViewCell;
 
 @end
 
@@ -63,6 +65,10 @@
         }];
         [self.navigationController pushViewController:tpvc animated:YES];
 
+    } else if ([cell isEqual:self.editAsScriptTableViewCell]){
+        EditAsScriptViewController *easvc = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([EditAsScriptViewController class])];
+        easvc.displayingClass = self.displayingClass;
+        [self.navigationController pushViewController:easvc animated:YES];
     }
     
     

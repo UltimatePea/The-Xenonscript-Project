@@ -53,6 +53,7 @@
 		E75332E51B04999100B1059F /* XMethodCall.m in Sources */ = {isa = PBXBuildFile; fileRef = E75332E41B04999100B1059F /* XMethodCall.m */; };
 		E75332E81B04999C00B1059F /* XName.m in Sources */ = {isa = PBXBuildFile; fileRef = E75332E71B04999C00B1059F /* XName.m */; };
 		E75332EB1B049C4400B1059F /* XType.m in Sources */ = {isa = PBXBuildFile; fileRef = E75332EA1B049C4400B1059F /* XType.m */; };
+		E75DEC281B81E662003FD7F1 /* EditAsScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E75DEC271B81E662003FD7F1 /* EditAsScriptViewController.m */; };
 		E76082C51B6E497700F188A8 /* StackTraceEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E76082C41B6E497700F188A8 /* StackTraceEntry.m */; };
 		E769FE381B453094009884BF /* FrameworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E769FE371B453094009884BF /* FrameworkManager.m */; };
 		E769FE3B1B454A8F009884BF /* ProjectsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E769FE3A1B454A8F009884BF /* ProjectsManager.m */; };
@@ -160,7 +161,7 @@
 		E72513FA1B819324007754A5 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
 		E72513FC1B819734007754A5 /* InstanceInspectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstanceInspectorTableViewController.h; sourceTree = "<group>"; };
 		E72513FD1B819734007754A5 /* InstanceInspectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstanceInspectorTableViewController.m; sourceTree = "<group>"; };
-		E72513FF1B81AF59007754A5 /* TODOList.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODOList.md; sourceTree = "<group>"; };
+		E72513FF1B81AF59007754A5 /* TODOList.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = TODOList.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		E72ACA501B5794A8008D670E /* CommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonViewController.h; sourceTree = "<group>"; };
 		E72ACA511B5794A8008D670E /* CommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonViewController.m; sourceTree = "<group>"; };
 		E72BF9BB1B29DB6A00ED7BF9 /* ProjectAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectAnalyzer.h; sourceTree = "<group>"; };
@@ -235,6 +236,8 @@
 		E75332E71B04999C00B1059F /* XName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XName.m; sourceTree = "<group>"; };
 		E75332E91B049C4400B1059F /* XType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XType.h; sourceTree = "<group>"; };
 		E75332EA1B049C4400B1059F /* XType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XType.m; sourceTree = "<group>"; };
+		E75DEC261B81E662003FD7F1 /* EditAsScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAsScriptViewController.h; sourceTree = "<group>"; };
+		E75DEC271B81E662003FD7F1 /* EditAsScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAsScriptViewController.m; sourceTree = "<group>"; };
 		E76082C31B6E497700F188A8 /* StackTraceEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTraceEntry.h; sourceTree = "<group>"; };
 		E76082C41B6E497700F188A8 /* StackTraceEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackTraceEntry.m; sourceTree = "<group>"; };
 		E769FE361B453094009884BF /* FrameworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FrameworkManager.h; sourceTree = "<group>"; };
@@ -821,6 +824,8 @@
 			children = (
 				E7BF84051B0F6222008C7F49 /* ClassTableViewController.h */,
 				E7BF84061B0F6222008C7F49 /* ClassTableViewController.m */,
+				E75DEC261B81E662003FD7F1 /* EditAsScriptViewController.h */,
+				E75DEC271B81E662003FD7F1 /* EditAsScriptViewController.m */,
 				E72EAB951B10C5CD0086418E /* VariablesTableViewController.h */,
 				E72EAB961B10C5CD0086418E /* VariablesTableViewController.m */,
 				E7BF84081B0F624B008C7F49 /* PropertiesTableViewController.h */,
@@ -1072,6 +1077,7 @@
 				E7A5400E1B759214002331FA /* PlayBarItem.m in Sources */,
 				E7A540141B75936B002331FA /* StepInBarItem.m in Sources */,
 				E72513FE1B819734007754A5 /* InstanceInspectorTableViewController.m in Sources */,
+				E75DEC281B81E662003FD7F1 /* EditAsScriptViewController.m in Sources */,
 				E7E26B401B1A111000FF2E60 /* TypeSelectorTableViewController.m in Sources */,
 				E72BF9BD1B29DB6A00ED7BF9 /* ProjectAnalyzer.m in Sources */,
 				E75332CA1B0498E700B1059F /* XFramework.m in Sources */,

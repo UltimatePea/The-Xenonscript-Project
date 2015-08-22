@@ -29,7 +29,7 @@
 {
     if (!_methodCall) {
         _methodCall = [[XMethodCall alloc] init];
-        _methodCall.instanceName = [[XName alloc] initWithString:@"this"];
+        
     }
     return _methodCall;
 }
@@ -61,6 +61,10 @@
         [UserPrompter promptUserMessage:@"Function name must be specified" withViewController:self];
         return;
     }
+    if (self.methodCall.instanceName==nil && self.methodCall.instanceMethodCall == nil) {
+        _methodCall.instanceName = [[XName alloc] initWithString:@"this"];
+    }
+    
     self.completionBlock(self.methodCall);
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -120,7 +124,9 @@
     [self.storyboard instantiateViewControllerWithIdentifier:@"NewMethodCallTableViewController"];
     [nmctvc setCompletionBlock:^(XMethodCall *newMethodCall) {
         self.methodCall.instanceMethodCall = newMethodCall;
+        
         [self updateTable];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     nmctvc.inFramework = self.inFramework;
     nmctvc.inFunction = self.inFunction;
