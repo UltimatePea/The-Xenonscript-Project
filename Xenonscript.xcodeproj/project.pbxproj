@@ -15,7 +15,6 @@
 		E72513F91B81931D007754A5 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513F81B81931D007754A5 /* SpriteKit.framework */; };
 		E72513FB1B819324007754A5 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513FA1B819324007754A5 /* SceneKit.framework */; };
 		E72513FE1B819734007754A5 /* InstanceInspectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72513FD1B819734007754A5 /* InstanceInspectorTableViewController.m */; };
-		E72514001B81AF59007754A5 /* TODOList.md in Resources */ = {isa = PBXBuildFile; fileRef = E72513FF1B81AF59007754A5 /* TODOList.md */; };
 		E72ACA521B5794A8008D670E /* CommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E72ACA511B5794A8008D670E /* CommonViewController.m */; };
 		E72BF9BD1B29DB6A00ED7BF9 /* ProjectAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = E72BF9BC1B29DB6A00ED7BF9 /* ProjectAnalyzer.m */; };
 		E72BF9D81B2BDF4A00ED7BF9 /* SharedInstanceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E72BF9D71B2BDF4A00ED7BF9 /* SharedInstanceManager.m */; };
@@ -60,7 +59,6 @@
 		E769FE3E1B46DE77009884BF /* ProgramRunnerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E769FE3D1B46DE77009884BF /* ProgramRunnerTableViewController.m */; };
 		E76A74661B54D4CD0088D573 /* SupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E76A74651B54D4CD0088D573 /* SupportViewController.m */; };
 		E76A94231B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76A94221B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift */; };
-		E78042EA1B7AF7BB004D6464 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E78042E91B7AF7BB004D6464 /* README.md */; };
 		E794858D1B6A07AB00547D61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E79485741B6A07AB00547D61 /* InfoPlist.strings */; };
 		E794858E1B6A07AB00547D61 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E79485771B6A07AB00547D61 /* NSArray+Utilities.m */; };
 		E794858F1B6A07AB00547D61 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E79485791B6A07AB00547D61 /* NSData+Base64.m */; };
@@ -368,6 +366,7 @@
 		E7E132CD1B245C7A00428740 /* ProgramLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramLoader.h; sourceTree = "<group>"; };
 		E7E132CE1B245C7A00428740 /* ProgramLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramLoader.m; sourceTree = "<group>"; };
 		E7E132D01B245EC200428740 /* Xenon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xenon.h; sourceTree = "<group>"; };
+		E7E1F9EC1B89B64C000E4471 /* License.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = License.md; sourceTree = "<group>"; };
 		E7E26B381B1A0D1900FF2E60 /* LocalVariablesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalVariablesTableViewController.h; sourceTree = "<group>"; };
 		E7E26B391B1A0D1900FF2E60 /* LocalVariablesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalVariablesTableViewController.m; sourceTree = "<group>"; };
 		E7E26B3B1B1A0DBC00FF2E60 /* XLocalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLocalVariable.h; sourceTree = "<group>"; };
@@ -503,6 +502,7 @@
 		E75332891B04982C00B1059F = {
 			isa = PBXGroup;
 			children = (
+				E7E1F9EC1B89B64C000E4471 /* License.md */,
 				E78042E91B7AF7BB004D6464 /* README.md */,
 				E72513FF1B81AF59007754A5 /* TODOList.md */,
 				E72513FA1B819324007754A5 /* SceneKit.framework */,
@@ -965,7 +965,6 @@
 			files = (
 				E7BCF55A1B765E7A007EF1F4 /* Bubble-Gray.png in Resources */,
 				E7BCF55C1B765E83007EF1F4 /* Bubble-Yellow.png in Resources */,
-				E72514001B81AF59007754A5 /* TODOList.md in Resources */,
 				E723EB031B53DD3C00347A08 /* Foundation.xsproj in Resources */,
 				E7BCF55E1B765E8A007EF1F4 /* Bubble-Red.png in Resources */,
 				E75332A41B04982C00B1059F /* Main.storyboard in Resources */,
@@ -1053,7 +1052,6 @@
 				E745CFB51B6CF02B00B767A6 /* DebuggerExitViewController.m in Sources */,
 				E745CFB21B6CE6FA00B767A6 /* ThreadLockingManager.m in Sources */,
 				E79485941B6A07AB00547D61 /* UAGithubEngine.m in Sources */,
-				E78042EA1B7AF7BB004D6464 /* README.md in Sources */,
 				E745CFB81B6CF62300B767A6 /* TabBarDebugger.m in Sources */,
 				E7C7E29B1B1D29BB0056BF3E /* NameSelectorTableViewController.m in Sources */,
 				E7BF84161B0F62B4008C7F49 /* ParametersTableViewController.m in Sources */,

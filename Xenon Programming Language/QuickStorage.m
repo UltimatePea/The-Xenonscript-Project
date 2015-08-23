@@ -18,7 +18,9 @@
 
 @implementation QuickStorage
 
+
 @synthesize saveURL = _saveURL;
+
 - (NSURL *)saveURL
 {
     if (!_saveURL) {
@@ -26,6 +28,8 @@
     }
     return _saveURL;
 }
+
+
 
 - (NSMutableDictionary *)storageDictionary
 {
@@ -93,5 +97,8 @@
 {
     return [[QuickStorage sharedInstance] deleteObjectForKey:key];
 }
+
+
+
 
 @end

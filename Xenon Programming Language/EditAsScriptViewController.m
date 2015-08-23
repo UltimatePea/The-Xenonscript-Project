@@ -21,7 +21,7 @@
 {
     if (!_toolBar) {
         _toolBar = [[UIToolbar alloc] init];
-        _toolBar.
+        
         _toolBar.items = self.toolBarItems;
     }
     return _toolBar;
