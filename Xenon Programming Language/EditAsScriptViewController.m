@@ -7,6 +7,7 @@
 //
 
 #import "EditAsScriptViewController.h"
+#import "EditAsScriptTextView.h"
 
 @interface EditAsScriptViewController ()
 
@@ -45,6 +46,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textView.inputAccessoryView = self.toolBar;
+    EditAsScriptTextView *eastv = [[EditAsScriptTextView alloc] init];
+    eastv.displayingClass = self.displayingClass;
+    self.textView.text=  [eastv stringForClass:self.displayingClass];
     // Do any additional setup after loading the view.
 }
 

@@ -116,6 +116,7 @@
 		E7E0B8861B18719D005E50F8 /* MethodCallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B8851B18719D005E50F8 /* MethodCallTableViewController.m */; };
 		E7E0B8891B18730A005E50F8 /* ArgumentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B8881B18730A005E50F8 /* ArgumentsTableViewController.m */; };
 		E7E132CF1B245C7A00428740 /* ProgramLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E132CE1B245C7A00428740 /* ProgramLoader.m */; };
+		E7E1F9EF1B89BA23000E4471 /* EditAsScriptTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E1F9EE1B89BA23000E4471 /* EditAsScriptTextView.m */; };
 		E7E26B3A1B1A0D1900FF2E60 /* LocalVariablesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B391B1A0D1900FF2E60 /* LocalVariablesTableViewController.m */; };
 		E7E26B3D1B1A0DBC00FF2E60 /* XLocalVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B3C1B1A0DBC00FF2E60 /* XLocalVariable.m */; };
 		E7E26B401B1A111000FF2E60 /* TypeSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E26B3F1B1A111000FF2E60 /* TypeSelectorTableViewController.m */; };
@@ -367,6 +368,8 @@
 		E7E132CE1B245C7A00428740 /* ProgramLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramLoader.m; sourceTree = "<group>"; };
 		E7E132D01B245EC200428740 /* Xenon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Xenon.h; sourceTree = "<group>"; };
 		E7E1F9EC1B89B64C000E4471 /* License.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = License.md; sourceTree = "<group>"; };
+		E7E1F9ED1B89BA23000E4471 /* EditAsScriptTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAsScriptTextView.h; sourceTree = "<group>"; };
+		E7E1F9EE1B89BA23000E4471 /* EditAsScriptTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAsScriptTextView.m; sourceTree = "<group>"; };
 		E7E26B381B1A0D1900FF2E60 /* LocalVariablesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalVariablesTableViewController.h; sourceTree = "<group>"; };
 		E7E26B391B1A0D1900FF2E60 /* LocalVariablesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalVariablesTableViewController.m; sourceTree = "<group>"; };
 		E7E26B3B1B1A0DBC00FF2E60 /* XLocalVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLocalVariable.h; sourceTree = "<group>"; };
@@ -540,6 +543,7 @@
 				E75332BE1B04985000B1059F /* Build Time */,
 				E75332991B04982C00B1059F /* AppDelegate.h */,
 				E753329A1B04982C00B1059F /* AppDelegate.m */,
+				E7E1F9F11B89BA32000E4471 /* Edit As Script */,
 				E769FE361B453094009884BF /* FrameworkManager.h */,
 				E769FE371B453094009884BF /* FrameworkManager.m */,
 				E769FE391B454A8F009884BF /* ProjectsManager.h */,
@@ -835,6 +839,15 @@
 			name = ClassViewControllers;
 			sourceTree = "<group>";
 		};
+		E7E1F9F11B89BA32000E4471 /* Edit As Script */ = {
+			isa = PBXGroup;
+			children = (
+				E7E1F9ED1B89BA23000E4471 /* EditAsScriptTextView.h */,
+				E7E1F9EE1B89BA23000E4471 /* EditAsScriptTextView.m */,
+			);
+			name = "Edit As Script";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1053,6 +1066,7 @@
 				E745CFB21B6CE6FA00B767A6 /* ThreadLockingManager.m in Sources */,
 				E79485941B6A07AB00547D61 /* UAGithubEngine.m in Sources */,
 				E745CFB81B6CF62300B767A6 /* TabBarDebugger.m in Sources */,
+				E7E1F9EF1B89BA23000E4471 /* EditAsScriptTextView.m in Sources */,
 				E7C7E29B1B1D29BB0056BF3E /* NameSelectorTableViewController.m in Sources */,
 				E7BF84161B0F62B4008C7F49 /* ParametersTableViewController.m in Sources */,
 				E79485911B6A07AB00547D61 /* NSString+UAGithubEngineUtilities.m in Sources */,
