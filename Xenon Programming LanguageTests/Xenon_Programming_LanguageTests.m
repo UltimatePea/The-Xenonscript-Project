@@ -10,6 +10,8 @@
 #import <XCTest/XCTest.h>
 #import "ClassesTableViewController.h"
 #import "TypeSelectorTableViewController.h"
+#import "Line.h"
+#import "Xenon.h"
 @interface Xenon_Programming_LanguageTests : XCTestCase
 
 @end
@@ -42,6 +44,18 @@
 - (void)testFrameworkTVC
 {
     
+}
+
+- (void)testXName
+{
+    XName *name = [[XName alloc] initWithString:@"Ella"];
+    XCTAssertEqual([name.stringRepresentation isEqualToString:@"Ella"], YES);
+}
+
+- (void)testLineClass
+{
+    Line *line = [[Line alloc] initWithString:@"class Hel\\#$@ lo extends Object "];
+    XCTAssertEqual([line isClassDefinitionValid], YES);
 }
 
 @end

@@ -18,7 +18,8 @@
 - (NSString *)stringRepresentation
 {
     
-    return [self.str stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];
+//    return [self.str stringByReplacingOccurrencesOfString:@" " withString:@"\\ "];//not useful as will be ignored
+    return [self.str stringByReplacingOccurrencesOfString:@" " withString:@" "];
 }
 
 - (instancetype)initWithString:(NSString *)aString

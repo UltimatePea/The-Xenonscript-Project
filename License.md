@@ -1,3 +1,9 @@
+This app contains modified UAGitHubEngine
+
+Some icons are from icons8.com
+
+
+
 GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 

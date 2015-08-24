@@ -52,13 +52,25 @@
 		E75332E51B04999100B1059F /* XMethodCall.m in Sources */ = {isa = PBXBuildFile; fileRef = E75332E41B04999100B1059F /* XMethodCall.m */; };
 		E75332E81B04999C00B1059F /* XName.m in Sources */ = {isa = PBXBuildFile; fileRef = E75332E71B04999C00B1059F /* XName.m */; };
 		E75332EB1B049C4400B1059F /* XType.m in Sources */ = {isa = PBXBuildFile; fileRef = E75332EA1B049C4400B1059F /* XType.m */; };
+		E75D7C2C1B8B728700690BBD /* XSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C2B1B8B728700690BBD /* XSObject.m */; };
+		E75D7C311B8B760900690BBD /* NativeMethodCall.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C301B8B760900690BBD /* NativeMethodCall.m */; };
+		E75D7C351B8B856B00690BBD /* XSDouble.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C341B8B856B00690BBD /* XSDouble.m */; };
+		E75D7C381B8B858900690BBD /* XSInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C371B8B858900690BBD /* XSInteger.m */; };
+		E75D7C3C1B8B85F200690BBD /* XSBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C3B1B8B85F200690BBD /* XSBoolean.m */; };
+		E75D7C3F1B8B881C00690BBD /* XSString.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C3E1B8B881C00690BBD /* XSString.m */; };
+		E75D7C431B8B897D00690BBD /* XSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C421B8B897D00690BBD /* XSArray.m */; };
+		E75D7C461B8B8A2D00690BBD /* XSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C451B8B8A2D00690BBD /* XSDictionary.m */; };
+		E75D7C4A1B8B8B3800690BBD /* XSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C491B8B8B3800690BBD /* XSNumber.m */; };
+		E75D7C4D1B8B8F3700690BBD /* XSError.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C4C1B8B8F3700690BBD /* XSError.m */; };
+		E75D7C501B8B8F5000690BBD /* XSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C4F1B8B8F5000690BBD /* XSFileManager.m */; };
+		E75D7C531B8B8FB200690BBD /* XSTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C521B8B8FB200690BBD /* XSTimer.m */; };
+		E75D7C561B8B8FC300690BBD /* XSURL.m in Sources */ = {isa = PBXBuildFile; fileRef = E75D7C551B8B8FC300690BBD /* XSURL.m */; };
 		E75DEC281B81E662003FD7F1 /* EditAsScriptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E75DEC271B81E662003FD7F1 /* EditAsScriptViewController.m */; };
 		E76082C51B6E497700F188A8 /* StackTraceEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E76082C41B6E497700F188A8 /* StackTraceEntry.m */; };
 		E769FE381B453094009884BF /* FrameworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E769FE371B453094009884BF /* FrameworkManager.m */; };
 		E769FE3B1B454A8F009884BF /* ProjectsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E769FE3A1B454A8F009884BF /* ProjectsManager.m */; };
 		E769FE3E1B46DE77009884BF /* ProgramRunnerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E769FE3D1B46DE77009884BF /* ProgramRunnerTableViewController.m */; };
 		E76A74661B54D4CD0088D573 /* SupportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E76A74651B54D4CD0088D573 /* SupportViewController.m */; };
-		E76A94231B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76A94221B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift */; };
 		E794858D1B6A07AB00547D61 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E79485741B6A07AB00547D61 /* InfoPlist.strings */; };
 		E794858E1B6A07AB00547D61 /* NSArray+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = E79485771B6A07AB00547D61 /* NSArray+Utilities.m */; };
 		E794858F1B6A07AB00547D61 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E79485791B6A07AB00547D61 /* NSData+Base64.m */; };
@@ -80,7 +92,6 @@
 		E79485AC1B6B74A300547D61 /* RepositorySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = E79485AB1B6B74A300547D61 /* RepositorySelector.m */; };
 		E79485AF1B6B8A0800547D61 /* BranchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E79485AE1B6B8A0800547D61 /* BranchTableViewCell.m */; };
 		E796EE981B36A4DB006D2F57 /* MessageDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E796EE971B36A4DB006D2F57 /* MessageDispatcher.m */; };
-		E796EEA01B36D88B006D2F57 /* Xenon_Programming_Language_UI_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = E796EE9F1B36D88B006D2F57 /* Xenon_Programming_Language_UI_Tests.m */; };
 		E7A540041B74B884002331FA /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A540031B74B884002331FA /* Stack.m */; };
 		E7A540071B750A76002331FA /* DebugProgramControllToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A540061B750A76002331FA /* DebugProgramControllToolbar.m */; };
 		E7A5400B1B750E92002331FA /* PauseBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A5400A1B750E92002331FA /* PauseBarItem.m */; };
@@ -94,6 +105,8 @@
 		E7A5402A1B762C87002331FA /* Console.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A540291B762C87002331FA /* Console.m */; };
 		E7A5402D1B762CBB002331FA /* ConsoleEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A5402C1B762CBB002331FA /* ConsoleEntry.m */; };
 		E7A830A21B69E0E6002BD4FD /* GitHubSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A830A11B69E0E6002BD4FD /* GitHubSignInViewController.m */; };
+		E7ACE8F51B8A175D00CF5475 /* EditAsScriptStringValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACE8F41B8A175D00CF5475 /* EditAsScriptStringValidator.m */; };
+		E7ACE8F81B8A219400CF5475 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = E7ACE8F71B8A219400CF5475 /* Line.m */; };
 		E7BCF5581B765A0B007EF1F4 /* ProgramControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BCF5571B765A0B007EF1F4 /* ProgramControllerViewController.m */; };
 		E7BCF55A1B765E7A007EF1F4 /* Bubble-Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = E7BCF5591B765E7A007EF1F4 /* Bubble-Gray.png */; };
 		E7BCF55C1B765E83007EF1F4 /* Bubble-Yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = E7BCF55B1B765E83007EF1F4 /* Bubble-Yellow.png */; };
@@ -126,20 +139,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		E75332AF1B04982C00B1059F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E753328A1B04982C00B1059F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E75332911B04982C00B1059F;
-			remoteInfo = "Xenon Programming Language";
-		};
-		E76A94251B47CC0100027A94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E753328A1B04982C00B1059F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E75332911B04982C00B1059F;
-			remoteInfo = "Xenon Programming Language";
-		};
-		E796EEA21B36D88B006D2F57 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E753328A1B04982C00B1059F /* Project object */;
 			proxyType = 1;
@@ -235,6 +234,34 @@
 		E75332E71B04999C00B1059F /* XName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XName.m; sourceTree = "<group>"; };
 		E75332E91B049C4400B1059F /* XType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XType.h; sourceTree = "<group>"; };
 		E75332EA1B049C4400B1059F /* XType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XType.m; sourceTree = "<group>"; };
+		E75D7C2A1B8B728700690BBD /* XSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSObject.h; sourceTree = "<group>"; };
+		E75D7C2B1B8B728700690BBD /* XSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSObject.m; sourceTree = "<group>"; };
+		E75D7C2E1B8B739E00690BBD /* XSInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSInterface.h; sourceTree = "<group>"; };
+		E75D7C2F1B8B760900690BBD /* NativeMethodCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeMethodCall.h; sourceTree = "<group>"; };
+		E75D7C301B8B760900690BBD /* NativeMethodCall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeMethodCall.m; sourceTree = "<group>"; };
+		E75D7C331B8B856B00690BBD /* XSDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDouble.h; sourceTree = "<group>"; };
+		E75D7C341B8B856B00690BBD /* XSDouble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDouble.m; sourceTree = "<group>"; };
+		E75D7C361B8B858900690BBD /* XSInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSInteger.h; sourceTree = "<group>"; };
+		E75D7C371B8B858900690BBD /* XSInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSInteger.m; sourceTree = "<group>"; };
+		E75D7C3A1B8B85F200690BBD /* XSBoolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBoolean.h; sourceTree = "<group>"; };
+		E75D7C3B1B8B85F200690BBD /* XSBoolean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBoolean.m; sourceTree = "<group>"; };
+		E75D7C3D1B8B881C00690BBD /* XSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSString.h; sourceTree = "<group>"; };
+		E75D7C3E1B8B881C00690BBD /* XSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSString.m; sourceTree = "<group>"; };
+		E75D7C411B8B897D00690BBD /* XSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSArray.h; sourceTree = "<group>"; };
+		E75D7C421B8B897D00690BBD /* XSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSArray.m; sourceTree = "<group>"; };
+		E75D7C441B8B8A2D00690BBD /* XSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDictionary.h; sourceTree = "<group>"; };
+		E75D7C451B8B8A2D00690BBD /* XSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDictionary.m; sourceTree = "<group>"; };
+		E75D7C471B8B8B0B00690BBD /* XSMathOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMathOperation.h; sourceTree = "<group>"; };
+		E75D7C481B8B8B3800690BBD /* XSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSNumber.h; sourceTree = "<group>"; };
+		E75D7C491B8B8B3800690BBD /* XSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSNumber.m; sourceTree = "<group>"; };
+		E75D7C4B1B8B8F3700690BBD /* XSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSError.h; sourceTree = "<group>"; };
+		E75D7C4C1B8B8F3700690BBD /* XSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSError.m; sourceTree = "<group>"; };
+		E75D7C4E1B8B8F5000690BBD /* XSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSFileManager.h; sourceTree = "<group>"; };
+		E75D7C4F1B8B8F5000690BBD /* XSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSFileManager.m; sourceTree = "<group>"; };
+		E75D7C511B8B8FB200690BBD /* XSTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSTimer.h; sourceTree = "<group>"; };
+		E75D7C521B8B8FB200690BBD /* XSTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSTimer.m; sourceTree = "<group>"; };
+		E75D7C541B8B8FC300690BBD /* XSURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSURL.h; sourceTree = "<group>"; };
+		E75D7C551B8B8FC300690BBD /* XSURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSURL.m; sourceTree = "<group>"; };
 		E75DEC261B81E662003FD7F1 /* EditAsScriptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAsScriptViewController.h; sourceTree = "<group>"; };
 		E75DEC271B81E662003FD7F1 /* EditAsScriptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAsScriptViewController.m; sourceTree = "<group>"; };
 		E76082C31B6E497700F188A8 /* StackTraceEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackTraceEntry.h; sourceTree = "<group>"; };
@@ -247,9 +274,6 @@
 		E769FE3D1B46DE77009884BF /* ProgramRunnerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramRunnerTableViewController.m; sourceTree = "<group>"; };
 		E76A74641B54D4CD0088D573 /* SupportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportViewController.h; sourceTree = "<group>"; };
 		E76A74651B54D4CD0088D573 /* SupportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportViewController.m; sourceTree = "<group>"; };
-		E76A94201B47CC0100027A94 /* Xenonscript.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Xenonscript.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E76A94221B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xenon_Programming_Language_UI_Tests_Swift.swift; sourceTree = "<group>"; };
-		E76A94241B47CC0100027A94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E78042E91B7AF7BB004D6464 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.html; };
 		E79485751B6A07AB00547D61 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E79485761B6A07AB00547D61 /* NSArray+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Utilities.h"; sourceTree = "<group>"; };
@@ -292,9 +316,6 @@
 		E79485AE1B6B8A0800547D61 /* BranchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BranchTableViewCell.m; sourceTree = "<group>"; };
 		E796EE961B36A4DB006D2F57 /* MessageDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageDispatcher.h; sourceTree = "<group>"; };
 		E796EE971B36A4DB006D2F57 /* MessageDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageDispatcher.m; sourceTree = "<group>"; };
-		E796EE9D1B36D88B006D2F57 /* Xenonscript.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Xenonscript.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E796EE9F1B36D88B006D2F57 /* Xenon_Programming_Language_UI_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Xenon_Programming_Language_UI_Tests.m; sourceTree = "<group>"; };
-		E796EEA11B36D88B006D2F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7A540021B74B884002331FA /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
 		E7A540031B74B884002331FA /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
 		E7A540051B750A76002331FA /* DebugProgramControllToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugProgramControllToolbar.h; sourceTree = "<group>"; };
@@ -324,6 +345,10 @@
 		E7A540311B763291002331FA /* MessageDispatcherNotificationCommunicationStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDispatcherNotificationCommunicationStrings.h; sourceTree = "<group>"; };
 		E7A830A01B69E0E6002BD4FD /* GitHubSignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GitHubSignInViewController.h; sourceTree = "<group>"; };
 		E7A830A11B69E0E6002BD4FD /* GitHubSignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GitHubSignInViewController.m; sourceTree = "<group>"; };
+		E7ACE8F31B8A175D00CF5475 /* EditAsScriptStringValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditAsScriptStringValidator.h; sourceTree = "<group>"; };
+		E7ACE8F41B8A175D00CF5475 /* EditAsScriptStringValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditAsScriptStringValidator.m; sourceTree = "<group>"; };
+		E7ACE8F61B8A219400CF5475 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
+		E7ACE8F71B8A219400CF5475 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		E7BCF5561B765A0B007EF1F4 /* ProgramControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramControllerViewController.h; sourceTree = "<group>"; };
 		E7BCF5571B765A0B007EF1F4 /* ProgramControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramControllerViewController.m; sourceTree = "<group>"; };
 		E7BCF5591B765E7A007EF1F4 /* Bubble-Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bubble-Gray.png"; sourceTree = "<group>"; };
@@ -396,20 +421,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		E75332AB1B04982C00B1059F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E76A941D1B47CC0100027A94 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E796EE9A1B36D88B006D2F57 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -515,8 +526,6 @@
 				E794859C1B6A343500547D61 /* Security.framework */,
 				E75332941B04982C00B1059F /* Xenon Programming Language */,
 				E75332B11B04982C00B1059F /* Xenon Programming LanguageTests */,
-				E796EE9E1B36D88B006D2F57 /* Xenon Programming Language UI Tests */,
-				E76A94211B47CC0100027A94 /* Xenon Programming Language UI Tests Swift */,
 				E75332931B04982C00B1059F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -526,8 +535,6 @@
 			children = (
 				E75332921B04982C00B1059F /* Xenonscript.app */,
 				E75332AE1B04982C00B1059F /* Xenonscript.xctest */,
-				E796EE9D1B36D88B006D2F57 /* Xenonscript.xctest */,
-				E76A94201B47CC0100027A94 /* Xenonscript.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -535,6 +542,12 @@
 		E75332941B04982C00B1059F /* Xenon Programming Language */ = {
 			isa = PBXGroup;
 			children = (
+				E75D7C2A1B8B728700690BBD /* XSObject.h */,
+				E75D7C2B1B8B728700690BBD /* XSObject.m */,
+				E75D7C2E1B8B739E00690BBD /* XSInterface.h */,
+				E75D7C401B8B886C00690BBD /* Mirror Types */,
+				E75D7C391B8B85C200690BBD /* Basic Types */,
+				E75D7C321B8B760F00690BBD /* XSKit Runtime Comminication */,
 				E747B0091B292A1200F656DD /* Run Time */,
 				E73479081B6BB1B2009A9371 /* GitHub */,
 				E76083081B7060DF00F188A8 /* Debug */,
@@ -601,6 +614,52 @@
 			name = "Build Time";
 			sourceTree = "<group>";
 		};
+		E75D7C321B8B760F00690BBD /* XSKit Runtime Comminication */ = {
+			isa = PBXGroup;
+			children = (
+				E75D7C2F1B8B760900690BBD /* NativeMethodCall.h */,
+				E75D7C301B8B760900690BBD /* NativeMethodCall.m */,
+			);
+			name = "XSKit Runtime Comminication";
+			sourceTree = "<group>";
+		};
+		E75D7C391B8B85C200690BBD /* Basic Types */ = {
+			isa = PBXGroup;
+			children = (
+				E75D7C471B8B8B0B00690BBD /* XSMathOperation.h */,
+				E75D7C481B8B8B3800690BBD /* XSNumber.h */,
+				E75D7C491B8B8B3800690BBD /* XSNumber.m */,
+				E75D7C331B8B856B00690BBD /* XSDouble.h */,
+				E75D7C341B8B856B00690BBD /* XSDouble.m */,
+				E75D7C361B8B858900690BBD /* XSInteger.h */,
+				E75D7C371B8B858900690BBD /* XSInteger.m */,
+				E75D7C3A1B8B85F200690BBD /* XSBoolean.h */,
+				E75D7C3B1B8B85F200690BBD /* XSBoolean.m */,
+			);
+			name = "Basic Types";
+			sourceTree = "<group>";
+		};
+		E75D7C401B8B886C00690BBD /* Mirror Types */ = {
+			isa = PBXGroup;
+			children = (
+				E75D7C3D1B8B881C00690BBD /* XSString.h */,
+				E75D7C3E1B8B881C00690BBD /* XSString.m */,
+				E75D7C411B8B897D00690BBD /* XSArray.h */,
+				E75D7C421B8B897D00690BBD /* XSArray.m */,
+				E75D7C441B8B8A2D00690BBD /* XSDictionary.h */,
+				E75D7C451B8B8A2D00690BBD /* XSDictionary.m */,
+				E75D7C4B1B8B8F3700690BBD /* XSError.h */,
+				E75D7C4C1B8B8F3700690BBD /* XSError.m */,
+				E75D7C4E1B8B8F5000690BBD /* XSFileManager.h */,
+				E75D7C4F1B8B8F5000690BBD /* XSFileManager.m */,
+				E75D7C511B8B8FB200690BBD /* XSTimer.h */,
+				E75D7C521B8B8FB200690BBD /* XSTimer.m */,
+				E75D7C541B8B8FC300690BBD /* XSURL.h */,
+				E75D7C551B8B8FC300690BBD /* XSURL.m */,
+			);
+			name = "Mirror Types";
+			sourceTree = "<group>";
+		};
 		E76083081B7060DF00F188A8 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,15 +678,6 @@
 				E7A5402F1B763135002331FA /* Console */,
 			);
 			name = Debug;
-			sourceTree = "<group>";
-		};
-		E76A94211B47CC0100027A94 /* Xenon Programming Language UI Tests Swift */ = {
-			isa = PBXGroup;
-			children = (
-				E76A94221B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift */,
-				E76A94241B47CC0100027A94 /* Info.plist */,
-			);
-			path = "Xenon Programming Language UI Tests Swift";
 			sourceTree = "<group>";
 		};
 		E79485731B6A07AB00547D61 /* UAGithubEngine */ = {
@@ -659,15 +709,6 @@
 				E794858C1B6A07AB00547D61 /* UAReachability.m */,
 			);
 			path = UAGithubEngine;
-			sourceTree = "<group>";
-		};
-		E796EE9E1B36D88B006D2F57 /* Xenon Programming Language UI Tests */ = {
-			isa = PBXGroup;
-			children = (
-				E796EE9F1B36D88B006D2F57 /* Xenon_Programming_Language_UI_Tests.m */,
-				E796EEA11B36D88B006D2F57 /* Info.plist */,
-			);
-			path = "Xenon Programming Language UI Tests";
 			sourceTree = "<group>";
 		};
 		E7A540081B750E40002331FA /* Legacy Toolbar */ = {
@@ -844,6 +885,10 @@
 			children = (
 				E7E1F9ED1B89BA23000E4471 /* EditAsScriptTextView.h */,
 				E7E1F9EE1B89BA23000E4471 /* EditAsScriptTextView.m */,
+				E7ACE8F31B8A175D00CF5475 /* EditAsScriptStringValidator.h */,
+				E7ACE8F41B8A175D00CF5475 /* EditAsScriptStringValidator.m */,
+				E7ACE8F61B8A219400CF5475 /* Line.h */,
+				E7ACE8F71B8A219400CF5475 /* Line.m */,
 			);
 			name = "Edit As Script";
 			sourceTree = "<group>";
@@ -886,42 +931,6 @@
 			productReference = E75332AE1B04982C00B1059F /* Xenonscript.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E76A941F1B47CC0100027A94 /* Xenonscript UI Tests Swift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E76A94291B47CC0100027A94 /* Build configuration list for PBXNativeTarget "Xenonscript UI Tests Swift" */;
-			buildPhases = (
-				E76A941C1B47CC0100027A94 /* Sources */,
-				E76A941D1B47CC0100027A94 /* Frameworks */,
-				E76A941E1B47CC0100027A94 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E76A94261B47CC0100027A94 /* PBXTargetDependency */,
-			);
-			name = "Xenonscript UI Tests Swift";
-			productName = "Xenon Programming Language UI Tests Swift";
-			productReference = E76A94201B47CC0100027A94 /* Xenonscript.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		E796EE9C1B36D88B006D2F57 /* Xenonscript UI Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E796EEA41B36D88B006D2F57 /* Build configuration list for PBXNativeTarget "Xenonscript UI Tests" */;
-			buildPhases = (
-				E796EE991B36D88B006D2F57 /* Sources */,
-				E796EE9A1B36D88B006D2F57 /* Frameworks */,
-				E796EE9B1B36D88B006D2F57 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				E796EEA31B36D88B006D2F57 /* PBXTargetDependency */,
-			);
-			name = "Xenonscript UI Tests";
-			productName = "Xenon Programming Language UI Tests";
-			productReference = E796EE9D1B36D88B006D2F57 /* Xenonscript.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -938,14 +947,6 @@
 					};
 					E75332AD1B04982C00B1059F = {
 						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = E75332911B04982C00B1059F;
-					};
-					E76A941F1B47CC0100027A94 = {
-						CreatedOnToolsVersion = 7.0;
-						TestTargetID = E75332911B04982C00B1059F;
-					};
-					E796EE9C1B36D88B006D2F57 = {
-						CreatedOnToolsVersion = 7.0;
 						TestTargetID = E75332911B04982C00B1059F;
 					};
 				};
@@ -965,8 +966,6 @@
 			targets = (
 				E75332911B04982C00B1059F /* Xenonscript */,
 				E75332AD1B04982C00B1059F /* XenonscriptTests */,
-				E796EE9C1B36D88B006D2F57 /* Xenonscript UI Tests */,
-				E76A941F1B47CC0100027A94 /* Xenonscript UI Tests Swift */,
 			);
 		};
 /* End PBXProject section */
@@ -995,20 +994,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E76A941E1B47CC0100027A94 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E796EE9B1B36D88B006D2F57 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1021,6 +1006,7 @@
 				E7BCF5611B76F131007EF1F4 /* SharedRuntimeUI.m in Sources */,
 				E73AED941B3A6C1A007D1905 /* NSMutableArray+XSerialization.m in Sources */,
 				E72BF9D81B2BDF4A00ED7BF9 /* SharedInstanceManager.m in Sources */,
+				E7ACE8F81B8A219400CF5475 /* Line.m in Sources */,
 				E753329B1B04982C00B1059F /* AppDelegate.m in Sources */,
 				E72ACA521B5794A8008D670E /* CommonViewController.m in Sources */,
 				E7E0B8891B18730A005E50F8 /* ArgumentsTableViewController.m in Sources */,
@@ -1028,6 +1014,7 @@
 				E7BCF5A61B78C6A2007EF1F4 /* CodesDebuggerTableViewController.m in Sources */,
 				E7A540071B750A76002331FA /* DebugProgramControllToolbar.m in Sources */,
 				E742C94D1B232A5C007CE91B /* ProjectTableViewController.m in Sources */,
+				E75D7C4A1B8B8B3800690BBD /* XSNumber.m in Sources */,
 				E75332EB1B049C4400B1059F /* XType.m in Sources */,
 				E7BF84101B0F627A008C7F49 /* FunctionTableViewController.m in Sources */,
 				E79485981B6A07AB00547D61 /* UAReachability.m in Sources */,
@@ -1037,6 +1024,7 @@
 				E794859B1B6A22FE00547D61 /* NSArray+PerformSelectorAndAssign.m in Sources */,
 				E76A74661B54D4CD0088D573 /* SupportViewController.m in Sources */,
 				E7A5401A1B760E2F002331FA /* ConsoleTableViewController.m in Sources */,
+				E75D7C3C1B8B85F200690BBD /* XSBoolean.m in Sources */,
 				E7BF84071B0F6222008C7F49 /* ClassTableViewController.m in Sources */,
 				E79485A31B6A49A300547D61 /* GitHubCommunicationTableViewController.m in Sources */,
 				E79485961B6A07AB00547D61 /* UAGithubJSONParser.m in Sources */,
@@ -1044,13 +1032,18 @@
 				E7E26B3D1B1A0DBC00FF2E60 /* XLocalVariable.m in Sources */,
 				E75332E81B04999C00B1059F /* XName.m in Sources */,
 				E79485971B6A07AB00547D61 /* UAGithubURLConnection.m in Sources */,
+				E75D7C501B8B8F5000690BBD /* XSFileManager.m in Sources */,
+				E75D7C531B8B8FB200690BBD /* XSTimer.m in Sources */,
 				E79485A61B6A8DF800547D61 /* ProjectSelectorTableViewController.m in Sources */,
 				E72EDD941B3D19CC005DBFFA /* NSString+XSerialization.m in Sources */,
+				E75D7C381B8B858900690BBD /* XSInteger.m in Sources */,
 				E7E26B461B1B26E000FF2E60 /* UserPrompter.m in Sources */,
 				E75332E51B04999100B1059F /* XMethodCall.m in Sources */,
 				E7BF84191B0F62D5008C7F49 /* MethodCallsTableViewController.m in Sources */,
+				E75D7C351B8B856B00690BBD /* XSDouble.m in Sources */,
 				E72EAB9A1B10C8A30086418E /* XParameter.m in Sources */,
 				E742C9501B232BD7007CE91B /* FrameworksTableViewController.m in Sources */,
+				E75D7C561B8B8FC300690BBD /* XSURL.m in Sources */,
 				E7E26B3A1B1A0D1900FF2E60 /* LocalVariablesTableViewController.m in Sources */,
 				E7A5401D1B760E51002331FA /* ReceivedMessageTableViewCell.m in Sources */,
 				E769FE3E1B46DE77009884BF /* ProgramRunnerTableViewController.m in Sources */,
@@ -1072,8 +1065,10 @@
 				E79485911B6A07AB00547D61 /* NSString+UAGithubEngineUtilities.m in Sources */,
 				E7BF84131B0F6296008C7F49 /* MethodsTableViewController.m in Sources */,
 				E75332A11B04982C00B1059F /* ViewController.m in Sources */,
+				E75D7C4D1B8B8F3700690BBD /* XSError.m in Sources */,
 				E73B4C791B47E1FB006D355A /* ConsoleAlertViewController.m in Sources */,
 				E75332D31B04992700B1059F /* XProperty.m in Sources */,
+				E75D7C461B8B8A2D00690BBD /* XSDictionary.m in Sources */,
 				E79485A01B6A44F900547D61 /* QuickStorage.m in Sources */,
 				E79485AF1B6B8A0800547D61 /* BranchTableViewCell.m in Sources */,
 				E742C94A1B2329FC007CE91B /* ProjectsTableViewController.m in Sources */,
@@ -1082,6 +1077,7 @@
 				E76082C51B6E497700F188A8 /* StackTraceEntry.m in Sources */,
 				E7A5402D1B762CBB002331FA /* ConsoleEntry.m in Sources */,
 				E7E132CF1B245C7A00428740 /* ProgramLoader.m in Sources */,
+				E7ACE8F51B8A175D00CF5475 /* EditAsScriptStringValidator.m in Sources */,
 				E7C7E2981B1D29A70056BF3E /* NewMethodCallTableViewController.m in Sources */,
 				E794858E1B6A07AB00547D61 /* NSArray+Utilities.m in Sources */,
 				E7C7E29E1B1D2A9B0056BF3E /* SearchTableViewController.m in Sources */,
@@ -1092,14 +1088,18 @@
 				E75DEC281B81E662003FD7F1 /* EditAsScriptViewController.m in Sources */,
 				E7E26B401B1A111000FF2E60 /* TypeSelectorTableViewController.m in Sources */,
 				E72BF9BD1B29DB6A00ED7BF9 /* ProjectAnalyzer.m in Sources */,
+				E75D7C3F1B8B881C00690BBD /* XSString.m in Sources */,
 				E75332CA1B0498E700B1059F /* XFramework.m in Sources */,
 				E7A830A21B69E0E6002BD4FD /* GitHubSignInViewController.m in Sources */,
 				E753329E1B04982C00B1059F /* Xenon_Programming_Language.xcdatamodeld in Sources */,
 				E769FE3B1B454A8F009884BF /* ProjectsManager.m in Sources */,
+				E75D7C431B8B897D00690BBD /* XSArray.m in Sources */,
 				E7A5400B1B750E92002331FA /* PauseBarItem.m in Sources */,
+				E75D7C2C1B8B728700690BBD /* XSObject.m in Sources */,
 				E75332CD1B04990100B1059F /* XClass.m in Sources */,
 				E769FE381B453094009884BF /* FrameworkManager.m in Sources */,
 				E75332E21B04998400B1059F /* XFunction.m in Sources */,
+				E75D7C311B8B760900690BBD /* NativeMethodCall.m in Sources */,
 				E75332D01B04991200B1059F /* XVariable.m in Sources */,
 				E7A540041B74B884002331FA /* Stack.m in Sources */,
 				E747B0021B29288000F656DD /* ProgramExecuter.m in Sources */,
@@ -1125,22 +1125,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E76A941C1B47CC0100027A94 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E76A94231B47CC0100027A94 /* Xenon_Programming_Language_UI_Tests_Swift.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E796EE991B36D88B006D2F57 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E796EEA01B36D88B006D2F57 /* Xenon_Programming_Language_UI_Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1148,16 +1132,6 @@
 			isa = PBXTargetDependency;
 			target = E75332911B04982C00B1059F /* Xenonscript */;
 			targetProxy = E75332AF1B04982C00B1059F /* PBXContainerItemProxy */;
-		};
-		E76A94261B47CC0100027A94 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E75332911B04982C00B1059F /* Xenonscript */;
-			targetProxy = E76A94251B47CC0100027A94 /* PBXContainerItemProxy */;
-		};
-		E796EEA31B36D88B006D2F57 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E75332911B04982C00B1059F /* Xenonscript */;
-			targetProxy = E796EEA21B36D88B006D2F57 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1351,63 +1325,6 @@
 			};
 			name = Release;
 		};
-		E76A94271B47CC0100027A94 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				INFOPLIST_FILE = "Xenon Programming Language UI Tests Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zhibo.chen.Xenon-Programming-Language-UI-Tests-Swift";
-				PRODUCT_NAME = Xenonscript;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TEST_TARGET_NAME = "Xenon Programming Language";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		E76A94281B47CC0100027A94 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Xenon Programming Language UI Tests Swift/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zhibo.chen.Xenon-Programming-Language-UI-Tests-Swift";
-				PRODUCT_NAME = Xenonscript;
-				TEST_TARGET_NAME = "Xenon Programming Language";
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
-		E796EEA51B36D88B006D2F57 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_TESTABILITY = YES;
-				INFOPLIST_FILE = "Xenon Programming Language UI Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zhibo.chen.Xenon-Programming-Language-UI-Tests";
-				PRODUCT_NAME = Xenonscript;
-				TEST_TARGET_NAME = "Xenon Programming Language";
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		E796EEA61B36D88B006D2F57 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Xenon Programming Language UI Tests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "zhibo.chen.Xenon-Programming-Language-UI-Tests";
-				PRODUCT_NAME = Xenonscript;
-				TEST_TARGET_NAME = "Xenon Programming Language";
-				USES_XCTRUNNER = YES;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1434,24 +1351,6 @@
 			buildConfigurations = (
 				E75332BC1B04982C00B1059F /* Debug */,
 				E75332BD1B04982C00B1059F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E76A94291B47CC0100027A94 /* Build configuration list for PBXNativeTarget "Xenonscript UI Tests Swift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E76A94271B47CC0100027A94 /* Debug */,
-				E76A94281B47CC0100027A94 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E796EEA41B36D88B006D2F57 /* Build configuration list for PBXNativeTarget "Xenonscript UI Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E796EEA51B36D88B006D2F57 /* Debug */,
-				E796EEA61B36D88B006D2F57 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
