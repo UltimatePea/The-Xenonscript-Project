@@ -6,9 +6,9 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 
-@interface XSTimer : NSObject
+@interface XSTimer : XSObject
 
 @property (strong, nonatomic) NSTimer *timer;
 

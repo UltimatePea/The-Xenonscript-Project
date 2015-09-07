@@ -10,4 +10,12 @@
 
 @implementation XSString
 
+- (instancetype)initWithNSString:(NSString *)nsString;
+{
+    self = [self init];
+    if (self) {
+        self.string = [ NSMutableString stringWithString:nsString];
+    }
+    return self;
+}
 @end

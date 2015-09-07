@@ -6,10 +6,12 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 
-@interface XSString : NSObject
+@interface XSString : XSObject
 
 @property (strong, nonatomic) NSMutableString *string;
+
+- (instancetype)initWithNSString:(NSString *)nsString;
 
 @end

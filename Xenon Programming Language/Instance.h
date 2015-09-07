@@ -15,12 +15,12 @@
 @class ProjectAnalyzer;
 @class MessageDispatcher;
 @class XMethodCall;
-
+@class XSObject;
 
 
 @interface Instance : NSObject
 
-@property (strong, nonatomic) id objectiveCModel;
+@property (strong, nonatomic) XSObject *objectiveCModel;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) Field *field;
 @property (strong, nonatomic) MessageDispatcher *messageDispatcher;

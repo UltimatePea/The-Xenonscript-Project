@@ -6,9 +6,9 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 
-@interface XSURL : NSObject
+@interface XSURL : XSObject
 
 @property (strong, nonatomic) NSURL *url;
 

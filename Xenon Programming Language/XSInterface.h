@@ -9,10 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class NativeMethodCall;
+@class Instance;
 
 @protocol XSInterface <NSObject>
 
-- (void)respondToNativeMethodCall:(NativeMethodCall *)nativeMethodCall;
+- (Instance *)respondToNativeMethodCall:(NativeMethodCall *)nativeMethodCall;
 - (id)objectiveCModel;
 
 @end

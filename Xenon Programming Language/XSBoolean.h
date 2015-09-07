@@ -6,8 +6,8 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 
-@interface XSBoolean : NSObject
+@interface XSBoolean : XSObject
 
 @end

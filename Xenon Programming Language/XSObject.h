@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface XSObject : NSObject
+#import "XSInterface.h"
+@interface XSObject : NSObject <XSInterface>
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 #import "XSMathOperation.h"
 
 /*!
 @class XSNumber
 @brief: Super class for double and integer
  */
-@interface XSNumber : NSObject <XSMathOperation>
+@interface XSNumber : XSObject <XSMathOperation>
 
 @end

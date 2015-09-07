@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E71B34EC1B9D86AD003A0E3A /* XSXFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E71B34EB1B9D86AD003A0E3A /* XSXFunction.m */; };
 		E71B464F1B20818900C35E39 /* FunctionSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */; };
 		E71F5EA41B48C90300A0362E /* InstanceFieldEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E71F5EA31B48C90300A0362E /* InstanceFieldEntry.m */; };
 		E723EB031B53DD3C00347A08 /* Foundation.xsproj in Resources */ = {isa = PBXBuildFile; fileRef = E723EB021B53DD3C00347A08 /* Foundation.xsproj */; };
@@ -148,6 +149,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E71B34EA1B9D86AD003A0E3A /* XSXFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSXFunction.h; sourceTree = "<group>"; };
+		E71B34EB1B9D86AD003A0E3A /* XSXFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSXFunction.m; sourceTree = "<group>"; };
+		E71B34ED1B9D87B4003A0E3A /* XSKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSKit.h; sourceTree = "<group>"; };
 		E71B464D1B20818900C35E39 /* FunctionSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionSelectorTableViewController.h; sourceTree = "<group>"; };
 		E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionSelectorTableViewController.m; sourceTree = "<group>"; };
 		E71F5EA21B48C90300A0362E /* InstanceFieldEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstanceFieldEntry.h; sourceTree = "<group>"; };
@@ -542,6 +546,7 @@
 		E75332941B04982C00B1059F /* Xenon Programming Language */ = {
 			isa = PBXGroup;
 			children = (
+				E71B34ED1B9D87B4003A0E3A /* XSKit.h */,
 				E75D7C2A1B8B728700690BBD /* XSObject.h */,
 				E75D7C2B1B8B728700690BBD /* XSObject.m */,
 				E75D7C2E1B8B739E00690BBD /* XSInterface.h */,
@@ -619,6 +624,8 @@
 			children = (
 				E75D7C2F1B8B760900690BBD /* NativeMethodCall.h */,
 				E75D7C301B8B760900690BBD /* NativeMethodCall.m */,
+				E71B34EA1B9D86AD003A0E3A /* XSXFunction.h */,
+				E71B34EB1B9D86AD003A0E3A /* XSXFunction.m */,
 			);
 			name = "XSKit Runtime Comminication";
 			sourceTree = "<group>";
@@ -1010,6 +1017,7 @@
 				E753329B1B04982C00B1059F /* AppDelegate.m in Sources */,
 				E72ACA521B5794A8008D670E /* CommonViewController.m in Sources */,
 				E7E0B8891B18730A005E50F8 /* ArgumentsTableViewController.m in Sources */,
+				E71B34EC1B9D86AD003A0E3A /* XSXFunction.m in Sources */,
 				E75332981B04982C00B1059F /* main.m in Sources */,
 				E7BCF5A61B78C6A2007EF1F4 /* CodesDebuggerTableViewController.m in Sources */,
 				E7A540071B750A76002331FA /* DebugProgramControllToolbar.m in Sources */,

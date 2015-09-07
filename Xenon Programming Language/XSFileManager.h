@@ -6,9 +6,9 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 
-@interface XSFileManager : NSObject
+@interface XSFileManager : XSObject
 
 @property (strong, nonatomic) XSFileManager *fileManager;
 

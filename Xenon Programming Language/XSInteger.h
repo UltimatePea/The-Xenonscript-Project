@@ -6,8 +6,8 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-@class XSNumber;
+#import "XSNumber.h"
+
 @interface XSInteger : XSNumber
 
 @end

@@ -6,9 +6,9 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 
-@interface XSError : NSObject
+@interface XSError : XSObject
 
 @property (strong, nonatomic) NSError *error;
 

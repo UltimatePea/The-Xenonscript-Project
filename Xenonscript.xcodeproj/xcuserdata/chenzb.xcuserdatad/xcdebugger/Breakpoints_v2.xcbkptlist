@@ -1128,11 +1128,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460902012.832016"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "-field"
             landmarkType = "5">
          </BreakpointContent>
@@ -1559,11 +1559,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1591,11 +1591,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "-initSelfWithFunction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1703,27 +1703,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "435"
-            endingLineNumber = "435"
-            landmarkName = "-respondToNativeMethodCallWithArguments:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1735,11 +1719,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1751,11 +1735,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1767,11 +1751,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1783,11 +1767,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1799,11 +1783,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "370"
-            endingLineNumber = "370"
+            startingLineNumber = "373"
+            endingLineNumber = "373"
             landmarkName = "+functionInstanceWithFunction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1831,27 +1815,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
-            landmarkName = "-respondToNativeMethodCallWithArguments:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "-initSelfWithVariable:projectAnalyzer:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1895,11 +1863,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "-isArguments:matchedFunction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1911,27 +1879,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "842"
-            endingLineNumber = "842"
-            landmarkName = "-respondToNativeMethodCallWithArguments:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "-evaluateInstanceXName:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1943,11 +1895,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "246"
-            endingLineNumber = "246"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1959,27 +1911,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "466"
-            endingLineNumber = "466"
-            landmarkName = "-respondToNativeMethodCallWithArguments:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "869"
-            endingLineNumber = "869"
+            startingLineNumber = "902"
+            endingLineNumber = "902"
             landmarkName = "-assign:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1991,11 +1927,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2007,11 +1943,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "261"
+            endingLineNumber = "261"
             landmarkName = "-returnObject:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2023,11 +1959,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2039,11 +1975,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "310"
-            endingLineNumber = "310"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "-evaluateInstanceXName:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2055,11 +1991,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "-initSelfWithVariable:projectAnalyzer:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2071,11 +2007,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
             landmarkName = "-initSelfWithVariable:projectAnalyzer:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2135,44 +2071,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460902012.832016"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-objectiveCModel"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "791"
-            endingLineNumber = "791"
-            landmarkName = "-respondToNativeMethodCallWithArguments:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "792"
-            endingLineNumber = "792"
-            landmarkName = "-respondToNativeMethodCallWithArguments:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2183,11 +2087,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "864"
-            endingLineNumber = "864"
+            startingLineNumber = "897"
+            endingLineNumber = "897"
             landmarkName = "-throwNativeArgumentTypeMismatchError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2199,11 +2103,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "859"
-            endingLineNumber = "859"
+            startingLineNumber = "892"
+            endingLineNumber = "892"
             landmarkName = "-throwNativeArgumentNumberMismatchError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2215,11 +2119,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "850"
-            endingLineNumber = "850"
+            startingLineNumber = "883"
+            endingLineNumber = "883"
             landmarkName = "-checkArguments:forTypes:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2231,11 +2135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "851"
-            endingLineNumber = "851"
+            startingLineNumber = "884"
+            endingLineNumber = "884"
             landmarkName = "-checkArguments:forTypes:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2247,11 +2151,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "852"
-            endingLineNumber = "852"
+            startingLineNumber = "885"
+            endingLineNumber = "885"
             landmarkName = "-checkArguments:forTypes:"
             landmarkType = "5">
             <Locations>
@@ -3048,11 +2952,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3064,11 +2968,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "203"
-            endingLineNumber = "203"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3080,11 +2984,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3096,11 +3000,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3192,7 +3096,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
+            landmarkName = "-respondToMethodCallWithName:andArgumets:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Xenon Programming Language/Instance.m"
+            timestampString = "463310132.797526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "-respondToMethodCallWithName:andArgumets:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Xenon Programming Language/Instance.m"
+            timestampString = "463310132.797526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "-respondToMethodCallWithName:andArgumets:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Xenon Programming Language/Instance.m"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "217"
@@ -3208,7 +3160,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "209"
@@ -3224,59 +3176,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "-respondToMethodCallWithName:andArgumets:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "-respondToMethodCallWithName:andArgumets:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "-respondToMethodCallWithName:andArgumets:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "-respondToMethodCallWithName:andArgumets:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3336,11 +3240,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "399"
+            endingLineNumber = "399"
             landmarkName = "-initSelfWithVariable:projectAnalyzer:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3352,11 +3256,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460902012.832016"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "-definingClass"
             landmarkType = "5">
          </BreakpointContent>
@@ -3368,11 +3272,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460902012.832016"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "-definingClass"
             landmarkType = "5">
          </BreakpointContent>
@@ -3432,11 +3336,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460965705.01737"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "301"
-            endingLineNumber = "301"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "-performMethodCall:"
             landmarkType = "5">
          </BreakpointContent>
@@ -3544,11 +3448,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460902012.832016"
+            timestampString = "463310132.797526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "-isString"
             landmarkType = "5">
          </BreakpointContent>
@@ -3908,22 +3812,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xenon Programming Language/Instance.m"
-            timestampString = "460966499.4397"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "690"
-            endingLineNumber = "690"
-            landmarkName = "-respondToNativeMethodCallWithArguments:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -4095,6 +3983,22 @@
             endingLineNumber = "148"
             landmarkName = "-newLineBreakIncludingIndentationOnMutableString:lessIndent:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Xenon Programming Language/Instance.m"
+            timestampString = "463310132.797526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "@implementation Instance"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

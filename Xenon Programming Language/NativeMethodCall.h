@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Instance;
 
 @interface NativeMethodCall : NSObject
+
+@property (nonatomic, strong) NSString *firstStringIdentifier;
+@property (nonatomic, strong) NSArray<Instance *> *allArguments;
 
 @end

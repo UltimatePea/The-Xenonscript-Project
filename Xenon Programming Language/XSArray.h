@@ -6,9 +6,9 @@
 //  Copyright © 2015 Chen Zhibo. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "XSObject.h"
 
-@interface XSArray : NSObject
+@interface XSArray : XSObject
 
 @property (strong, nonatomic) NSMutableArray *array;
 
