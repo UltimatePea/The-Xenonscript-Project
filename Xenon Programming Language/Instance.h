@@ -33,7 +33,9 @@
 @property (strong, nonatomic) Instance *parentInstance, *childInstance;//for stack trace
 @property (strong, nonatomic) NSString *currentlyRespondingToMethodName;
 
-
+//call this.base.base.return will dismiss current method
+- (void)returnObject:(Instance *)returnValue;
+- (Instance *)assign:(Instance *)valueToBeAssigned;
 
 + (instancetype)nilInstance;
 + (instancetype)stringInstanceWithString:(NSString *)string;

@@ -10,7 +10,6 @@
 		E71B34EC1B9D86AD003A0E3A /* XSXFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E71B34EB1B9D86AD003A0E3A /* XSXFunction.m */; };
 		E71B464F1B20818900C35E39 /* FunctionSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */; };
 		E71F5EA41B48C90300A0362E /* InstanceFieldEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = E71F5EA31B48C90300A0362E /* InstanceFieldEntry.m */; };
-		E723EB031B53DD3C00347A08 /* Foundation.xsproj in Resources */ = {isa = PBXBuildFile; fileRef = E723EB021B53DD3C00347A08 /* Foundation.xsproj */; };
 		E72513F51B8192FF007754A5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513F41B8192FF007754A5 /* AVFoundation.framework */; };
 		E72513F71B819305007754A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513F61B819305007754A5 /* CoreLocation.framework */; };
 		E72513F91B81931D007754A5 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72513F81B81931D007754A5 /* SpriteKit.framework */; };
@@ -127,6 +126,7 @@
 		E7C7E2981B1D29A70056BF3E /* NewMethodCallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E2971B1D29A70056BF3E /* NewMethodCallTableViewController.m */; };
 		E7C7E29B1B1D29BB0056BF3E /* NameSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E29A1B1D29BB0056BF3E /* NameSelectorTableViewController.m */; };
 		E7C7E29E1B1D2A9B0056BF3E /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7C7E29D1B1D2A9B0056BF3E /* SearchTableViewController.m */; };
+		E7D368331BEE0CBD004BA49F /* Foundation.xsproj in Resources */ = {isa = PBXBuildFile; fileRef = E7D368321BEE0CBD004BA49F /* Foundation.xsproj */; settings = {ASSET_TAGS = (); }; };
 		E7E0B8861B18719D005E50F8 /* MethodCallTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B8851B18719D005E50F8 /* MethodCallTableViewController.m */; };
 		E7E0B8891B18730A005E50F8 /* ArgumentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E0B8881B18730A005E50F8 /* ArgumentsTableViewController.m */; };
 		E7E132CF1B245C7A00428740 /* ProgramLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = E7E132CE1B245C7A00428740 /* ProgramLoader.m */; };
@@ -156,7 +156,6 @@
 		E71B464E1B20818900C35E39 /* FunctionSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionSelectorTableViewController.m; sourceTree = "<group>"; };
 		E71F5EA21B48C90300A0362E /* InstanceFieldEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstanceFieldEntry.h; sourceTree = "<group>"; };
 		E71F5EA31B48C90300A0362E /* InstanceFieldEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstanceFieldEntry.m; sourceTree = "<group>"; };
-		E723EB021B53DD3C00347A08 /* Foundation.xsproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Foundation.xsproj; sourceTree = "<group>"; };
 		E72513F41B8192FF007754A5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E72513F61B819305007754A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E72513F81B81931D007754A5 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -389,6 +388,7 @@
 		E7C7E29A1B1D29BB0056BF3E /* NameSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameSelectorTableViewController.m; sourceTree = "<group>"; };
 		E7C7E29C1B1D2A9B0056BF3E /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTableViewController.h; sourceTree = "<group>"; };
 		E7C7E29D1B1D2A9B0056BF3E /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewController.m; sourceTree = "<group>"; };
+		E7D368321BEE0CBD004BA49F /* Foundation.xsproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Foundation.xsproj; sourceTree = "<group>"; };
 		E7E0B8841B18719D005E50F8 /* MethodCallTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodCallTableViewController.h; sourceTree = "<group>"; };
 		E7E0B8851B18719D005E50F8 /* MethodCallTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodCallTableViewController.m; sourceTree = "<group>"; };
 		E7E0B8871B18730A005E50F8 /* ArgumentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ArgumentsTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -574,7 +574,7 @@
 				E76A74651B54D4CD0088D573 /* SupportViewController.m */,
 				E745CFB31B6CF02B00B767A6 /* DebuggerExitViewController.h */,
 				E745CFB41B6CF02B00B767A6 /* DebuggerExitViewController.m */,
-				E723EB021B53DD3C00347A08 /* Foundation.xsproj */,
+				E7D368321BEE0CBD004BA49F /* Foundation.xsproj */,
 				E742C9401B22FBF5007CE91B /* Warnings.h */,
 				E75332A21B04982C00B1059F /* Main.storyboard */,
 				E75332A51B04982C00B1059F /* Images.xcassets */,
@@ -984,7 +984,7 @@
 			files = (
 				E7BCF55A1B765E7A007EF1F4 /* Bubble-Gray.png in Resources */,
 				E7BCF55C1B765E83007EF1F4 /* Bubble-Yellow.png in Resources */,
-				E723EB031B53DD3C00347A08 /* Foundation.xsproj in Resources */,
+				E7D368331BEE0CBD004BA49F /* Foundation.xsproj in Resources */,
 				E7BCF55E1B765E8A007EF1F4 /* Bubble-Red.png in Resources */,
 				E75332A41B04982C00B1059F /* Main.storyboard in Resources */,
 				E75332A91B04982C00B1059F /* LaunchScreen.xib in Resources */,

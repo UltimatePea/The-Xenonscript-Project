@@ -49,6 +49,7 @@
     self = [self initWithJSONObject:jsonObject];
     if (self) {
         self.savingURL = url;
+        NSLog(@"Project Saved to %@", url);
     }
     return self;
 }

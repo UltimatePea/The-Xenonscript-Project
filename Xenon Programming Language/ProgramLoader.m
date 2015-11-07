@@ -58,8 +58,7 @@
     XVariable *var = [[XVariable alloc] init];
     var.type = startType;
     var.name = [[XName alloc] initWithString:@"Program Loader Initialization String"];
-    Instance *inst = [Instance newInstanceForVariable:var projectAnalyzer:self.compiler];
-    inst.messageDispatcher = dispatcher;
+    
     //initialization
     [[Stack sharedStack] clear];
     [[Stack sharedStack] willCallMethod:@"start" onClass:@"Start" methodCall:nil sendingInstance:nil];
@@ -67,6 +66,10 @@
     [[ThreadLockingManager sharedManager] clear];
     
     NSDate *dateStart = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    Instance *inst = [Instance newInstanceForVariable:var projectAnalyzer:self.compiler];
+    inst.messageDispatcher = dispatcher;
+    
     [inst respondToMethodCallWithName:@"start" andArgumets:nil];
     NSDate *dateEnd = [NSDate dateWithTimeIntervalSinceNow:0];
     [dispatcher dispatchInformationMessage:[NSString stringWithFormat:@"Execution Finished in %f seconds.", [dateEnd timeIntervalSinceDate:dateStart]] sender:self];

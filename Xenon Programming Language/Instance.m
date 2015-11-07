@@ -37,6 +37,10 @@
 {
     if (!_objectiveCModel) {
         _objectiveCModel = [self.baseInstance objectiveCModel];
+        //lazy instantiation
+        if (self.baseInstance == nil && _objectiveCModel == nil) {
+            _objectiveCModel = [[XSObject alloc] init];
+        }
     }
     return _objectiveCModel;
 }
@@ -400,12 +404,16 @@
             [self.messageDispatcher dispatchErrorMessage:[NSString stringWithFormat:@"Undefined Type: %@.", variable.type.stringRepresentation] sender:self];
             return nil;
         }
+        __block BOOL initMethodExists = NO;
         [definingClass.properties enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
             XProperty *prop = obj;
             [self.field addInstance:[Instance newInstanceForVariable:prop projectAnalyzer:analyzer]];
         }];
         [definingClass.methods enumerateObjectsUsingBlock:^(id  __nonnull obj, NSUInteger idx, BOOL * __nonnull stop) {
             XFunction *func = obj;
+            if ([func.name.stringRepresentation isEqualToString:@"init"]) {
+                initMethodExists = YES;
+            }
             [self.field addInstance:[Instance functionInstanceWithFunction:func]];
         }];
         if (![definingClass.baseClass.stringRepresentation isEqualToString:@"Native"]) {
@@ -415,7 +423,12 @@
             self.baseInstance.field.thisResolver = self.field.thisResolver;
         }
         self.definingClass = definingClass;
-        
+        if (initMethodExists) {
+            XMethodCall *mtdCall = [[XMethodCall alloc] init];
+            mtdCall.instanceName = [[XName alloc] initWithString:@"this"];
+            mtdCall.functionName = [[XName alloc] initWithString:@"init"];
+            [self performMethodCall:mtdCall];
+        }
         
     }
     return self;
@@ -458,6 +471,7 @@
     NativeMethodCall *nmc = [[NativeMethodCall alloc] init];
     nmc.firstStringIdentifier = nativeMethodCallName;
     nmc.allArguments = arguments;
+    nmc.sendingInstance = self;
 
     return [self.objectiveCModel respondToNativeMethodCall:nmc];
 }
@@ -940,6 +954,13 @@
         [array addObject:inst.objectiveCModel];
     }
     return array;
+}
+
+#pragma mark - debugging
+
+- (NSString *)debugDescription
+{
+    return [NSString stringWithFormat:@"name: %@;\r\nobjcModel: %@\r\nDefining Class: %@\r\n", self.name, self.objectiveCModel, self.definingClass];
 }
 
 @end

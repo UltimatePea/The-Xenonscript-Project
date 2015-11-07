@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "XSInterface.h"
+@class MessageDispatcher;
 @interface XSObject : NSObject <XSInterface>
-
+@property (strong, nonatomic) MessageDispatcher *messageDispatcher;
 @end

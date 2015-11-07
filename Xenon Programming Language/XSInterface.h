@@ -12,7 +12,7 @@
 @class Instance;
 
 @protocol XSInterface <NSObject>
-
+- (BOOL)canRespondToMethodCall:(NativeMethodCall *)nativeMethodCall;
 - (Instance *)respondToNativeMethodCall:(NativeMethodCall *)nativeMethodCall;
 - (id)objectiveCModel;
 

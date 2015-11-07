@@ -77,7 +77,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+    [super viewDidAppear:animated];
     if (animated == NO) {//tab switch
         if ([QuickStorage isObjectStoredWithKey:KEY_GITHUB_REPO_NAME]) {
             if ([QuickStorage isObjectStoredWithKey:KEY_CREDENTIAL_SAVED]) {

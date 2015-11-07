@@ -11,6 +11,7 @@
 #import "MethodCallsTableViewController.h"
 #import "LocalVariablesTableViewController.h"
 #import "MethodsTableViewController.h"
+#import "UserPrompter.h"
 #import "XFunction.h"
 #import "XName.h"
 #import "XType.h"
@@ -64,6 +65,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isEqual:self.functionNameTableViewCell]) {
+        [self tapFunctionName:nil];
+    } else
     if ([cell isEqual:self.parameterTableViewCell]) {
         [self tapParameter:nil];
     } else if ([cell isEqual:self.methodCallsTableViewCell]){
@@ -75,6 +79,13 @@
     } else if ([cell isEqual:self.overviewTableViewCell]){
         [self tapOverview:nil];
     }
+}
+
+- (void)tapFunctionName:(id)sender
+{
+    [UserPrompter getTextMessageFromUser:@"New Name for this Function?" withViewController:self completionBlock:^(NSString *enteredText) {
+        self.displayingFunction.name = [[XName alloc] initWithString:enteredText];
+    }];
 }
 
 - (void)tapParameter:(id)sender

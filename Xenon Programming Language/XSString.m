@@ -7,7 +7,7 @@
 //
 
 #import "XSString.h"
-
+#import "NativeMethodCall.h"
 @implementation XSString
 
 - (instancetype)initWithNSString:(NSString *)nsString;
@@ -18,4 +18,14 @@
     }
     return self;
 }
+
+- (BOOL)canRespondToMethodCall:(NativeMethodCall *)nativeMethodCall
+{
+    if ([super canRespondToMethodCall:nativeMethodCall]) {
+        return YES;
+    } else {
+        return [[nativeMethodCall.firstStringIdentifier componentsSeparatedByString:@"-"].firstObject isEqualToString:@"XSString"];
+    }
+}
+
 @end
