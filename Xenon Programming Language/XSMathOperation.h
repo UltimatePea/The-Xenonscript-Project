@@ -12,9 +12,11 @@
 
 @class XSNumber;
 
+
 /*!
- @brief: Defines basic Math operations that number classes should implement
- 
+ *  @author Ultimate Pea, 15-12-05 17:12:03
+ *
+ *  @brief Defines basic Math operations that number classes should implement
  */
 @protocol XSMathOperation <NSObject>
 

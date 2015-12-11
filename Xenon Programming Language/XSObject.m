@@ -64,7 +64,8 @@
 - (Instance *)print:(NativeMethodCall *)nativeMethodCall
 {
     Instance *strInst =  nativeMethodCall.allArguments[1];
-    [self.messageDispatcher dispatchInformationMessage:((XSString *)strInst.objectiveCModel).string sender:self];
+    NSString *strToPrint = [strInst.objectiveCModel isKindOfClass:[XSString class]]?((XSString *)strInst.objectiveCModel).string:strInst.objectiveCModel.description;
+    [self.messageDispatcher dispatchInformationMessage:strToPrint sender:self];
     return [Instance nilInstance];
 }
 

@@ -62,7 +62,7 @@
     [function.parameters enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         XParameter *param = obj;
         [self appendDefinitionForXVariable:param onString:string];
-        if (idx != parameterCount) {
+        if (idx + 1 != parameterCount) {
             [string appendFormat:@", "];
         }
     }];
@@ -117,7 +117,7 @@
 {
     NSString *variableName = variable.name.stringRepresentation;
     NSString *variableType = variable.type.stringRepresentation;
-    [string appendFormat:@"%@ %@",variableName, variableType];
+    [string appendFormat:@"%@ %@",variableType, variableName];
     
 }
 

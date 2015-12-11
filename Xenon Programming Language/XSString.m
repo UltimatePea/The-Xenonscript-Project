@@ -16,6 +16,7 @@
     if (self) {
         self.string = [ NSMutableString stringWithString:nsString];
     }
+    
     return self;
 }
 
@@ -25,6 +26,7 @@
         return YES;
     } else {
         return [[nativeMethodCall.firstStringIdentifier componentsSeparatedByString:@"-"].firstObject isEqualToString:@"XSString"];
+        
     }
 }
 
